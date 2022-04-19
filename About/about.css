@@ -1,0 +1,72 @@
+main{
+    margin: 10px ;
+}
+
+main h1{
+    text-align: center;
+}
+@media only screen and (min-width: 1024px){
+    .developer{
+        display: flex;
+        margin: 50px;
+        background: #153577;
+        padding: 20px;
+        color: white;
+        font-size: 18px;
+    }
+
+    .developer .avatar{
+        width: 20%;
+        height: auto;
+        
+    }
+    .developer .avatar img{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+    }
+
+    .developer .info{
+        width: 100%;
+        height: auto;
+        padding-left: 50px;
+    }
+
+    .developer .info h1{
+        text-align: left;
+    }
+    .developer .info ul li{
+        line-height: 50px;
+    }
+
+    .developer .info p{
+        line-height: 50px;
+    }
+
+    .developer:nth-child(odd){       
+        background-color: red;
+    }
+
+    .about_instakilogram{     
+        background: #153577;
+        height: auto;
+        margin: 50px;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .about_instakilogram p{     
+        padding: 20px 0;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    
+}
+
+@media only screen and (min-width:768px) and (max-width: 1023px){
+   
+   
+}

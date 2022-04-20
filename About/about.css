@@ -8,17 +8,19 @@ main h1{
 @media only screen and (min-width: 1024px){
     .developer{
         display: flex;
-        margin: 50px;
+        margin: 30px;
         background: #153577;
         padding: 20px;
         color: white;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .developer .avatar{
-        width: 20%;
+        width: 50%;
         height: auto;
-        
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .developer .avatar img{
         width: 300px;
@@ -41,32 +43,167 @@ main h1{
 
     .developer .info p{
         line-height: 50px;
+        font-style: italic;
     }
 
     .developer:nth-child(odd){       
         background-color: red;
     }
 
-    .about_instakilogram{     
+    .about-instakilogram{     
         background: #153577;
         height: auto;
-        margin: 50px;
+        margin: 30px;
         padding: 20px;
         text-align: center;
         font-size: 18px;
     }
 
-    .about_instakilogram p{     
+    .about-instakilogram p{     
         padding: 20px 0;
         color: white;
     }
 }
 
 @media only screen and (max-width: 767px){
-    
+    .developers-container{
+        margin: 30px 0;
+    }
+    .developer{
+        display: flex;
+        display: block;
+        margin: 30px 0;
+        background: #153577;
+        padding: 30px 0;
+        color: white;
+        font-size: 12px;
+        transform: translateX(0);
+    }
+
+    .developer .avatar{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .developer .avatar img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .developer .info{
+        width: 100%;
+        height: auto;
+        padding: 20px 50px;
+    }
+
+    .developer .info h1{
+        text-align: center;
+        padding: 20px 0;
+    }
+    .developer .info ul li{
+        line-height: 30px;
+        font-size: 14px;
+    }
+
+    .developer .info p{
+        line-height: 30px;
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    .developer:nth-child(odd){       
+        background-color: red;
+    }
+
+    .about-instakilogram{     
+        background: #153577;
+        height: auto;
+        text-align: center;
+        font-size: 18px;
+        margin-top: 100px;
+    }
+
+    .about-instakilogram svg{
+        padding: 20px 0;
+    }
+
+    .about-instakilogram p{     
+        color: white;
+        font-size: 14px;
+        text-align: left;
+        padding: 0 30px 30px 30px;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width: 1023px){
-   
-   
+    .developers-container{
+        margin: 30px 0;
+    }
+    .developer{
+        display: flex;
+        margin: 30px 0;
+        background: #153577;
+        /* padding: 20px 0; */
+        color: white;
+        font-size: 12px;
+        transform: translateX(0);
+    }
+
+    .developer .avatar{
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .developer .avatar img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .developer .info{
+        width: 100%;
+        height: auto;
+        padding: 20px 0 20px 50px;
+    }
+
+    .developer .info h1{
+        text-align: left;
+    }
+    .developer .info ul li{
+        line-height: 30px;
+    }
+
+    .developer .info p{
+        line-height: 30px;
+    }
+
+    .developer:nth-child(odd){       
+        background-color: red;
+    }
+
+    .about-instakilogram{     
+        background: #153577;
+        height: auto;
+        /* margin: 50px;*/
+        padding: 20px; 
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .about-instakilogram p{     
+        padding: 20px 0;
+        text-align: left;
+        color: white;
+    }
 }

@@ -104,6 +104,8 @@ body{
     .copyright-privacy{
         color: white;
         width: 100%;
+        position: fixed;
+        bottom: 0;
     }
 
     .copyright-privacy nav{
@@ -324,6 +326,9 @@ body{
     .copyright-privacy{
         color: white;
         width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
     }
 
     .copyright-privacy nav{
@@ -379,6 +384,9 @@ body{
         height: auto;
         box-shadow: 0px 5px 15px -6px gray;
         display: inline-flex;
+        position: fixed;
+        top: 0;
+        z-index: 10;
     }
     
     #menu{
@@ -389,6 +397,7 @@ body{
         width: 100%;
         height: auto;
         display: flex;
+        z-index: 10;
     }
 
     .login{
@@ -538,6 +547,9 @@ body{
     .copyright-privacy{
         color: white;
         width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
     }
 
     .copyright-privacy nav{
@@ -546,6 +558,7 @@ body{
         display: flex;
         align-items: baseline;
         justify-content: center;
+        
     }
 
     .copyright-privacy h3{

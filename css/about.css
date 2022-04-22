@@ -6,6 +6,39 @@ main h1{
     text-align: center;
 }
 @media only screen and (min-width: 1024px){
+    .about-instakilogram{  
+        width: 100%;  
+        height: auto;
+        margin: 20px 0;
+    }
+
+
+    .about-instakilogram h1{ 
+        text-align: center;
+        color: black;
+        font-size: 40px;
+        position: relative;
+        margin-bottom: 8px;
+        padding-bottom: 12px;
+    }
+
+    .about-instakilogram h1::after{
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 3px;
+        left: calc(50% - 30px);
+        bottom: 0;
+        background: red;
+    }
+
+    .about-instakilogram p{     
+        padding: 20px 30px;
+        color: black;        
+        font-size: 24px;
+        line-height: 50px;
+        text-align: justify;
+    }
     .developers-container h2{ 
         text-align: center;
         color: black;
@@ -71,18 +104,24 @@ main h1{
     .developer:nth-child(odd){       
         background-color: red;
     }
+}
 
-    .about-instakilogram{  
-        width: 100%;  
+@media only screen and (max-width: 767px){
+    .about-instakilogram{     
         height: auto;
-        margin: 20px 0;
+        text-align: center;
+        font-size: 18px;
+        margin-top: 100px;
     }
 
+    .about-instakilogram svg{
+        padding: 20px 0;
+    }
 
     .about-instakilogram h1{ 
         text-align: center;
         color: black;
-        font-size: 40px;
+        font-size: 30px;
         position: relative;
         margin-bottom: 8px;
         padding-bottom: 12px;
@@ -99,16 +138,13 @@ main h1{
     }
 
     .about-instakilogram p{     
-        padding: 20px 30px;
-        color: black;        
-        font-size: 24px;
-        line-height: 50px;
+        color: black;
+        font-size: 14px;
         text-align: justify;
+        padding: 10px 30px 30px 30px;
+        line-height: 30px;
     }
-}
-
-@media only screen and (max-width: 767px){
-
+    
     .developers-container h2{ 
         text-align: center;
         color: black;
@@ -178,27 +214,31 @@ main h1{
     .developer:nth-child(odd){       
         background-color: red;
     }
+}
 
+@media only screen and (min-width:768px) and (max-width: 1023px){
     .about-instakilogram{     
         height: auto;
+        padding: 20px; 
         text-align: center;
         font-size: 18px;
-        margin-top: 100px;
-    }
-
-    .about-instakilogram svg{
-        padding: 20px 0;
-    }
-
+        margin-top: 70px;
+    }   
     .about-instakilogram h1{ 
         text-align: center;
         color: black;
-        font-size: 30px;
+        font-size: 40px;
         position: relative;
         margin-bottom: 8px;
         padding-bottom: 12px;
     }
-
+    .about-instakilogram p{     
+        color: black;
+        font-size: 20px;  
+        text-align: justify;
+        line-height: 50px;
+        padding: 20px 0;
+    }
     .about-instakilogram h1::after{
         position: absolute;
         content: '';
@@ -208,17 +248,6 @@ main h1{
         bottom: 0;
         background: red;
     }
-
-    .about-instakilogram p{     
-        color: black;
-        font-size: 14px;
-        text-align: justify;
-        padding: 10px 30px 30px 30px;
-        line-height: 30px;
-    }
-}
-
-@media only screen and (min-width:768px) and (max-width: 1023px){
     .developers-container{
         margin: 30px 0;
     }
@@ -291,46 +320,5 @@ main h1{
 
     .developer:nth-child(odd){       
         background-color: red;
-    }
-
-    .about-instakilogram h1{ 
-        text-align: center;
-        color: black;
-        font-size: 40px;
-        position: relative;
-        margin-bottom: 8px;
-        padding-bottom: 12px;
-    }
-
-    .about-instakilogram h1::after{
-        position: absolute;
-        content: '';
-        width: 50px;
-        height: 3px;
-        left: calc(50% - 30px);
-        bottom: 0;
-        background: red;
-    }
-
-    .about-instakilogram p{     
-        color: black;
-        font-size: 20px;
-        text-align: left;
-        padding: 10px 30px 30px 30px;
-    }
-
-    .about-instakilogram{     
-        height: auto;
-        padding: 20px; 
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .about-instakilogram p{     
-        padding: 20px 0;
-        text-align: left;
-        color: black;
-        text-align: justify;
-        line-height: 50px;
     }
 }

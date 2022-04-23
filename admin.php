@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/admin-sidebar-menu.css">
 </head>
 <body>
-    <?php include("./support/header.php") ?>
+    <?php include("./support/admin-header.php") ?>
+    <?php include("./support/admin-sidebar-menu.php") ?>
     <?php include("./support/footer.php") ?>
 </body>
 <script src="./js/MenuBtn.js"></script>

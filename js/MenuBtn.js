@@ -8,18 +8,12 @@ const closeButton = () => {
     document.getElementById("phone-menu").style.opacity = "0";
 }
 
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const developers = document.querySelectorAll(".developer");
-    if (scrolled > 0){ 
-        developers.forEach(dev => {
-            dev.style.transform = "translateX(0)";
-            dev.style.opacity = "1";
-        })
-    } else{
-        developers.forEach(dev => {
-            dev.style.transform = "translateX(-200%)";
-            dev.style.opacity = "0";
-        })
-    }
-})
+const adminMenuButton = () => {
+    document.querySelector(".sidebar-menu").style.transform = "translateX(0)";
+    document.querySelector(".sidebar-menu").style.opacity = "1";
+}
+
+const adminCloseButton = () => {
+    document.querySelector(".sidebar-menu").style.transform = "translateX(100%)";
+    document.querySelector(".sidebar-menu").style.opacity = "0";
+}

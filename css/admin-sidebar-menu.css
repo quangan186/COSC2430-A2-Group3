@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (min-width: 1024px){
+    .sidebar-menu{
+        width: 200px;
+        height: 100vh;
+        background-color: #0b1f45;
+    }
+    .sidebar-menu ul{
+        width: 200px;
+        height: 100vh;
+        list-style: none;
+    }
+    .sidebar-menu ul li{
+        text-decoration: none;
+        padding: 10px 0;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .sidebar-menu ul li a {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+    }
+
+    .sidebar-menu ul li i {
+        font-size: 12px;
+    }
+
+    .sidebar-menu ul li a:hover {
+        color: red;
+        transition-duration: .5s;
+    }
+    
+    .sidebar-menu ul li i::before{
+        padding: 0 10px;
+        line-height: 50px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .sidebar-menu{
+        position: fixed;
+        width: 200px;
+        height: 100vh;
+        background-color: #0b1f45;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .sidebar-menu ul{
+        width: 200px;
+        height: 100vh;
+        list-style: none;
+    }
+
+    .sidebar-menu ul li{
+        text-decoration: none;
+        padding: 10px 0;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .sidebar-menu ul li a {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        
+    }
+
+    .sidebar-menu ul li i{
+        font-size: 12px;
+    }
+
+    .sidebar-menu ul li a:hover {
+        color: red;
+        transition-duration: .5s;
+    }
+    
+    .sidebar-menu ul li i::before{
+        padding: 0 10px;
+        line-height: 50px;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width: 1023px){
+    .sidebar-menu{
+        position: fixed;
+        width: 200px;
+        height: 100vh;
+        background-color: #0b1f45;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .sidebar-menu ul{
+        width: 200px;
+        height: 100vh;
+        list-style: none;
+    }
+
+    .sidebar-menu ul li{
+        text-decoration: none;
+        padding: 10px 0;
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .sidebar-menu ul li a {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        
+    }
+
+    .sidebar-menu ul li i{
+        font-size: 12px;
+    }
+
+    .sidebar-menu ul li a:hover {
+        color: red;
+        transition-duration: .5s;
+    }
+    
+    .sidebar-menu ul li i::before{
+        padding: 0 10px;
+        line-height: 50px;
+    }
+}

@@ -49,6 +49,9 @@ body {
     .close-button{
         display: none;
     }
+    .sidebar-menu .active{
+        color: red;
+    }
 }
 
 @media only screen and (max-width: 767px){
@@ -84,6 +87,9 @@ body {
         
     }
 
+    .sidebar-menu .active{
+        color: red;
+    }
     .sidebar-menu ul li i{
         font-size: 12px;
     }
@@ -142,5 +148,9 @@ body {
     .sidebar-menu ul li i::before{
         padding: 0 10px;
         line-height: 50px;
+    }
+
+    .sidebar-menu .active{
+        color: red;
     }
 }

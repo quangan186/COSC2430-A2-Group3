@@ -12,10 +12,34 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/admin-sidebar-menu.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
     <?php include("../support/admin-header.php") ?>
-    <?php include("../support/admin-sidebar-menu.php") ?>
+    <main class="main-container">
+       <?php include("../support/admin-sidebar-menu.php") ?> 
+        <div class="board-container">
+            <div class="board">
+                <div>
+                    <h1>50</h1>
+                    <p>Users</p> 
+                </div>
+                <div>
+                <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+
+            <div class="board">
+            <div>
+                    <h1>50</h1>
+                    <p>Posts</p> 
+                </div>
+                <div>
+                    <i class="fa-solid fa-image"></i>
+                </div>
+            </div>
+        </div>
+    </main>
     <?php include("../support/admin-footer.php") ?>
 </body>
 <script src="../js/MenuBtn.js"></script>

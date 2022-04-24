@@ -4,7 +4,7 @@
                 <h3>All Right Reserved. © 2022 InstaKilogram.</h3>
 
                 <ul>
-                    <li><a href="#">About</a></li>
+                    <li><a href="../admin/admin-about.php">About</a></li>
                     <li><a href="../admin/admin-copyright.php">Copyright</a></li>
                     <li><a href="../admin/admin-privacy.php">Privacy</a></li>
                     <li><a href="../admin/admin-help.php">Help</a></li>

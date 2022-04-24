@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
-    <?php include("./support/admin-header.php") ?>
+    <?php include("../support/admin-header.php") ?>
     <div class="content">
-       <?php include("./backend/copyright.txt") ?> 
+       <?php include("../backend/copyright.txt") ?> 
     </div>
     <?php include("../support/admin-footer.php") ?>
 </body>

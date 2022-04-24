@@ -45,6 +45,10 @@ body {
         padding: 0 10px;
         line-height: 50px;
     }
+
+    .close-button{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 767px){
@@ -84,9 +88,8 @@ body {
         font-size: 12px;
     }
 
-    .sidebar-menu ul li a:hover {
-        color: red;
-        transition-duration: .5s;
+    .sidebar-menu ul li a:active {
+        opacity: 0.5;
     }
     
     .sidebar-menu ul li i::before{
@@ -132,9 +135,8 @@ body {
         font-size: 12px;
     }
 
-    .sidebar-menu ul li a:hover {
-        color: red;
-        transition-duration: .5s;
+    .sidebar-menu ul li a:active {
+        opacity: 0.5;
     }
     
     .sidebar-menu ul li i::before{

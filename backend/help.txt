@@ -1,0 +1,6 @@
+<h1>Help is on the way!</h1>
+<h3>Get in touch with our support team</h3>
+<ul>
+    <li>Email Support at <a href="s3877482@rmit.edu.vn" target="blank">s3877482@rmit.edu.vn</a></li>
+    <li>Call 0773939468 and leave us a message. We’ll get back to you ASAP!</li>
+</ul>

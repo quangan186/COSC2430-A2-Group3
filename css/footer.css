@@ -60,6 +60,12 @@ body{
         transition-duration: 0.5s;
     }
 
+    .content{
+        margin: 20px 30px;
+        padding: 10px;
+        line-height: 50px;
+        text-align: justify;
+    }
 }
 
 @media only screen and (max-width: 767px){
@@ -114,6 +120,13 @@ body{
         color: red;
         transition-duration: 0.5s;
     }
+
+    .content{
+        margin: 60px 30px 20px 30px;
+        padding: 10px;
+        line-height: 50px;
+        text-align: justify;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width: 1023px){
@@ -167,5 +180,12 @@ body{
     .copyright-privacy ul li a:hover{
         color: red;
         transition-duration: 0.5s;
+    }
+
+    .content{
+        margin: 60px 30px 20px 30px;
+        padding: 10px;
+        line-height: 50px;
+        text-align: justify;
     }
 }

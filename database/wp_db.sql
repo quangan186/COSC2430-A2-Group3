@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2021 at 02:57 PM
+-- Generation Time: Apr 25, 2022 at 07:45 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `socialbook`
+-- Database: `wp_db`
 --
 
 -- --------------------------------------------------------
@@ -38,10 +38,6 @@ CREATE TABLE `posts` (
   `likes` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `posts`
---
 
 -- --------------------------------------------------------
 
@@ -68,64 +64,35 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userid`, `firstname`, `lastname`, `email`, `password`, `gender`, `url_address`, `profile_image`, `cover_image`, `date`) VALUES
+(1, 61617148984418637, 'Loan', 'Loan', 'loan@gmail.com', 'loan', 'O', 'loan.loan.61617148984418637', '', '', '2022-04-25 17:23:27'),
+(2, 4064901713792, 'Test26', 'Test26', '26@rmit.edu.vn', '26', 'M', 'test26.test26.4064901713792', '', '', '2022-04-25 17:27:17'),
+(3, 18555407, 'Error', 'Error', 'er@gmail.com', 'er', 'M', 'error.error.18555407', '', '', '2022-04-25 17:30:36'),
+(4, 422351, 'Testphp', 'Url', 'testphp@loan.vn', '1', 'M', 'testphp.url.422351', '', '', '2022-04-25 17:42:50');
 
-
--- Indexes for table `posts`
 --
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `postid` (`postid`),
-  ADD KEY `userid` (`userid`),
-  ADD KEY `likes` (`likes`),
-  ADD KEY `date` (`date`),
-  ADD KEY `comments` (`comments`),
-  ADD KEY `has_index` (`has_image`);
-ALTER TABLE `posts` ADD FULLTEXT KEY `content` (`content`);
+-- Indexes for dumped tables
+--
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `id_2` (`id`),
+  ADD KEY `id_3` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE `reservations` (
-  `res_id` int(11) NOT NULL,
-  `res_date` date,
-  `res_slot` varchar(32) DEFAULT NULL,
-  `res_name` varchar(255) NOT NULL,
-  `res_email` varchar(255) NOT NULL,
-  `res_tel` varchar(60) NOT NULL,
-  `res_notes` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`res_id`),
-  ADD KEY `res_date` (`res_date`),
-  ADD KEY `res_slot` (`res_slot`),
-  ADD KEY `res_name` (`res_name`),
-  ADD KEY `res_email` (`res_email`),
-  ADD KEY `res_tel` (`res_tel`);
-
-ALTER TABLE `reservations`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT;

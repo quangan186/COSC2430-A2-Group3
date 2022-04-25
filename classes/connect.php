@@ -11,8 +11,8 @@
         // Create connection to the database. If connection failed, display error message.
         public function __construct()
         {
+            // check if connection exists, if there is none, create one
             if (!isset($this->connection)) {
-                // if there is no connection setted, create one
                 $this->connection = new mysqli($this->host, $this->username, $this->password, $this->db);
                 
                 // if failed to create connection
@@ -23,8 +23,6 @@
             }   
             // if there is connection, return it 
             return $this->connection;
-            // $connection = mysqli_connect($this->host, $this->username, $this->password, $this->db);
-            // return $connection;
         }
 
         function read($query)

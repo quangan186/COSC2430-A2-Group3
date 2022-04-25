@@ -66,6 +66,25 @@ body{
         line-height: 50px;
         text-align: justify;
     }
+    .content .edit-button{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .content .edit-button button{
+        background-color: #153577;
+        width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 30px;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+    }
+    .content .edit-button button:active{
+        opacity: 0.5;
+    }
 }
 
 @media only screen and (max-width: 767px){
@@ -127,6 +146,25 @@ body{
         line-height: 50px;
         text-align: justify;
     }
+    .content .edit-button{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .content .edit-button button{
+        background-color: #153577;
+        width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 30px;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+    }
+    .content .edit-button button:active{
+        opacity: 0.5;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width: 1023px){
@@ -187,5 +225,24 @@ body{
         padding: 10px;
         line-height: 50px;
         text-align: justify;
+    }
+    .content .edit-button{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .content .edit-button button{
+        background-color: #153577;
+        width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 30px;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+    }
+    .content .edit-button button:active{
+        opacity: 0.5;
     }
 }

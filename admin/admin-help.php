@@ -16,6 +16,9 @@
     <?php include("../support/admin-header.php") ?>
     <div class="content">
        <?php include("../backend/help.txt") ?> 
+       <div class="edit-button">
+            <button>Edit</button> 
+        </div> 
     </div>
     <?php include("../support/admin-footer.php") ?>
 </body>

@@ -49,47 +49,48 @@
         height: auto;
     }
 
-    .main-container .table-container .accounts{
+    .main-container .table-container .accounts, .main-container .table-container .posts{
         width: 90%;
         margin: 50px;
     }
 
-    .accounts .title, .accounts .data{
+    .accounts .title, .accounts .data, .posts .title, .posts .data{
         width: 100%;
         display: flex;
         justify-content: space-evenly;
     }
 
-    .accounts th{
+    .accounts th, .posts th{
         font-size: 20px;
     }
 
-    .accounts th:nth-child(odd){
+    .accounts th:nth-child(odd), .posts th:nth-child(odd){
         width: 100%;
         border: 1px solid black;
     }
-    .accounts th:nth-child(even){
+    .accounts th:nth-child(even), .posts th:nth-child(even){
         width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
+        border: 1px solid black;
+        border-left: none;
     }
 
     .main-container tbody{
         width: 100%;
     }
-    .accounts td{
+    .accounts td, .posts td{
         width: 100%;
         text-align: center;
         padding: 10px 0;
     }
-    .accounts td:nth-child(odd){
+    .accounts td:nth-child(odd), .posts td:nth-child(odd){
         width: 100%;
         border: 1px solid black;
         border-top: none;
     }
-    .accounts td:nth-child(even){
+    .accounts td:nth-child(even), .posts td:nth-child(even){
         width: 100%;
         border-bottom: 1px solid black;
+        border-right: 1px solid black;
     }
 }
 
@@ -146,48 +147,49 @@
         margin-top: 100px;
     }
 
-    .main-container .table-container .accounts{
+    .main-container .table-container .accounts,.main-container .table-container .posts{
         width: 90%;
         margin: 50px;
         
     }
 
-    .accounts .title, .accounts .data{
+    .accounts .title, .accounts .data, .posts .title, .posts .data{
         width: 100%;
         display: flex;
         justify-content: space-evenly;
     }
 
-    .accounts th{
+    .accounts th, .posts th{
         font-size: 20px;
     }
 
-    .accounts th:nth-child(odd){
+    .accounts th:nth-child(odd), .posts th:nth-child(odd){
         width: 100%;
         border: 1px solid black;
     }
-    .accounts th:nth-child(even){
+    .accounts th:nth-child(even), .posts th:nth-child(even){
         width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
+        border: 1px solid black;
+        border-left: none;
     }
 
     .main-container tbody{
         width: 100%;
     }
-    .accounts td{
+    .accounts td, .posts td{
         width: 100%;
         text-align: center;
         padding: 10px 0;
     }
-    .accounts td:nth-child(odd){
+    .accounts td:nth-child(odd), .posts td:nth-child(odd){
         width: 100%;
         border: 1px solid black;
         border-top: none;
     }
-    .accounts td:nth-child(even){
+    .accounts td:nth-child(even), .posts td:nth-child(even){
         width: 100%;
         border-bottom: 1px solid black;
+        border-right: 1px solid black;
     }
 }
 
@@ -246,47 +248,48 @@
         margin-top: 100px;
     }
 
-    .main-container .table-container .accounts{
+    .main-container .table-container .accounts, .main-container .table-container .posts{
         width: 90%;
         margin: 50px;
         
     }
 
-    .accounts .title, .accounts .data{
+    .accounts .title, .accounts .data, .posts .title, .posts .data{
         width: 100%;
         display: flex;
         justify-content: space-evenly;
     }
 
-    .accounts th{
+    .accounts th, .posts th{
         font-size: 20px;
     }
 
-    .accounts th:nth-child(odd){
+    .accounts th:nth-child(odd), .posts th:nth-child(odd){
         width: 100%;
         border: 1px solid black;
     }
-    .accounts th:nth-child(even){
+    .accounts th:nth-child(even), .posts th:nth-child(even){
         width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
+        border: 1px solid black;
+        border-left: none;
     }
 
     .main-container tbody{
         width: 100%;
     }
-    .accounts td{
+    .accounts td, .posts td{
         width: 100%;
         text-align: center;
         padding: 10px 0;
     }
-    .accounts td:nth-child(odd){
+    .accounts td:nth-child(odd), .posts td:nth-child(odd){
         width: 100%;
         border: 1px solid black;
         border-top: none;
     }
-    .accounts td:nth-child(even){
+    .accounts td:nth-child(even), .posts td:nth-child(even){
         width: 100%;
         border-bottom: 1px solid black;
+        border-right: 1px solid black;
     }
 }

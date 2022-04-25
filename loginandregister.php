@@ -37,7 +37,7 @@
     <span onclick="document.getElementById('id01').style.display='none'"
   class="close" title="Close Modal">&times;</span>
 
-    <form class="modal-content animate"
+    <form class="modal-content animate">
       <div class="container">
         <label for="fname"><b>First Name</b></label>
         <input type="text" placeholder="E.g: John" name="fname" id="first name" required>

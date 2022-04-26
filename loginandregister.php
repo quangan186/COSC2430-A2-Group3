@@ -90,7 +90,7 @@
 
         <label for="psw-repeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Re-enter your Password" name="psw-repeat" id="psw-repeat" required>
-          <p>By creating an account you agree to InstaKilogram's <a href="#">Terms & Privacy</a></p>
+          <p>By creating an account you agree to InstaKilogram's <a href="privacy.php">Terms & Privacy</a></p>
       <button type="submit" class="regisbtn">Register</button>
 
         <p>Already have an account? <a href="#" onclick="document.getElementById('id01').style.display='none'">Sign in </a></p>

@@ -17,3 +17,10 @@ const adminCloseButton = () => {
     document.querySelector(".sidebar-menu").style.transform = "translateX(100%)";
     document.querySelector(".sidebar-menu").style.opacity = "0";
 }
+
+let navButtons = document.getElementsByClassName("btn");
+for (let i = 0; i < navButtons.length; i++){
+    navButtons[i].onclick = () => {
+        this.classList.add("active")
+    }
+}

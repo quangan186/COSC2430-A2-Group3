@@ -65,6 +65,7 @@ body{
         padding: 10px;
         line-height: 50px;
         text-align: justify;
+        width: 100%;
     }
     .content .edit-button{
         width: 100%;
@@ -81,6 +82,7 @@ body{
         color: white;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
+        cursor: pointer;
     }
     .content .edit-button button:active{
         opacity: 0.5;
@@ -106,7 +108,7 @@ body{
 
     .copyright-privacy h3{
         font-weight: 200;
-        font-size: 6px;
+        font-size: 8px;
         width: 100%;
         padding: 0 10px;
     }
@@ -130,7 +132,7 @@ body{
     .copyright-privacy ul li a{
         width: 100%;
         height: auto;
-        font-size: 6px;
+        font-size: 8px;
         color: white;
         text-decoration: none ;
     }
@@ -161,6 +163,7 @@ body{
         color: white;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
+        cursor: pointer;
     }
     .content .edit-button button:active{
         opacity: 0.5;
@@ -187,7 +190,7 @@ body{
 
     .copyright-privacy h3{
         font-weight: 200;
-        font-size: 6px;
+        font-size: 8px;
         width: 100%;
         padding: 0 10px;
     }
@@ -210,7 +213,7 @@ body{
     .copyright-privacy ul li a{
         width: 100%;
         height: auto;
-        font-size: 6px;
+        font-size: 8px;
         color: white;
         text-decoration: none ;
     }
@@ -225,6 +228,7 @@ body{
         padding: 10px;
         line-height: 50px;
         text-align: justify;
+        width: 100%;
     }
     .content .edit-button{
         width: 100%;
@@ -241,6 +245,7 @@ body{
         color: white;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
+        cursor: pointer;
     }
     .content .edit-button button:active{
         opacity: 0.5;

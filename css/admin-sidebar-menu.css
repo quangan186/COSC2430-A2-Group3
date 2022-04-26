@@ -9,10 +9,16 @@ body {
 }
 
 @media only screen and (min-width: 1024px){
+    main{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
     .sidebar-menu{
         width: 200px;
         height: 100vh;
         background-color: #0b1f45;
+        height: auto;
     }
     .sidebar-menu ul{
         width: 200px;
@@ -52,9 +58,16 @@ body {
     .sidebar-menu .active{
         color: red;
     }
+    
 }
 
 @media only screen and (max-width: 767px){
+    main{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
     .sidebar-menu{
         position: fixed;
         width: 200px;
@@ -105,6 +118,12 @@ body {
 }
 
 @media only screen and (min-width:768px) and (max-width: 1023px){
+    main{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
     .sidebar-menu{
         position: fixed;
         width: 200px;

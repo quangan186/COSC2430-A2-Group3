@@ -68,7 +68,14 @@
         width: 100%;
         border: 1px solid black;
     }
-    .accounts th:nth-child(even), .posts th:nth-child(even){
+    .accounts th:nth-child(even){
+        width: 100%;
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+
+    .posts th:nth-child(even){
         width: 100%;
         border: 1px solid black;
         border-left: none;
@@ -87,10 +94,16 @@
         border: 1px solid black;
         border-top: none;
     }
-    .accounts td:nth-child(even), .posts td:nth-child(even){
+    .accounts td:nth-child(even) {
         width: 100%;
         border-bottom: 1px solid black;
-        border-right: 1px solid black;
+        border-right: none;
+    }
+    .posts td:nth-child(even){
+        width: 100%;
+        border: 1px solid black;
+        border-left: none;
+        border-top: none;
     }
 }
 
@@ -167,7 +180,13 @@
         width: 100%;
         border: 1px solid black;
     }
-    .accounts th:nth-child(even), .posts th:nth-child(even){
+    .accounts th:nth-child(even) {
+        width: 100%;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .posts th:nth-child(even){
         width: 100%;
         border: 1px solid black;
         border-left: none;
@@ -186,10 +205,16 @@
         border: 1px solid black;
         border-top: none;
     }
-    .accounts td:nth-child(even), .posts td:nth-child(even){
+    .accounts td:nth-child(even){
         width: 100%;
         border-bottom: 1px solid black;
-        border-right: 1px solid black;
+        border-right: none;
+    }
+    .posts td:nth-child(even){
+        width: 100%;
+        border: 1px solid black;
+        border-left: none;
+        border-top: none;
     }
 }
 
@@ -268,7 +293,12 @@
         width: 100%;
         border: 1px solid black;
     }
-    .accounts th:nth-child(even), .posts th:nth-child(even){
+    .accounts th:nth-child(even) {
+        width: 100%;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+    .posts th:nth-child(even){
         width: 100%;
         border: 1px solid black;
         border-left: none;
@@ -287,9 +317,15 @@
         border: 1px solid black;
         border-top: none;
     }
-    .accounts td:nth-child(even), .posts td:nth-child(even){
+    .accounts td:nth-child(even) {
         width: 100%;
         border-bottom: 1px solid black;
-        border-right: 1px solid black;
+        border-left: none;
+    }
+    .posts td:nth-child(even){
+        width: 100%;
+        border: 1px solid black;
+        border-left: none;
+        border-top: none;
     }
 }

@@ -12,83 +12,88 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/admin-sidebar-menu.css">
 </head>
 <body>
     <?php include("../support/admin-header.php") ?>
 
     <main>
-        <div class="about-instakilogram">
-            <h1>InstaKilogram</h1>
-            <p>InstaKilogram is an social media website developed by a group of students in RMIT University. Based on Instagram, one of the most popular applications which users use to share a number of beautiful images. In addition to sharing personal photos online to get people's attention and interaction, this is one of ways to save their images instead of saving them on phones or computers, which consumes a lot of device's storage.</p>
-            <div class="edit-button">
-               <button>Edit</button> 
-            </div> 
-        </div>
-
-        <div class="developers-container">
-            <h2>About us</h3>
-            <div class="developer">
-                <div class="avatar">
-                    <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
-                    <button>Upload image</button>
-                </div>
-
-                <div class="info">
-                    <ul>
-                        <h1>Bui Quang An</h1>
-                        <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
-                        <li>IT Sophomore at RMIT University</li>
-                        <li>Hobbies: Listening to music, playing sports, playing guitar</li>
-                        <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
-                    </ul>
-                    <div class="edit-button">
-                        <button>Edit</button> 
-                    </div> 
-                </div>
+        <?php include("../support/admin-sidebar-menu.php") ?>
+        <div class="main-container">
+            <div class="about-instakilogram">
+                <h1>InstaKilogram</h1>
+                <p>InstaKilogram is an social media website developed by a group of students in RMIT University. Based on Instagram, one of the most popular applications which users use to share a number of beautiful images. In addition to sharing personal photos online to get people's attention and interaction, this is one of ways to save their images instead of saving them on phones or computers, which consumes a lot of device's storage.</p>
+                <div class="edit-button">
+                <button>Edit</button> 
+                </div> 
             </div>
 
-            <div class="developer">
-                <div class="avatar">
-                    <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
-                    <button>Upload image</button>
-                </div>
-
-                <div class="info">
-                    <ul>
-                        <h1>Bui Quang An</h1>
-                        <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
-                        <li>IT Sophomore at RMIT University</li>
-                        <li>Hobbies: Listening to music, playing sports, playing guitar</li>
-                        <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
-                    </ul>
-                    <div class="edit-button">
-                        <button>Edit</button> 
-                    </div> 
-                </div>
-            </div>
-
-            <div class="developer">
-                <div class="avatar">
-                    <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
-                    <div class="edit-image">
+            <div class="developers-container">
+                <h2>About us</h3>
+                <div class="developer">
+                    <div class="avatar">
+                        <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
                         <button>Upload image</button>
+                    </div>
+
+                    <div class="info">
+                        <ul>
+                            <h1>Bui Quang An</h1>
+                            <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
+                            <li>IT Sophomore at RMIT University</li>
+                            <li>Hobbies: Listening to music, playing sports, playing guitar</li>
+                            <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
+                        </ul>
+                        <div class="edit-button">
+                            <button>Edit</button> 
+                        </div> 
                     </div>
                 </div>
 
-                <div class="info">
-                    <ul>
-                        <h1>Bui Quang An</h1>
-                        <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
-                        <li>IT Sophomore at RMIT University</li>
-                        <li>Hobbies: Listening to music, playing sports, playing guitar</li>
-                        <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
-                    </ul>
-                    <div class="edit-button">
-                        <button>Edit</button> 
-                    </div> 
+                <div class="developer">
+                    <div class="avatar">
+                        <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
+                        <button>Upload image</button>
+                    </div>
+
+                    <div class="info">
+                        <ul>
+                            <h1>Bui Quang An</h1>
+                            <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
+                            <li>IT Sophomore at RMIT University</li>
+                            <li>Hobbies: Listening to music, playing sports, playing guitar</li>
+                            <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
+                        </ul>
+                        <div class="edit-button">
+                            <button>Edit</button> 
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="developer">
+                    <div class="avatar">
+                        <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
+                        <div class="edit-image">
+                            <button>Upload image</button>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <ul>
+                            <h1>Bui Quang An</h1>
+                            <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
+                            <li>IT Sophomore at RMIT University</li>
+                            <li>Hobbies: Listening to music, playing sports, playing guitar</li>
+                            <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
+                        </ul>
+                        <div class="edit-button">
+                            <button>Edit</button> 
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
+        
         
     </main>
 

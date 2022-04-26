@@ -17,7 +17,7 @@
 <body>
     <?php include("../support/admin-header.php") ?>
     <main class="main-container">
-        <?php include("../support/admin-sidebar-menu.php") ?>
+        <?php include("../support/admin-sidebar-menu-postslis.php") ?>
         <div class="table-container">
             <table class="posts">
                 <tr class="title">

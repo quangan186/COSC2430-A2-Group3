@@ -39,10 +39,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/loginandregister.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="logo">
-    <img src="">
+      <h1> InstaKilogram </h1>
+  </div>
   <div class="inputbox">
     <label for="uname"><b>Username or phone number</b></label>
     <input type="text" placeholder="Enter Username" name="uname" id="username" required>
@@ -72,6 +76,11 @@
   class="close" title="Close Modal">&times;</span>
 
     <form class="modal-content animate" method="post">
+      <div class="greeting">
+        <h1> Register </h1>
+        <p> Become part of us, it's free </p>
+
+    </div>
       <div class="inputbox1">
         <label for="fname"><b>First Name</b></label>
         <input type="text" placeholder="E.g: John" name="fname" id="first name" required>

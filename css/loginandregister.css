@@ -8,22 +8,54 @@ body {font-family: Palatino Linotype, Book Antiqua, Palatino, serif;}
 
 }
 
+.logo h1
+{margin: 100px 0px 0px 5px;
+font-family: 'Slackey', cursive;
+font-size: 50px;
+font-style: normal;
+font-variant: normal;
+font-weight: 100;
+line-height: 53.9px;text-align:
+center;background: -webkit-linear-gradient(#FF0000, #0000FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+padding 10px;}
+
 .inputbox1 {
  margin: 0 auto;
   width: 400px;
   padding: 16px;
 
 }
-.modal-content animate
-{ margin: 0 auto;
-  width: 200px;
-  padding: 20px;
-}
+
 
 .inputbox1 {
   display:block;}
 
+    .greeting h1
+{text-align: center;
+  font-family: Damion;
+  font-size: 50px;
+  font-style: italic;
+  font-variant: small-caps;
+  font-weight: 700;
+  line-height: auto;
+  background: -webkit-linear-gradient(#FF0000, #0000FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px;}
 
+  .greeting p{
+    font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+  text-align: center;
+  font-size: 25px;
+  padding:5px;
+
+  }
+  .greeting{
+  padding:10px;
+  width: auto;
+}
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -93,13 +125,24 @@ input[type=text], input[type=password] {
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
   padding-top: 60px;
+
+
+}
+
+.modal-content animate
+{ margin: 0 auto;
+  width: 200px;
+  padding: 20px;
 }
 
 .modal-content {
   background-color: #fefefe;
   margin: 10% auto 15% auto;
   border: 1px solid #888;
+   border-style: dashed;
+   border-radius: 20px;
   width: 80%;
+  background-image: linear-gradient(to top right, #ffb3b3, #e9e8e0);
 }
 
 

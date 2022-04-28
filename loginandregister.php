@@ -38,7 +38,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="loginandregister.css">
+<link rel="stylesheet" href="./css/loginandregister.css">
 </head>
 <body>
   <div class="logo">
@@ -61,10 +61,6 @@
     <span>Don't have an account? Register here </span>
   </div>
 
-  <div class="inputbox">
-    <span>Don't have an account? Register here </span>
-
-  </div>
 
   <div class="inputbox">
         <button class="regisbtn" onclick="document.getElementById('id01').style.display='block'">Register</button>

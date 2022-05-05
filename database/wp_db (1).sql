@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2022 at 07:45 PM
+-- Generation Time: May 05, 2022 at 01:02 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -52,10 +52,8 @@ CREATE TABLE `users` (
   `lastname` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `gender` varchar(1) NOT NULL,
   `url_address` varchar(200) NOT NULL,
   `profile_image` varchar(500) NOT NULL,
-  `cover_image` varchar(500) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -63,11 +61,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `userid`, `firstname`, `lastname`, `email`, `password`, `gender`, `url_address`, `profile_image`, `cover_image`, `date`) VALUES
-(1, 61617148984418637, 'Loan', 'Loan', 'loan@gmail.com', 'loan', 'O', 'loan.loan.61617148984418637', '', '', '2022-04-25 17:23:27'),
-(2, 4064901713792, 'Test26', 'Test26', '26@rmit.edu.vn', '26', 'M', 'test26.test26.4064901713792', '', '', '2022-04-25 17:27:17'),
-(3, 18555407, 'Error', 'Error', 'er@gmail.com', 'er', 'M', 'error.error.18555407', '', '', '2022-04-25 17:30:36'),
-(4, 422351, 'Testphp', 'Url', 'testphp@loan.vn', '1', 'M', 'testphp.url.422351', '', '', '2022-04-25 17:42:50');
+INSERT INTO `users` (`id`, `userid`, `firstname`, `lastname`, `email`, `password`, `url_address`, `profile_image`, `date`) VALUES
+(1, 61617148984418637, 'Loan', 'Loan', 'loan@gmail.com', 'loan', 'loan.loan.61617148984418637', '', '2022-04-25 17:23:27'),
+(21, 93456875962034, 'Loan', 'Testing', 'Azz2rri007@yahoo.com.vn', '$2y$10$UoEgpjCf3xn6dddEDnHy/.ETqP6tkdXJ/PbcbjvLiYK', 'loan.testing.0093456875962034', '', '2022-05-05 10:24:15'),
+(22, 713569, 'Loan', 'Testing', 'Az342urri007@yahoo.com.vn', '$2y$10$vYZg5o3P0aNa9IyChmrCde9JpKHYGoaxKhm/7c3BQJB', 'loan.testing.713569', '', '2022-05-05 10:24:57'),
+(23, 86663, 'Testing', 'Nguyen', 'fds@yahoo.com.vn', '$2y$10$U29qgEO35NE5.KJvtsnGJuXGa6YJdtHmz7oBzSfjhfk', 'testing.nguyen.86663', '', '2022-05-05 10:33:36');
 
 --
 -- Indexes for dumped tables
@@ -90,7 +88,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

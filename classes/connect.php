@@ -61,19 +61,19 @@
             }
         }
 
-        function write($query)
-        {
-            $conn = $this->__construct();
-            $result = mysqli_query($conn, $query);
+        // function write($query)
+        // {
+        //     $conn = $this->__construct();
+        //     $result = mysqli_query($conn, $query);
 
-            if(!$result)
-            {
-                return false;
-            }
-            else 
-            {
-                return true;;
-            }
-        }
+        //     if(!$result)
+        //     {
+        //         return false;
+        //     }
+        //     else 
+        //     {
+        //         return true;;
+        //     }
+        // }
     }
 ?>

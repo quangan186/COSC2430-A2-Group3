@@ -3,30 +3,6 @@
 
     // define variables and set to empty values
     $firstname = $lastname = $email =  $password = $password_confirm = $profile_image = "";
-
-    // If the registration form is submitted, call function and store the result of its function in $result
-    if($_SERVER['REQUEST_METHOD'] == 'POST')
-    {
-      // create signup class
-      $signup = new Signup();
-
-      // Call function evaluate with data $_POST
-      $result = $signup->evaluate($_POST);
-
-      if($result)
-      {
-          echo "<div style='text-align:center;'>";
-          echo "The following errors occured <br>";
-          echo $result;
-          echo "</div>";
-      }
-
-      $firstname = $_POST['firstname'];
-      $lastname = $_POST['lastname'];
-      $email = $_POST['email'];
-      $password = $_POST['password'];
-      $password_confirm = $_POST['password_confirm'];
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,8 +31,11 @@ if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message']))
       <h1> InstaKilogram </h1>
   </div>
 <!-- Logo Ends -->
+<!-- ------------------------------------------------------------ -->
 
+<!-- ------------------------------------------------------------ -->
 <!-- Login Form -->
+<form method="POST" action="login_validation.php">
   <div class="inputbox">
     <label for="username"><b>Username or phone number</b></label>
     <input type="text" placeholder="Enter Username" name="username" id="username" required>
@@ -69,13 +48,18 @@ if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message']))
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
+</form>
 <!-- Login Form Ends -->
+<!-- ------------------------------------------------------------ -->
+
 
   <div class="inputbox" >
     <span class="password"> <a href="#">Forgot your password?</a></span>
     <span>Don't have an account? Register here </span>
   </div>
 
+
+<!-- ------------------------------------------------------------ -->
 <!-- Register Form -->
   <div class="inputbox">
         <button class="regisbtn" onclick="document.getElementById('id01').style.display='block'">Register</button>
@@ -84,7 +68,7 @@ if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message']))
   <div id="id01" class="modal">
     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-    <form class="modal-content animate" method="post">
+    <form class="modal-content animate" method="post" action="register_validation.php">
       <div class="greeting">
         <h1> Register </h1>
         <p> Become part of us, it's free </p>

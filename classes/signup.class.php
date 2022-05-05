@@ -46,7 +46,7 @@ class Signup extends Database
                 $number    = preg_match('@[0-9]@', $value);
 
                 if(!$uppercase || !$lowercase || !$number || strlen($value) < 8 || strlen($value) > 20) {
-                    $this->error .= 'Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.';
+                    $this->error .= 'Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.<br>';
                 }
 
                 if($value !== $data['password_confirm'])

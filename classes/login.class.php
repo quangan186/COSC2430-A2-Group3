@@ -4,14 +4,20 @@ include_once('classes/connect.php');
 class User extends Database{
 
     public function check_login($username, $password){ 
-        $query = "SELECT * FROM users WHERE email = '$username' AND password = '$password'";
-        $DB = new Database();
+        $query = "SELECT * FROM users WHERE email = '$username'";
+        $DB = new Database();        
         
         $result = $DB->read($query);
 
         if($result)
         {
-            return $result[0];
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            if (!password_verify($password, $hashed_password)) { 
+                return false;
+            } else {
+                return $result[0];
+            }
         }
         else
         {

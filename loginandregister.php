@@ -1,6 +1,7 @@
 <?php
     include("classes/autoload.php");
-
+    
+    $username = $password = "";
     // define variables and set to empty values
     $firstname = $lastname = $email =  $password = $password_confirm = $profile_image = "";
 ?>

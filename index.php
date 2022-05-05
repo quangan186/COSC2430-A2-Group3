@@ -1,3 +1,6 @@
+<?php
+    include("classes/autoload.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +26,8 @@
     ?>
     <!------------------------- MAIN -------------------------->
     <main> 
+        <a href="logout.php">Logout</a>
+        <a href="my_account.php">My Account</a>
         <div class="container">
             <!--======================== LEFT ==========================-->
             <div class="left">

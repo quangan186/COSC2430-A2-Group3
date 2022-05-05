@@ -16,14 +16,14 @@
 <body>
 <!-- Success Message -->
 <?php 
-if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) 
+if (isset($_SESSION['message']) && !empty($_SESSION['message'])) 
 { ?>
   <div class="success-message" style="margin-bottom: 20px;font-size: 20px;color: green;">
-    <?php echo $_SESSION['success_message']; ?>
+    <?php echo $_SESSION['message']; ?>
   </div>
 
 <?php
-  unset($_SESSION['success_message']);
+  unset($_SESSION['message']);
 }
 ?>
 <!-- Logo -->

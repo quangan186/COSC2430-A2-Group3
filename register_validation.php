@@ -13,7 +13,7 @@
         //   If there is error
       if($result)
       {
-          $_SESSION['success_message'] = $result;
+          $_SESSION['message'] = $result;
           header('Location: loginandregister.php');
       }
 

@@ -60,7 +60,7 @@ class Signup extends Database
         {
             // no error
             $this->create_user($data);
-            $_SESSION['success_message'] = "Contact form saved successfully.";
+            $_SESSION['message'] = "Contact form saved successfully.";
             header("Location: loginandregister.php");
             exit();
         }

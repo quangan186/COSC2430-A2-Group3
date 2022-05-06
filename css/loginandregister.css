@@ -1,13 +1,63 @@
 
 body {font-family: Palatino Linotype, Book Antiqua, Palatino, serif;}
 
+
 .inputbox {
  margin: 0 auto;
   width: 300px;
   padding: 10px;
 
 }
+#profile{
+padding:16px;}
+#profile label {
 
+ display:block;
+ width:180px;
+ height:50px;
+ margin: 0 auto;
+ line-height:50px;
+ text-align:center;
+ background:#1172c2;
+ color:#fff;
+ font-size:15px;
+ text-transform:Uppercase;
+ font-weight:600;
+ border-radius:5px;
+ cursor:pointer;
+}
+
+           .ava_holder {
+             margin-left: auto;
+   margin-right: auto;
+   width: 8em;
+               height: 168px;
+               width: 168px;
+               border: 2px solid black;
+
+
+           }
+           #preview_img {
+          margin-left: auto;
+   margin-right: auto;
+   width: 8em;
+               max-width: 168px;
+               max-height: 168px;
+               min-width: 168px;
+               min-height: 168px;
+           }
+           input[type="file"] {
+             margin-left: auto;
+   margin-right: auto;
+   width: 8em;
+   display:none;
+               margin-top: 5px;
+           }
+           .heading {
+               font-family: Montserrat;
+               font-size: 45px;
+               color: green;
+           }
 .logo h1
 {margin: 100px 0px 0px 5px;
 font-family: 'Slackey', cursive;
@@ -111,7 +161,18 @@ input[type=text], input[type=password] {
   font-size: 15px ;
 }
 
-
+.resetbtn{
+  background-color: #5F9EA0;
+  border-radius: 12px;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: Poppins;
+  font-size: 15px ;
+}
 
 .modal {
   display: none;

@@ -32,14 +32,9 @@ class User extends Database{
 
         $result = $DB->read($query);
 
-        if($result)
-        {
-            return $result[0];
-        }
-        else
-        {
-            return false;
-        }
+        $row = $query->fetch_array();
+ 
+        return $row;   
     }
 }
 

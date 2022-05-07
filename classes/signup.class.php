@@ -1,7 +1,5 @@
 <?php
-include_once('classes/connect.php');
-
-class Signup extends Database
+class Signup
 {
     private $error = "";
 
@@ -25,15 +23,13 @@ class Signup extends Database
                 if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
                     $this->error .= "Invalid email format <br>";
                 }
-                else{
-                    $query = "SELECT * FROM users WHERE email = '$value' LIMIT 1";
-                    $DB = new Database();
-                    $result = $DB->read($query);
+                else {   
+                    $x = $value;
+                    $fcsv = file('accounts.csv');
 
-                    if($result)
-                    {
-                        $this->error .= "Email already exists <br>";
-                    }
+                    if($this->check_existence($x, $fcsv)){
+                        $this->error .= "Email has already registered <br>";
+                    } 
                 }
             }
 
@@ -70,6 +66,23 @@ class Signup extends Database
         }
     }
 
+    public function check_existence($value, $fcsv){
+        foreach($fcsv as $array => $key)
+        {
+            $temp = explode(',', $key);
+        
+            echo '<pre>';
+            print_r($temp);
+            echo '</pre>';
+        
+            if($temp[3] == $value){
+            echo 'match <br>';
+            return true;
+            exit;
+            } 
+        }
+    }
+
 // Insert user data into database
     public function create_user($data)
     {
@@ -85,10 +98,23 @@ class Signup extends Database
         $userid = $this->create_userid();
         $url_address = strtolower($firstname) . "." . strtolower($lastname) . "." . $userid;
 
-        $query = "INSERT INTO users(userid,firstname,lastname,email,password,url_address) VALUES('$userid','$firstname','$lastname','$email','$hashed_password','$url_address')";
-        
-        $DB = new Database();
-        $DB->save($query);
+        $file_open = fopen("accounts.csv", "a");
+        $no_rows = count(file("accounts.csv"));
+        if($no_rows > 1)
+        {
+            $no_rows = ($no_rows - 1) + 1;
+        }
+
+        $form_data = array(
+            'sr_no' => $no_rows,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'email' => $email,
+            'password' => $hashed_password,
+            'userid' => $userid,
+            'url_address' => $url_address
+        );  
+        fputcsv($file_open, $form_data);
     }
     
 // Create user id

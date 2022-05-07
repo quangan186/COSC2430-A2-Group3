@@ -5,10 +5,11 @@
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $fcsv = file('accounts.csv');
 
         // call for User class
-        $user = new User();
-        $valid_user = $user->check_login($username, $password);
+        $user = new Signup();
+        $valid_user = $user->check_login($username, $password, $fcsv);
 
         if($valid_user){
             $_SESSION['userid'] = $valid_user;

@@ -71,16 +71,22 @@ class Signup
         {
             $temp = explode(',', $key);
         
-            echo '<pre>';
-            print_r($temp);
-            echo '</pre>';
-        
             if($temp[3] == $value){
-            echo 'match <br>';
             return true;
             exit;
             } 
         }
+    }
+
+    public function check_login($un,$pwd,$fcsv){
+        if($this->check_existence($un, $fcsv)){
+            $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
+            if (!password_verify($pwd, $hashed_password)) { 
+                return false;
+            } else {
+                return true;
+            }
+        } 
     }
 
 // Insert user data into database

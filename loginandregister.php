@@ -86,7 +86,7 @@ if (isset($_SESSION['message']) && !empty($_SESSION['message']))
              </div>
               <div id="profile" >
              <label for="photo">Upload Image</label>
-             <input type="file" id="photo" accept="image/*" onchange="showPreview(event);">
+             <input name="profile_image" type="file" id="photo" accept="image/*" onchange="showPreview(event);">
 
             </div>
 

@@ -96,6 +96,7 @@ class Signup
         $lastname = ucfirst($data['lastname']);
         $email = $data['email'];
         $password = $data['password_confirm'];
+        $profile_image = $data['profile_image'];
 
         // Hash Password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -117,6 +118,7 @@ class Signup
             'lastname' => $lastname,
             'email' => $email,
             'password' => $hashed_password,
+            'profile_image' => $profile_image,
             'userid' => $userid,
             'url_address' => $url_address
         );  

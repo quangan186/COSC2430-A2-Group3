@@ -1,5 +1,5 @@
 
-body {font-family: Palatino Linotype, Book Antiqua, Palatino, serif;}
+body {font-family: "Poppins", sans-serif}
 
 
 .inputbox {
@@ -23,34 +23,34 @@ padding:16px;}
  font-size:15px;
  text-transform:Uppercase;
  font-weight:600;
- border-radius:5px;
+ border-radius:2rem;
  cursor:pointer;
 }
 
-           .ava_holder {
+.ava_holder {
              margin-left: auto;
-   margin-right: auto;
-   width: 8em;
-               height: 168px;
-               width: 168px;
-               border: 2px solid black;
+             margin-right: auto;
+             width: 8em;
+             height: 168px;
+             width: 168px;
+             border: 2px solid black;
 
 
            }
            #preview_img {
           margin-left: auto;
-   margin-right: auto;
-   width: 8em;
-               max-width: 168px;
-               max-height: 168px;
-               min-width: 168px;
-               min-height: 168px;
+          margin-right: auto;
+          width: 8em;
+          max-width: 168px;
+          max-height: 168px;
+          min-width: 168px;
+          min-height: 168px;
            }
            input[type="file"] {
              margin-left: auto;
-   margin-right: auto;
-   width: 8em;
-   display:none;
+             margin-right: auto;
+             width: 8em;
+             display:none;
                margin-top: 5px;
            }
            .heading {

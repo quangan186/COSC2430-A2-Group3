@@ -45,7 +45,6 @@ if (isset($_SESSION['message']) && !empty($_SESSION['message']))
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" id="password" required>
-    <button class="resetbtn" type="reset">Clear</button>
     <button class="loginbtn" type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me

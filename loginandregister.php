@@ -65,10 +65,11 @@ if (isset($_SESSION['message']) && !empty($_SESSION['message']))
 <!-- ------------------------------------------------------------ -->
 <!-- Register Form -->
   <div class="inputbox">
-        <button class="regisbtn" onclick="document.getElementById('id01').style.display='block'">Register</button>
+        <!-- <button class="regisbtn" onclick="document.getElementById('id01').style.display='block'">Register</button> -->
+        <button class="regisbtn" onclick="registerButton()">Register</button>
   </div>
 
-  <div id="id01" class="modal">
+  <!-- <div id="id01" class="modal">
     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
     <form class="modal-content animate" method="post" action="register_validation.php">
@@ -111,7 +112,8 @@ if (isset($_SESSION['message']) && !empty($_SESSION['message']))
         <p>Already have an account? <a href="#" onclick="document.getElementById('id01').style.display='none'">Sign in </a></p>
           <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       </div>
-    </form>
+    </form> -->
   <!-- Register Form Ends -->
-  </div>
+  <!-- </div> -->
+  <script src="./js/MenuBtn.js"></script>
 </html>

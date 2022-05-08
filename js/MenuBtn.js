@@ -24,3 +24,7 @@ for (let i = 0; i < navButtons.length; i++){
         this.classList.add("active")
     }
 }
+
+const registerButton = () =>{
+    window.location.href = "../register.php";
+}

@@ -101,6 +101,7 @@ body {
     #invalid-form{
         position: relative;
         padding: 0;
+        color: seagreen;
     }
 
     .form-footer p{

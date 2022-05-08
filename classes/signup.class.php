@@ -56,7 +56,7 @@ class Signup
         {
             // no error
             $this->create_user($data);
-            $_SESSION['message'] = "Contact form saved successfully.";
+            $_SESSION['message'] = "Register successfully.";
             header("Location: loginandregister.php");
             exit();
         }
@@ -97,7 +97,7 @@ class Signup
         $email = $data['email'];
         $password = $data['password_confirm'];
         $profile_image = $data['profile_image'];
-        $newDate = date("Y-m-d H:i:s",time());
+        $newDate = date("d-m-Y H:i:s",time());
         
         // Hash Password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);

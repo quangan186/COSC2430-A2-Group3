@@ -54,13 +54,14 @@
             
             <div class="form-button">
                 <button class="clear-button" type="reset">Clear</button>
-                <button class="register-button" onclick="return validateForm()" type="submit">Register</button>       
+                <button class="register-button" type="submit">Register</button>       
             </div>
-            <span id="invalid-form"></span>
+            <!-- <span id="invalid-form">
+             </span> -->
         </main>
 
         <footer class="form-footer">
-            <p>Already have an account? <a href="./loginandregister.php" onclick="document.getElementById('id01').style.display='none'">Sign in </a></p>
+            <p>Already have an account? <a href="./loginandregister.php">Sign in </a></p>
         </footer>
     </form>
     <script src="./js/RegisterValidation.js"></script>

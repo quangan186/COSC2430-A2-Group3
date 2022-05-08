@@ -56,7 +56,7 @@ const validateRetypePassword = () =>{
         retypePassword.style.border = "1px solid black";
         return false;
     }
-    if (retypePassword.value.length !== password.value.length){
+    if (retypePassword.value.length !== password.value.length || retypePassword.value !== password.value){
         invalidRetypePassword.innerHTML = "Invalid password!";
         retypePassword.style.border = "2px solid red";
         return false;
@@ -98,16 +98,16 @@ const validateLastName = () =>{
     return true;
 }
 
-const validateForm = () =>{
-    if (!validateEmail() || !validatePassword() || !validateRetypePassword() || !validateFirstName() || !validateLastName()){
-        invalidForm.innerHTML = "Invalid Form. Please re-fill the form!";
-        setTimeout(() => {invalidForm.style.display = "none";}, 3000);
-        return false;
-    }
-    invalidForm.style.display = "block";
-    invalidForm.innerHTML = "Register successfully";
-    invalidForm.style.color = "seagreen";
-    setTimeout(() => {invalidForm.style.display = "none";}, 3000);
-    // window.location.href = "../loginandregister.php";
-    return true;
-}       
+// const validateForm = () =>{
+//     if (!validateEmail() || !validatePassword() || !validateRetypePassword() || !validateFirstName() || !validateLastName()){
+//         invalidForm.innerHTML = "Invalid Form. Please re-fill the form!";
+//         setTimeout(() => {invalidForm.style.display = "none";}, 3000);
+//         return false;
+//     }
+//     invalidForm.style.display = "block";
+//     invalidForm.innerHTML = "Register successfully";
+//     invalidForm.style.color = "seagreen";
+//     setTimeout(() => {invalidForm.style.display = "none";}, 3000);
+//     // window.location.href = "../loginandregister.php";
+//     return true;
+// }       

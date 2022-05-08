@@ -22,5 +22,5 @@
       $email = $_POST['email'];
       $password = $_POST['password'];
       $password_confirm = $_POST['password_confirm'];
-      $profile_image = $_POST['file'];
+      $profile_image = $_POST['profile_image'];
     }

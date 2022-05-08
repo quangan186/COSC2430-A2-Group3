@@ -97,7 +97,8 @@ class Signup
         $email = $data['email'];
         $password = $data['password_confirm'];
         $profile_image = $data['profile_image'];
-
+        $newDate = date("Y-m-d H:i:s",time());
+        
         // Hash Password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -120,7 +121,8 @@ class Signup
             'password' => $hashed_password,
             'profile_image' => $profile_image,
             'userid' => $userid,
-            'url_address' => $url_address
+            'url_address' => $url_address,
+            'time_stamp' => $newDate
         );  
         fputcsv($file_open, $form_data);
     }

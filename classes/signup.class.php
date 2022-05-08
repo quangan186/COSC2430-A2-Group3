@@ -66,6 +66,7 @@ class Signup
         }
     }
 
+// Check existence of a value
     public function check_existence($value, $fcsv){
         foreach($fcsv as $array => $key)
         {
@@ -93,13 +94,13 @@ class Signup
         }
     }
 
+// Login Validation
     public function check_login($un,$pwd,$fcsv){
         if($this->check_existence($un, $fcsv)){
             $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
             if (!password_verify($pwd, $hashed_password)) { 
                 return false;
             } else {
-                return true;
                 return $this->get_userid($un);
             }
         } 

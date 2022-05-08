@@ -18,6 +18,10 @@ const adminCloseButton = () => {
     document.querySelector(".sidebar-menu").style.opacity = "0";
 }
 
+const backButton = () => {
+    window.location.href = "../index.php";
+}
+
 let navButtons = document.getElementsByClassName("btn");
 for (let i = 0; i < navButtons.length; i++){
     navButtons[i].onclick = () => {

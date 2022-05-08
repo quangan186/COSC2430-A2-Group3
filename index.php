@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>

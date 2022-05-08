@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+@media only screen and (min-width: 1024px){
+    form{
+        width: 500px;
+        height: auto;
+        border: 1px solid black;
+        padding: 0 20px;
+    }
+
+    form main{
+        border-bottom: 1px solid black;
+    }
+    .log-in-header h1{
+        font-family: 'Slackey', cursive;
+        font-size: 36px;
+        text-align: center;
+        margin: 20px 0;
+        background: -webkit-linear-gradient(#FF0000, #0000FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .form-content{
+        margin: 10px 0;
+    }
+
+    .username{
+        margin: 20px 0;
+    }
+
+    #email, #password{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        padding: 0 10px;
+        outline: none;
+    }
+
+    .log-in-submit{
+        margin: 20px 0;
+        width: 100%;
+        height: 40px;
+    }
+
+    .log-in-footer{
+        margin: 20px 0;
+    }
+
+    .log-in-footer .backBtn{
+        width: 100%;
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    form{
+        width: 500px;
+        height: auto;
+        border: 1px solid black;
+        padding: 0 20px;
+    }
+
+    form main{
+        border-bottom: 1px solid black;
+    }
+    .log-in-header h1{
+        font-family: 'Slackey', cursive;
+        font-size: 36px;
+        text-align: center;
+        margin: 20px 0;
+        background: -webkit-linear-gradient(#FF0000, #0000FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .form-content{
+        margin: 10px 0;
+    }
+
+    .username{
+        margin: 20px 0;
+    }
+
+    #email, #password{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        padding: 0 10px;
+        outline: none;
+    }
+
+    .log-in-submit{
+        margin: 20px 0;
+        width: 100%;
+        height: 40px;
+    }
+
+    .log-in-footer{
+        margin: 20px 0;
+    }
+
+    .log-in-footer .backBtn{
+        width: 100%;
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width: 1023px){
+    form{
+        width: 500px;
+        height: auto;
+        border: 1px solid black;
+        padding: 0 20px;
+    }
+
+    form main{
+        border-bottom: 1px solid black;
+    }
+    .log-in-header h1{
+        font-family: 'Slackey', cursive;
+        font-size: 36px;
+        text-align: center;
+        margin: 20px 0;
+        background: -webkit-linear-gradient(#FF0000, #0000FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .form-content{
+        margin: 10px 0;
+    }
+
+    .username{
+        margin: 20px 0;
+    }
+
+    #email, #password{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        padding: 0 10px;
+        outline: none;
+    }
+
+    .log-in-submit{
+        margin: 20px 0;
+        width: 100%;
+        height: 40px;
+    }
+
+    .log-in-footer{
+        margin: 20px 0;
+    }
+
+    .log-in-footer .backBtn{
+        width: 100%;
+        height: 40px;
+    }
+}

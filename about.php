@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
 </head>
 <body>
     <?php include("./support/header.php") ?>

@@ -78,6 +78,21 @@ class Signup
         }
     }
 
+// Get user id
+    public function get_userid($email){
+        $row = 1;
+        if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
+          while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+              $row++;
+              if ($data[3] == $email) {
+                return $data[5];
+                exit;
+                }
+            }
+          fclose($handle);
+        }
+    }
+
     public function check_login($un,$pwd,$fcsv){
         if($this->check_existence($un, $fcsv)){
             $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
@@ -85,6 +100,7 @@ class Signup
                 return false;
             } else {
                 return true;
+                return $this->get_userid($un);
             }
         } 
     }

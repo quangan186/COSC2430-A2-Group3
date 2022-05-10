@@ -8,43 +8,9 @@
     }
 
     $userid = $_SESSION['userid'];
+    $user = new Signup();
 
-     // Formatting Database
-     $filename = 'accounts.csv';
-
-     // The nested array to hold all the arrays
-     $formatted_db = []; 
-
-     // Open the file for reading
-     if (($h = fopen("{$filename}", "r")) !== FALSE) 
-     {
-
-     while (($data = fgetcsv($h, 1000, ",")) !== FALSE) 
-     {
-         $formatted_db[] = $data;		
-     }
-
-     fclose($h);
-     }
-
-
-    // echo '<pre>';
-    // print_r($formatted_db);
-    // echo($formatted_db[3][6]);
-    // echo '</pre>';  
-     
-
-    // Filter data of the user in the session
-     $my_states = array_filter( 
-        $formatted_db, 
-        function($item) use ($userid){
-            if(isset($item[6])){
-                return ($item[6] == $userid);
-            }
-            
-        });
-        
-
+    $userData = $user->get_userdata($userid);    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,12 +38,15 @@
     </tr>
 
 <?php
-foreach( $my_states as $my_state ) {
+foreach( $userData as $my_state ) {
 ?>
     <tr>
-    <td><?php echo( $my_state['1'] ); ?></td>
-    <td><?php echo( $my_state['2'] ); ?></td>
-    <td><?php echo( $my_state['3'] ); ?></td>
+    <td><?php 
+    echo( $my_state['1'] ); ?></td>
+    <td><?php 
+    echo( $my_state['2'] ); ?></td>
+    <td><?php 
+    echo( $my_state['3'] ); ?></td>
     <td>
         <?php
             $image = "";
@@ -85,26 +54,29 @@ foreach( $my_states as $my_state ) {
             if(file_exists($my_state['5'])){
                 $image = $my_state['5'];
             } else {
-                echo 'There is no';
+                echo 'There is no image';
             }
         
             echo $image; 
         ?>
-        <a href="my_account.php?change=profile">
-            <button>Change Profile Picture</button>
-        </a>
+            <form method="post" enctype="multipart/form-data" action="update-image.php">
+                <input type="file" name="update_profile">
+                <input type="submit">
+            </form>
+
     </td>
-    <td><?php echo( $my_state['6'] ); ?></td>
-    <td><?php echo( $my_state['7'] ); ?></td>
-    <td><?php echo( $my_state['8'] ); ?></td>
+    <td><?php 
+    echo( $my_state['6'] ); ?></td>
+    <td><?php 
+    echo( $my_state['7'] ); ?></td>
+    <td><?php 
+    echo( $my_state['8'] ); ?></td>
+    <td>
     </tr>
 
-<?php } ?>
+<?php
+ } ?>
 </table>
-<br>
-<form method="post" enctype="multipart/form-data">
-    <input name="profile_image" type="file" name="file">
-    <input class="btn btn-primary" type="submit" value="Change">
-</form>               
+<br>          
 </body>
 </html>

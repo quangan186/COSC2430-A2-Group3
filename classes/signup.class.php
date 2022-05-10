@@ -3,6 +3,35 @@ class Signup
 {
     private $error = "";
 
+// Get user data
+    public function get_userdata($userid){
+        $filename = 'accounts.csv';
+        
+        // The nested array to hold all the arrays
+        $formatted_db = []; 
+
+        // Open the file for reading
+        if (($h = fopen("{$filename}", "r")) !== FALSE) 
+        {
+
+        while (($data = fgetcsv($h, 1000, ",")) !== FALSE) 
+        {
+            $formatted_db[] = $data;		
+        }
+
+        fclose($h);
+        }     
+
+        // Filter data of the user in the session
+        $result = array_filter( 
+            $formatted_db, 
+            function($item) use ($userid){
+                if(isset($item[6])){
+                    return ($item[6] == $userid);
+                }
+            });
+        return $result;
+    }
 // Validate user input 
     public function evaluate($data)
     {
@@ -100,7 +129,7 @@ class Signup
     }
 
 // Get user id
-    public function get_userid($email){
+    private function get_userid($email){
         $row = 1;
         if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
           while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {

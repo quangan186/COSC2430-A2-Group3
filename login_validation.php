@@ -5,18 +5,19 @@
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $fcsv = file('accounts.csv');
+
+        $filename = 'accounts.csv';
 
         // call for User class
         $user = new Signup();
-        $valid_user = $user->check_login($username, $password, $fcsv);
+        $valid_user = $user->check_login($username, $password, $filename);
 
         if($valid_user){
             $_SESSION['userid'] = $valid_user;
             header('Location: index.php');
         } else {
-            $_SESSION['message'] = "Invalid Username or Password";
             header('Location: loginandregister.php');
+            $_SESSION['message'] = "Invalid Username or Password";    
         }
     }
     

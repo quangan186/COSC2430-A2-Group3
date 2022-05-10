@@ -2,8 +2,6 @@
     include("classes/autoload.php");
 
     $username = $password = "";
-    // define variables and set to empty values
-    $firstname = $lastname = $email =  $password = $password_confirm = $profile_image = "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,18 +15,13 @@
 <script src="loginandregister.js"></script>
 </head>
 <body>
-<!-- Success Message -->
 <?php
-if (isset($_SESSION['message']) && !empty($_SESSION['message']))
-{ ?>
-  <div class="success-message" style="margin-bottom: 20px;font-size: 20px;color: green;">
-    <?php echo $_SESSION['message']; ?>
-  </div>
-
-<?php
-  unset($_SESSION['message']);
+if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
 }
 ?>
+
 <!-- Logo -->
   <div class="logo">
       <h1> InstaKilogram </h1>

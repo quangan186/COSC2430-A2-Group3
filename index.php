@@ -29,6 +29,7 @@
     <!------------------------- MAIN -------------------------->
     <main> 
         <a href="logout.php">Logout</a>
+        <?php echo $_SESSION['userid'] ?>
         <a href="my_account.php">My Account</a>
         <div class="container">
             <!--======================== LEFT ==========================-->

@@ -6,76 +6,96 @@ class Signup
 // Validate user input 
     public function evaluate($data)
     {
-        foreach ($data as $key => $value)
-        {
-            // First name and last name is any value between 2 to 20 characters
-            if($key == "firstname" || $key == "lastname")
+        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password']) && isset($data['password_confirm']) && isset($data['profile_image'])){
+            $password = $data['password'];
+            $password_confirm = $data['password_confirm'];
+
+            foreach ($data as $key => $value)
             {
-                if(strlen($value) < 2 || strlen($value) > 20)
+                // First name and last name is any value between 2 to 20 characters
+                if($key == "firstname" || $key == "lastname")
                 {
-                    $this->error .= "You name must have between 2 and 20 characters <br>";
+                    if(strlen($value) < 2 || strlen($value) > 20)
+                    {
+                        $this->error .= "You name must have between 2 and 20 characters <br>";
+                    }
+                }
+
+                // Email must be formatted correctly and has not existed in database
+                if($key == "email")
+                {
+                    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                        $this->error .= "Invalid email format <br>";
+                    }
+                    else {   
+                        // Check email duplication
+                        $index = 3;           
+                        $db = 'accounts.csv';
+
+                        if($this->check_existence($value, $index, $db)){
+                            $this->error .= "Email has already registered <br>";
+                        } 
+                    }
+                }
+
+                // Password 8 to 20 characters, at least 1 lower case, 1 upper case, 1 digit, and same with password confirm
+                if($key == "password")
+                {
+
+                    // Validate password strength
+                    $uppercase = preg_match('@[A-Z]@', $value);
+                    $lowercase = preg_match('@[a-z]@', $value);
+                    $number    = preg_match('@[0-9]@', $value);
+
+                    if(!$uppercase || !$lowercase || !$number || strlen($value) < 8 || strlen($value) > 20) {
+                        $this->error .= 'Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.<br>';
+                    }              
                 }
             }
 
-            // Email must be formatted correctly and has not existed in database
-            if($key == "email")
-            {
-                if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                    $this->error .= "Invalid email format <br>";
-                }
-                else {   
-                    $x = $value;
-                    $fcsv = file('accounts.csv');
-
-                    if($this->check_existence($x, $fcsv)){
-                        $this->error .= "Email has already registered <br>";
-                    } 
-                }
-            }
-
-            // Password 8 to 20 characters, at least 1 lower case, 1 upper case, 1 digit, and same with password confirm
-            if($key == "password")
-            {
-                // Validate password strength
-                $uppercase = preg_match('@[A-Z]@', $value);
-                $lowercase = preg_match('@[a-z]@', $value);
-                $number    = preg_match('@[0-9]@', $value);
-
-                if(!$uppercase || !$lowercase || !$number || strlen($value) < 8 || strlen($value) > 20) {
-                    $this->error .= 'Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.<br>';
-                }
-
-                if($value !== $data['password_confirm'])
-                {
-                    $this->error .= 'Your confirm password must match your password <br>';
-                }
+            if($password !== $password_confirm){
+                $this->error .= 'Your confirm password must match your password <br>';
             }
         }
-
+        
         if($this->error == "")
         {
             // no error
-            $this->create_user($data);
-            $_SESSION['message'] = "Register successfully.";
-            header("Location: loginandregister.php");
-            exit();
+           $this->create_user($data); 
+           $_SESSION['message'] = 'Successfully Registered';
         }
         else
         {
             return $this->error;
         }
+    
     }
 
 // Check existence of a value
-    public function check_existence($value, $fcsv){
-        foreach($fcsv as $array => $key)
+    public function check_existence($examine, $key_index, $filename){
+                            
+        // Formatting Database
+
+        // The nested array to hold all the arrays
+        $formatted_db = []; 
+
+        // Open the file for reading
+        if (($h = fopen("{$filename}", "r")) !== FALSE) 
         {
-            $temp = explode(',', $key);
-        
-            if($temp[3] == $value){
-            return true;
-            exit;
-            } 
+
+        while (($data = fgetcsv($h, 1000, ",")) !== FALSE) 
+        {
+            $formatted_db[] = $data;		
+        }
+
+        fclose($h);
+        }
+
+        foreach($formatted_db as $array){
+            if($array[$key_index] == $examine){
+                return true;
+                exit;
+            }
         }
     }
 
@@ -86,7 +106,7 @@ class Signup
           while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
               $row++;
               if ($data[3] == $email) {
-                return $data[5];
+                return $data[6];
                 exit;
                 }
             }
@@ -96,19 +116,24 @@ class Signup
 
 // Login Validation
     public function check_login($un,$pwd,$fcsv){
-        if($this->check_existence($un, $fcsv)){
-            $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
-            if (!password_verify($pwd, $hashed_password)) { 
-                return false;
-            } else {
-                return $this->get_userid($un);
+        if($this->check_existence($un, 3, $fcsv)){            
+            $row = 1;
+            if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $row++;
+                if(password_verify($pwd, $data[4])){
+                    return $this->get_userid($un);
+                }
             }
-        } 
+            fclose($handle);
+        }
     }
+}
 
 // Insert user data into database
     public function create_user($data)
     {
+        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password_confirm'])){
         $firstname = ucfirst($data['firstname']);
         $lastname = ucfirst($data['lastname']);
         $email = $data['email'];
@@ -142,6 +167,7 @@ class Signup
             'time_stamp' => $newDate
         );  
         fputcsv($file_open, $form_data);
+        }
     }
     
 // Create user id

@@ -121,9 +121,11 @@ class Signup
         }
 
         foreach($formatted_db as $array){
-            if($array[$key_index] == $examine){
-                return true;
-                exit;
+            if(isset($array[$key_index])){
+                if($array[$key_index] == $examine){
+                    return true;
+                    exit;
+                }
             }
         }
     }

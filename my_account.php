@@ -27,10 +27,23 @@
      fclose($h);
      }
 
+
+    // echo '<pre>';
+    // print_r($formatted_db);
+    // echo($formatted_db[3][6]);
+    // echo '</pre>';  
+     
+
     // Filter data of the user in the session
-     $my_states = array_filter( $formatted_db, function($item) use ($userid){
-         return ($userid == $item[5]);
-     });
+     $my_states = array_filter( 
+        $formatted_db, 
+        function($item) use ($userid){
+            if(isset($item[6])){
+                return ($item[6] == $userid);
+            }
+            
+        });
+        
 
 ?>
 <!DOCTYPE html>
@@ -66,8 +79,20 @@ foreach( $my_states as $my_state ) {
     <td><?php echo( $my_state['2'] ); ?></td>
     <td><?php echo( $my_state['3'] ); ?></td>
     <td>
-        <?php echo( $my_state['5'] ); ?>
-        <button>Change Profile Picture</button>
+        <?php
+            $image = "";
+
+            if(file_exists($my_state['5'])){
+                $image = $my_state['5'];
+            } else {
+                echo 'There is no';
+            }
+        
+            echo $image; 
+        ?>
+        <a href="my_account.php?change=profile">
+            <button>Change Profile Picture</button>
+        </a>
     </td>
     <td><?php echo( $my_state['6'] ); ?></td>
     <td><?php echo( $my_state['7'] ); ?></td>
@@ -76,5 +101,10 @@ foreach( $my_states as $my_state ) {
 
 <?php } ?>
 </table>
+<br>
+<form method="post" enctype="multipart/form-data">
+    <input name="profile_image" type="file" name="file">
+    <input class="btn btn-primary" type="submit" value="Change">
+</form>               
 </body>
 </html>

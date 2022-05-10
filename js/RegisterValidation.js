@@ -16,7 +16,7 @@ let invalidForm = document.getElementById("invalid-form");
 
 let checkEmail = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/;
 let checkPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/;
-let checkName = /^[a-zA-Z0-9 ]{2,20}$/;
+let checkName = /^[a-zA-Z0-9]{2,20}$/;
 
 const validateEmail = () => {
     if (email.value.length == 0){

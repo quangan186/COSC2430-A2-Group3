@@ -24,27 +24,15 @@
             <table class="accounts">
                 <tr class="title">
                     <th>User ID</th>
+                    <th>Name</th>
                     <th>Username</th>
                     <th>Registration date</th>
                 </tr>
-
-                <tr class="data">
-                    <td>S123456</td>
-                    <td>Diablo186</td>
-                    <td>4/25/2022</td>
-                </tr>
-
-                <tr class="data">
-                    <td>S024680</td>
-                    <td>qa186</td>
-                    <td>4/26/2022</td>
-                </tr>
-
-                <tr class="data">
-                    <td>S15791</td>
-                    <td>hiiam186</td>
-                    <td>4/27/2022</td>
-                </tr>
+            <?php
+                include("./function.php");
+                // display_users_list();
+                display_users_list();
+            ?>
             </table>
         </div>
         

@@ -37,15 +37,10 @@
             <input type="submit" class="log-in-submit" value="Log in" name= "log_in">
             <span id="error-message">
                 <?php
-                    // if (isset($_SESSION["invalid_account"]) && !empty($_SESSION["invalid_account"])){
-                    //     echo $_SESSION["invalid_account"];
-                    // }else{
-                    //     unset($_SESSION["invalid_account"]);
-                    // }
-                    if (isset($_POST["invalid_account"]) && !empty($_SESSION["invalid_account"])){
-                        echo $_POST["invalid_account"];
+                    if (isset($_SESSION["invalid_account"]) && !empty($_SESSION["invalid_account"])){
+                        echo $_SESSION["invalid_account"];
                     } else{
-                        unset($_POST["invalid_account"]);
+                        unset($_SESSION["invalid_account"]);
                     }
                 ?>
             </span>

@@ -23,7 +23,11 @@
         <div class="board-container">
             <div class="board">
                 <div>
-                    <h1>50</h1>
+                    <!-- <h1>50</h1> -->
+                    <?php
+                        $csv_file = file("../accounts.csv");
+                        echo "<h1>" . count($csv_file) . "</h1>"; 
+                    ?>
                     <p>Users</p> 
                 </div>
                 <div>

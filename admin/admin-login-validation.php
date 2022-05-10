@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_POST["invalid_account"] = "";
+    // $_POST["invalid_account"] = "";
     if (isset($_POST["log_in"])){
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -9,7 +9,7 @@
             header("Location: admin.php");
             exit();
         } else{
-            $_POST["invalid_account"] .= "Invalid account!";
+            $_SESSION["invalid_account"] = "Invalid account!";
             sleep(3);
             header("Location: admin-login.php");
         }

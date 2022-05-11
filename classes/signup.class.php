@@ -6,25 +6,25 @@ class Signup
 // Get user data
     public function get_userdata($userid){
         $filename = 'accounts.csv';
-        
+
         // The nested array to hold all the arrays
-        $formatted_db = []; 
+        $formatted_db = [];
 
         // Open the file for reading
-        if (($h = fopen("{$filename}", "r")) !== FALSE) 
+        if (($h = fopen("{$filename}", "r")) !== FALSE)
         {
 
-        while (($data = fgetcsv($h, 1000, ",")) !== FALSE) 
+        while (($data = fgetcsv($h, 1000, ",")) !== FALSE)
         {
-            $formatted_db[] = $data;		
+            $formatted_db[] = $data;
         }
 
         fclose($h);
-        }     
+        }
 
         // Filter data of the user in the session
-        $result = array_filter( 
-            $formatted_db, 
+        $result = array_filter(
+            $formatted_db,
             function($item) use ($userid){
                 if(isset($item[6])){
                     return ($item[6] == $userid);
@@ -32,7 +32,7 @@ class Signup
             });
         return $result;
     }
-// Validate user input 
+// Validate user input
     public function evaluate($data)
     {
         if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password']) && isset($data['password_confirm']) && isset($data['profile_image'])){
@@ -56,14 +56,14 @@ class Signup
                     if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
                         $this->error .= "Invalid email format <br>";
                     }
-                    else {   
+                    else {
                         // Check email duplication
-                        $index = 3;           
+                        $index = 3;
                         $db = 'accounts.csv';
 
                         if($this->check_existence($value, $index, $db)){
                             $this->error .= "Email has already registered <br>";
-                        } 
+                        }
                     }
                 }
 
@@ -78,7 +78,7 @@ class Signup
 
                     if(!$uppercase || !$lowercase || !$number || strlen($value) < 8 || strlen($value) > 20) {
                         $this->error .= 'Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.<br>';
-                    }              
+                    }
                 }
             }
 
@@ -86,35 +86,35 @@ class Signup
                 $this->error .= 'Your confirm password must match your password <br>';
             }
         }
-        
+
         if($this->error == "")
         {
             // no error
-           $this->create_user($data); 
+           $this->create_user($data);
            $_SESSION['message'] = 'Successfully Registered';
         }
         else
         {
             return $this->error;
         }
-    
+
     }
 
 // Check existence of a value
     public function check_existence($examine, $key_index, $filename){
-                            
+
         // Formatting Database
 
         // The nested array to hold all the arrays
-        $formatted_db = []; 
+        $formatted_db = [];
 
         // Open the file for reading
-        if (($h = fopen("{$filename}", "r")) !== FALSE) 
+        if (($h = fopen("{$filename}", "r")) !== FALSE)
         {
 
-        while (($data = fgetcsv($h, 1000, ",")) !== FALSE) 
+        while (($data = fgetcsv($h, 1000, ",")) !== FALSE)
         {
-            $formatted_db[] = $data;		
+            $formatted_db[] = $data;
         }
 
         fclose($h);
@@ -136,10 +136,13 @@ class Signup
         if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
           while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
               $row++;
-              if ($data[3] == $email) {
-                return $data[6];
-                exit;
-                }
+              if(isset($data[3])){
+                if ($data[3] == $email) {
+                  return $data[6];
+                  exit;
+                  }  
+              }
+
             }
           fclose($handle);
         }
@@ -147,14 +150,17 @@ class Signup
 
 // Login Validation
     public function check_login($un,$pwd,$fcsv){
-        if($this->check_existence($un, 3, $fcsv)){            
+        if($this->check_existence($un, 3, $fcsv)){
             $row = 1;
             if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $row++;
-                if(password_verify($pwd, $data[4])){
-                    return $this->get_userid($un);
+                if(isset($data[4])){
+                  if(password_verify($pwd, $data[4])){
+                      return $this->get_userid($un);
+                  }
                 }
+
             }
             fclose($handle);
         }
@@ -171,7 +177,7 @@ class Signup
         $password = $data['password_confirm'];
         $profile_image = $data['profile_image'];
         $newDate = date("d-m-Y H:i:s",time());
-        
+
         // Hash Password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -196,11 +202,11 @@ class Signup
             'userid' => $userid,
             'url_address' => $url_address,
             'time_stamp' => $newDate
-        );  
+        );
         fputcsv($file_open, $form_data);
         }
     }
-    
+
 // Create user id
     private function create_userid()
     {

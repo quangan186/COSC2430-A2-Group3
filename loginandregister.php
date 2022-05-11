@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 <script src="loginandregister.js"></script>
 </head>
 <body>
@@ -33,10 +33,10 @@ if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
 <!-- Login Form -->
 <form method="POST" action="login_validation.php">
   <div class="inputbox">
-    <label for="username"><b>Username or phone number</b></label>
-    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+    <label for="username">Email</label>
+    <input type="text" placeholder="Enter Email" name="username" id="username" required>
 
-    <label for="password"><b>Password</b></label>
+    <label for="password">Password</label>
     <input type="password" placeholder="Enter Password" name="password" id="password" required>
     <button class="loginbtn" type="submit">Login</button>
     <label>

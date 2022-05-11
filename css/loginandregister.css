@@ -1,7 +1,10 @@
 
-body {font-family: "Poppins", sans-serif}
+body {font-family: "Poppins", sans-serif;
+    background: hwb(252deg 93% 3%);}
 
-
+.inputbox label{
+	font-weight: bold;
+}
 .inputbox {
  margin: 0 auto;
   width: 300px;
@@ -28,8 +31,8 @@ padding:16px;}
 }
 
 .ava_holder {
-             margin-left: auto;
-             margin-right: auto;
+	margin-left: auto;
+  margin-right: auto;
              width: 8em;
              height: 168px;
              width: 168px;
@@ -61,7 +64,7 @@ padding:16px;}
 .logo h1
 {margin: 100px 0px 0px 5px;
 font-family: 'Slackey', cursive;
-font-size: 50px;
+font-size: 40px;
 font-style: normal;
 font-variant: normal;
 font-weight: 100;
@@ -72,9 +75,19 @@ center;background: -webkit-linear-gradient(#FF0000, #0000FF);
 padding 10px;}
 
 .inputbox1 {
- margin: 0 auto;
-  width: 400px;
-  padding: 16px;
+margin: 0 auto;
+width: 400px;
+padding: 16px;
+
+}
+
+.inputbox {
+  font-family: 'Poppins', sans-serif;
+	margin: 0 auto;
+  width: 300px;
+  padding: 10px;
+  color: black;
+  border-radius: 50px;
 
 }
 
@@ -112,8 +125,10 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   box-sizing: border-box;
+	border-radius: 50px;
+
 }
 
 
@@ -126,8 +141,9 @@ input[type=text], input[type=password] {
   border: none;
   cursor: pointer;
   width: 100%;
-   font-family: Poppins;
   font-size: 15px ;
+	font-family: "Poppins", sans-serif;
+	border-radius: 50px;
 }
 
 .loginbtn:hover {
@@ -143,8 +159,9 @@ input[type=text], input[type=password] {
   border: none;
   cursor: pointer;
   width: 100%;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   font-size: 15px ;
+	border-radius: 50px;
 }
 
 .regisbtn:hover {
@@ -157,7 +174,7 @@ input[type=text], input[type=password] {
   border-radius: 12px;
   padding: 10px 20px;
   background-color: #f44336;
-   font-family: Poppins;
+  font-family: Poppins;
   font-size: 15px ;
 }
 

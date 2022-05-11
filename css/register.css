@@ -7,10 +7,85 @@
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     width: 100%;
-    height: 200vh;
+    height: 125vh;
+    background: hwb(252deg 93% 3%);
+}
+/*uyen*/
+.clear-button {
+  border-radius: 50px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #FF0000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px ;
+}
+
+.register-button
+{
+  background-color: #0000FF;
+  border-radius: 50px;
+  color: white;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px ;
+}
+
+.image label {
+
+ display:block;
+ width:130px;
+ height:50px;
+ margin: 0 auto;
+ line-height:50px;
+ text-align:center;
+ background:#1172c2;
+ color:#fff;
+ font-size:13px;
+ text-transform:Uppercase;
+ font-weight:600;
+ border-radius:2rem;
+ cursor:pointer;
+}
+input[type="file"] {
+  margin-left: auto;
+  margin-right: auto;
+  width: 3em;
+ display:none;
+ margin-top: 5px;
+}
+
+input[type=text], input[type=password], input[type=email]{
+  width: 50%;
+  padding: 12px 20px;
+  margin:10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+#preview_img
+{
+  margin:10px 0;
+}
+
+.name-info{
+  display: flex;
+	/* flex-direction: row; */
+  justify-content: space-between;
+
+}
+.form-content label
+{
+  font-weight: bold;
+}
+/*end*/
+#invalid-format{
+
+  color: red;
 }
 
 @media only screen and (min-width: 1024px){
@@ -23,20 +98,20 @@ body {
 
     .form-title h1{
         font-family: 'Slackey', cursive;
-        font-size: 36px;
+        font-size: 40px;
         text-align: center;
         margin: 20px 0;
         background: -webkit-linear-gradient(#FF0000, #0000FF);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    
+
     .form-content{
         margin: 10px 0;
     }
 
     .form-content div{
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .form-content input{
@@ -53,8 +128,9 @@ body {
         text-align: center;
     }
     .image img{
-        width: 100px;
-        height: 100px;
+      width: 140px;
+      height: 140px;
+
     }
 
     .image input{
@@ -70,8 +146,10 @@ body {
         font-weight: 500;
         color: black;
         outline: none;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
         border: 1px solid black;
+
     }
 
     .form-content .form-button{
@@ -80,12 +158,14 @@ body {
         height: 40px;
         justify-content: space-between;
     }
-    
+
 
     .form-content .form-button button{
         width: 45%;
+        outline: none;
+        border: none;
     }
-    
+
 
     .form-content span{
         position: absolute;
@@ -101,13 +181,17 @@ body {
     #invalid-form{
         position: relative;
         padding: 0;
-        color: seagreen;
+        color: red;
     }
 
     .form-footer p{
         margin: 10px 0;
     }
-    
+
+    .first-name, .last-name{
+      width: 45%;
+      margin: 0 10px;
+    }
 }
 
 @media only screen and (max-width: 767px){
@@ -127,7 +211,7 @@ body {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    
+
     .form-content{
         margin: 10px 0;
     }
@@ -145,7 +229,7 @@ body {
         background: none;
         border: 1px solid black;
     }
-    
+
     .image{
         text-align: center;
     }
@@ -177,12 +261,12 @@ body {
         height: 40px;
         justify-content: space-between;
     }
-    
+
 
     .form-content .form-button button{
         width: 45%;
     }
-    
+
 
     .form-content span{
         position: absolute;
@@ -203,7 +287,8 @@ body {
     .form-footer p{
         margin: 10px 0;
     }
-    
+
+
 }
 
 @media only screen and (min-width:768px) and (max-width: 1023px){
@@ -223,7 +308,7 @@ body {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    
+
     .form-content{
         margin: 10px 0;
     }
@@ -241,7 +326,7 @@ body {
         background: none;
         border: 1px solid black;
     }
-    
+
     .image{
         text-align: center;
     }
@@ -273,12 +358,12 @@ body {
         height: 40px;
         justify-content: space-between;
     }
-    
+
 
     .form-content .form-button button{
         width: 45%;
     }
-    
+
 
     .form-content span{
         position: absolute;
@@ -299,5 +384,5 @@ body {
     .form-footer p{
         margin: 10px 0;
     }
-    
+
 }

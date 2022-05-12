@@ -75,9 +75,10 @@
         border-right: none;
     }
 
-    .accounts th:nth-child(4){
+    /* .accounts th:nth-child(4){
         border-right: 1px solid black;
-    }
+    } */
+
     .posts th:nth-child(even){
         width: 100%;
         border: 1px solid black;
@@ -87,10 +88,12 @@
     .main-container tbody{
         width: 100%;
     }
+
     .accounts td, .posts td{
         min-width: 10%;
         text-align: center;
         padding: 10px 0;
+        word-wrap: break-word;
     }
     
     .accounts td:nth-child(odd), .posts td:nth-child(odd){
@@ -105,9 +108,9 @@
         border-right: none;
     }
 
-    .accounts td:nth-child(4){
+    /* .accounts td:nth-child(4){
         border-right: 1px solid black;
-    }
+    } */
 
     .posts td:nth-child(even){
         width: 100%;
@@ -129,7 +132,7 @@
         min-width: 50px;
         height: 50px;
         margin: 10px 10px;
-        background-color: #153577;
+        background-color: #0b1f45;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -144,6 +147,26 @@
         font-weight: 700;
         text-decoration: none;
         font-size: 24px;
+    }
+
+    .view-user-information{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        background: none;
+        border: none;
+        background-color: #153577;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: 700;
+    }
+
+    .view-user-information:hover{
+        opacity: 0.8;
     }
 }
 
@@ -195,7 +218,7 @@
     }
 
     .main-container .table-container{
-        width: 90%;
+        width: 100%;
         height: auto;
         margin-top: 100px;
     }
@@ -250,13 +273,13 @@
         border-bottom: 1px solid black;
         border-right: none;
     }
-    .accounts td:nth-child(4){
+    /* .accounts td:nth-child(4){
         border-right: 1px solid black;
     }
 
     .accounts th:nth-child(4){
         border-right: 1px solid black;
-    }
+    } */
     .posts td:nth-child(even){
         width: 100%;
         border: 1px solid black;
@@ -292,6 +315,25 @@
         font-weight: 700;
         text-decoration: none;
         font-size: 24px;
+    }
+    .view-user-information{
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        background: none;
+        border: none;
+        background-color: #153577;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: 700;
+    }
+
+    .view-user-information:hover{
+        opacity: 0.8;
     }
 }
 
@@ -345,7 +387,7 @@
 
     
     .main-container .table-container{
-        width: 90%;
+        width: 100%;
         height: auto;
         margin-top: 100px;
     }
@@ -407,13 +449,13 @@
         border-top: none;
     }
 
-    .accounts th:nth-child(4){
+    /* .accounts th:nth-child(4){
         border-right: 1px solid black;
-    }
+    } */
 
-    .accounts td:nth-child(4){
+    /* .accounts td:nth-child(4){
         border-right: 1px solid black;
-    }
+    } */
 
     
     .page-bar{
@@ -444,5 +486,25 @@
         font-weight: 700;
         text-decoration: none;
         font-size: 24px;
+    }
+
+    .view-user-information{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        background: none;
+        border: none;
+        background-color: #153577;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: 700;
+    }
+
+    .view-user-information:hover{
+        opacity: 0.8;
     }
 }

@@ -13,7 +13,7 @@
         $valid_user = $user->check_login($username, $password, $filename);
 
         if($valid_user){
-            // $_SESSION['userid'] = $valid_user;
+            $_SESSION['userid'] = $valid_user;
             sleep(2);
             header('Location: index.php');
         } else {

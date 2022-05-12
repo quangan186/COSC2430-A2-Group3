@@ -30,6 +30,7 @@
                     <th>Name</th>
                     <th>Username</th>
                     <th>Registration date</th>
+                    <th></th>
                 </tr>
             
             <?php

@@ -68,27 +68,42 @@ body{
         background: white;
     }
 
-    .search-bar .search-box{
+    .search-bar form{
         width: 100%;
+        display: flex;
         height: 50px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
+        align-items: center;
         padding: 0 10px;
-        font-family: 'Poppins', sans-serif;
-        background: none;
-        font-size: 18px;
     }
 
-    .search-bar a{
-        color: black;
-        font-size: 18px;
-        width: 30px;
+    .search-bar .search-box{
+        width: 100%;
+    }
+    .search-bar .submit-btn{
+        width: 10%;
+    }
+    
+    .search-bar .submit-btn .search-btn{
+        width: 100%;
         height: 50px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        text-decoration: none;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .search-bar .submit-btn .search-btn i {
+        font-size: 16px;
+    }
+
+    #search-info{
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 16px;
     }
 
     .login{
@@ -124,11 +139,52 @@ body{
     .login{
         display: none;
     }
-    
+
     .search-bar{
-        display: none;
+        width: 100%;
+        margin: 0 10px;
     }
 
+    .search-bar form{
+        width: 100%;
+        display: flex;
+        height: 40px;
+        align-items: center;
+        padding: 0 10px;
+        background-color: white;
+        border-radius: 15px;
+    }
+
+    .search-bar .search-box{
+        width: 100%;
+    }
+    .search-bar .submit-btn{
+        width: 10%;
+    }
+    
+    .search-bar .submit-btn .search-btn{
+        width: 100%;
+        height: 50px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .search-bar .submit-btn .search-btn i {
+        font-size: 16px;
+        color: black;
+    }
+
+    #search-info{
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 16px;
+    }
     header nav{
         position: fixed;
         width: 100%;
@@ -138,12 +194,13 @@ body{
         display: flex;
         top: 0;
         z-index: 10;
+        align-items: center;
     }
 
     .logo {
         cursor: pointer;
         align-items: center;
-        width: 100%;
+        width: 30%;
     }
 
     .logo a{
@@ -302,7 +359,49 @@ body{
     }
     
     .search-bar{
-        display: none;
+        width: 100%;
+        margin: 0 10px;
+    }
+
+    .search-bar form{
+        width: 100%;
+        display: flex;
+        height: 40px;
+        align-items: center;
+        padding: 0 10px;
+        background-color: white;
+        border-radius: 15px;
+    }
+
+    .search-bar .search-box{
+        width: 100%;
+    }
+    .search-bar .submit-btn{
+        width: 10%;
+    }
+    
+    .search-bar .submit-btn .search-btn{
+        width: 100%;
+        height: 50px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .search-bar .submit-btn .search-btn i {
+        font-size: 16px;
+        color: black;
+    }
+
+    #search-info{
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 16px;
     }
     
     header nav{
@@ -314,6 +413,7 @@ body{
         position: fixed;
         top: 0;
         z-index: 10;
+        align-items: center;
     }
     .phone-btn{
         width: 10%;
@@ -335,7 +435,7 @@ body{
         display: flex;
         cursor: pointer;
         align-items: center;
-        width: 100%;
+        width: 25%;
     }
 
     .logo a{

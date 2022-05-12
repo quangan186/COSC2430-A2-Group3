@@ -24,6 +24,7 @@
             echo "<td>" . $data_list[$i][1] . " " . $data_list[$i][2] . "</td>";
             echo "<td><a href= '#'>" . $data_list[$i][3] . "</a></td>";
             echo "<td>" . $data_list[$i][8] . " " . $data_list[$i][9] . "</td>";
+            echo "<td>" . "<button class='view-user-information'>View</button>" . "</td>";
             echo "</tr>";         
         }  
     }
@@ -63,9 +64,17 @@
         return array_chunk($data_list, $size_chunks);
     }
 
+    function search_user(){
+        if (isset($_POST["search_btn"])){
+
+        }
+    }
+
     function print_r_with_lines($arr) {
             echo '<pre>';
             print_r($arr);
             echo '</pre>';
     }
+
+    
 ?>

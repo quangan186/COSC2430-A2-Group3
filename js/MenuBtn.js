@@ -32,3 +32,7 @@ for (let i = 0; i < navButtons.length; i++){
 const registerButton = () =>{
     window.location.href = "../register.php";
 }
+
+const AccountList = () =>{
+    window.location.href = "../admin/account-list.php";
+}

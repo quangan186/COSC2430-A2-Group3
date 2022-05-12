@@ -205,9 +205,10 @@ class Signup
                 'userid' => $userid,
                 'url_address' => $url_address,
                 'date' => $newDate,
-                'time' => $newTime
+                'time' => $newTime,
             );
-            fputcsv($file_open, $form_data);
+            $registration = implode(",", $form_data);
+            fwrite($file_open, "\n{$registration}");
         }
     }
 

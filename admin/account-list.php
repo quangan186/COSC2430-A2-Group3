@@ -1,3 +1,6 @@
+<?php
+    include("./function.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,16 +31,18 @@
                     <th>Username</th>
                     <th>Registration date</th>
                 </tr>
+            
             <?php
-                include("./function.php");
-                display_users_list();
-                // print_r_with_lines(get_data_from_csv("../accounts.csv"));
-                // print_r_with_lines(sort_row());
-
+                display_pagination_data();
             ?>
+            
             </table>
-        </div>
-        
+            <div class="page-bar">
+                <?php 
+                    pagination();
+                ?>
+            </div>
+        </div>     
     </main>
     <?php include("../support/admin-footer.php") ?>
 

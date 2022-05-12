@@ -21,7 +21,7 @@
     <main class="main-container">
        <?php include("../support/admin-sidebar-menu.php") ?> 
         <div class="board-container">
-            <div class="board">
+            <div class="board" onclick="AccountList()">
                 <div>
                     <!-- <h1>50</h1> -->
                     <?php

@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+#error-message{
+    color: red;
+}
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;

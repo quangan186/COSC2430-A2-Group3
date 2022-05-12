@@ -92,9 +92,11 @@ class Signup
             // no error
            $this->create_user($data);
            $_SESSION['message'] = 'Successfully Registered';
+           sleep(2);
+           header('Location: loginandregister.php');
         }
         else
-        {
+        {   
             return $this->error;
         }
 
@@ -171,39 +173,41 @@ class Signup
     public function create_user($data)
     {
         if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password_confirm'])){
-        $firstname = ucfirst($data['firstname']);
-        $lastname = ucfirst($data['lastname']);
-        $email = $data['email'];
-        $password = $data['password_confirm'];
-        $profile_image = $data['profile_image'];
-        $newDate = date("d-m-Y H:i:s",time());
+            $firstname = ucfirst($data['firstname']);
+            $lastname = ucfirst($data['lastname']);
+            $email = $data['email'];
+            $password = $data['password_confirm'];
+            $profile_image = $data['profile_image'];
+            $newDate = date("d-m-Y",time());
+            $newTime = date("H:i:s",time());
 
-        // Hash Password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            // Hash Password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // create by PHP
-        $userid = $this->create_userid();
-        $url_address = strtolower($firstname) . "." . strtolower($lastname) . "." . $userid;
+            // create by PHP
+            $userid = $this->create_userid();
+            $url_address = strtolower($firstname) . "." . strtolower($lastname) . "." . $userid;
 
-        $file_open = fopen("accounts.csv", "a");
-        $no_rows = count(file("accounts.csv"));
-        if($no_rows > 1)
-        {
-            $no_rows = ($no_rows - 1) + 1;
-        }
+            $file_open = fopen("accounts.csv", "a");
+            $no_rows = count(file("accounts.csv"));
+            if($no_rows > 1)
+            {
+                $no_rows = ($no_rows - 1) + 1;
+            }
 
-        $form_data = array(
-            'sr_no' => $no_rows,
-            'firstname' => $firstname,
-            'lastname' => $lastname,
-            'email' => $email,
-            'password' => $hashed_password,
-            'profile_image' => $profile_image,
-            'userid' => $userid,
-            'url_address' => $url_address,
-            'time_stamp' => $newDate
-        );
-        fputcsv($file_open, $form_data);
+            $form_data = array(
+                'sr_no' => $no_rows,
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'email' => $email,
+                'password' => $hashed_password,
+                'profile_image' => $profile_image,
+                'userid' => $userid,
+                'url_address' => $url_address,
+                'date' => $newDate,
+                'time' => $newTime
+            );
+            fputcsv($file_open, $form_data);
         }
     }
 

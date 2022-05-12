@@ -30,8 +30,10 @@
                 </tr>
             <?php
                 include("./function.php");
-                // display_users_list();
                 display_users_list();
+                // print_r_with_lines(get_data_from_csv("../accounts.csv"));
+                // print_r_with_lines(sort_row());
+
             ?>
             </table>
         </div>

@@ -8,6 +8,7 @@
                     <li><a href="../admin/admin-copyright.php">Copyright</a></li>
                     <li><a href="../admin/admin-privacy.php">Privacy</a></li>
                     <li><a href="../admin/admin-help.php">Help</a></li>
+                    <li><a href="../admin/admin-login.php"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                 </ul>
 
                 <h3>Developed by group 3</h3>

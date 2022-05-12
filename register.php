@@ -77,8 +77,8 @@
              <span id="invalid-form">
                <?php
                if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
-
                    echo $_SESSION['message'];
+               } else{
                    unset($_SESSION['message']);
                }
                ?>

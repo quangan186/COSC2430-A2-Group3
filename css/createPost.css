@@ -1,0 +1,53 @@
+.custom-file-upload {
+  display:block;
+  display: block;
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+  line-height: 50px;
+  text-align: center;
+  background:#153577;
+  color: #fff;
+  font-size: 12px;
+  text-transform: Uppercase;
+  font-weight: 600;
+  border-radius: 50px;
+  border-style: none;
+}
+
+#file-upload
+{
+ margin-left: 5px;
+ margin-right: auto;
+ width: 8em;
+ display:none;
+ margin-top: 5px;
+}
+
+.post-create
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 10px;
+}
+.create input[type="submit"]
+{
+  display:block;
+  width:100px;
+  height:50px;
+  margin: 0 auto;
+  line-height:50px;
+  text-align:center;
+  background:#FF0000;
+  color:#fff;
+  font-size:12px;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:50px;
+  border-style:none;
+
+}
+::placeholder {
+  padding-top:20px;
+  text-align: center;
+}

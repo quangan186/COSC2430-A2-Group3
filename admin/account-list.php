@@ -1,5 +1,5 @@
 <?php
-    include("./function.php");
+    include_once("../admin/search-validation.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,16 +32,30 @@
                     <th>Registration date</th>
                     <th></th>
                 </tr>
-            
-            <?php
-                display_pagination_data();
-            ?>
-            
+
+                <?php
+                    if (isset($_GET['result']) && !empty($_GET['result'])){
+                        display_pagination_data($_GET['result']) ;
+                    } else{
+                        // display_pagination_data(sort_row());
+                        if (empty($_GET["search_info"])){
+                            display_pagination_data(sort_row());
+                        }    
+                    }
+                ?>
             </table>
             <div class="page-bar">
-                <?php 
-                    pagination();
-                ?>
+                <?php
+                        if (isset($_GET['result']) && !empty($_GET['result'])){
+                            pagination($_GET['result']);
+                        } else{
+                            if (!empty($_GET["search_info"])){
+                                echo $_SESSION['error_message'];      
+                            } else{
+                                pagination(sort_row());
+                            }     
+                        }
+                    ?> 
             </div>
         </div>     
     </main>

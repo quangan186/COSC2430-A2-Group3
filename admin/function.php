@@ -27,6 +27,7 @@
             echo "<td>" . "<button class='view-user-information'>View</button>" . "</td>";
             echo "</tr>";         
         }  
+
     }
 
     function sort_row(){
@@ -34,12 +35,14 @@
         return $reversed_array;
     }
 
-    function pagination(){
+    function pagination($data_list){
         $num_per_page = 5;
-        $total_pages = ceil(count(get_data_from_csv("../accounts.csv")) / $num_per_page);
+        $total_pages = ceil(count($data_list) / $num_per_page);
+        echo "<div class = 'page-bar'>";
         for ($p = 1; $p <= $total_pages; $p++){
-            echo "<div class='page-number'><a href ='../admin/account-list.php?page=".$p."'>".$p."</a></div>";
-        }                                                     
+            echo "<div class='page-number'><a href ='../admin/account-list.php?page=".$p. "&search_info=". $_GET['search_info'] . "'>".$p."</a></div>";
+        }    
+        echo "</div>";                                                 
     }
 
     function set_number_page(){
@@ -51,23 +54,26 @@
         return $page;
     }
 
-    function display_pagination_data(){
+    function display_pagination_data($data_list){
         $num_per_page = 5;
         $page = set_number_page();
-        $data_list = split_data($num_per_page);
-        display_users_list($data_list[$page - 1]);
+        $data = split_data($num_per_page, $data_list);
+        display_users_list($data[$page - 1]);
     }
 
-    function split_data($size_chunks){
-        // $data_list = sort_row();
-        $data_list = sort_row();
+    function split_data($size_chunks, $data_list){
         return array_chunk($data_list, $size_chunks);
     }
 
-    function search_user(){
-        if (isset($_POST["search_btn"])){
-
+    function search_user($find_element){
+        $find_result = [];
+        $data_list = sort_row();
+        foreach ($data_list as $user){
+            if (str_contains(strtolower($user[1]), strtolower(trim($find_element)) ) || str_contains(strtolower($user[2]), strtolower(trim($find_element)) ) || str_contains(strtolower($user[3]), strtolower(trim($find_element)))){
+                array_push($find_result, $user);
+            }
         }
+        return $find_result;
     }
 
     function print_r_with_lines($arr) {

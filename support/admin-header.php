@@ -11,14 +11,14 @@
             </div>
 
             <div class="search-bar">
-                <form action="../admin/function.php" method="POST">
+                <form action="../admin/account-list.php" method="GET">
                     <div class="search-box">
                         <label for="search-info"></label>
                         <input type="text" placeholder = "Search" id="search-info" name="search_info">
                     </div>
                                 
                     <div class="submit-btn">
-                        <button class="search-btn" type="submit" name="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
             </div>

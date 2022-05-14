@@ -22,12 +22,6 @@ const backButton = () => {
     window.location.href = "../index.php";
 }
 
-let navButtons = document.getElementsByClassName("btn");
-for (let i = 0; i < navButtons.length; i++){
-    navButtons[i].onclick = () => {
-        this.classList.add("active")
-    }
-}
 
 const registerButton = () =>{
     window.location.href = "../register.php";

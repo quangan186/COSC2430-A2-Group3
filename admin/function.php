@@ -1,5 +1,4 @@
 <?php
-
     function get_data_from_csv($file_name){
         // Open, get raw data and close file
         $data_open = fopen($file_name, 'r');
@@ -17,16 +16,19 @@
         return $array_full_data;
     }
 
-    function display_users_list($data_list){
-        for ($i = 0; $i < count($data_list); $i++){
+    function display_users_list($data){ 
+        $data_list = create_view_button($data);
+        foreach ($data_list as $key => $value){
+
             echo "<tr class= 'data'>";
-            echo "<td>" . $data_list[$i][0] . "</td>";
-            echo "<td>" . $data_list[$i][1] . " " . $data_list[$i][2] . "</td>";
-            echo "<td><a href= '#'>" . $data_list[$i][3] . "</a></td>";
-            echo "<td>" . $data_list[$i][8] . " " . $data_list[$i][9] . "</td>";
-            echo "<td>" . "<button class='view-user-information'>View</button>" . "</td>";
-            echo "</tr>";         
-        }  
+            echo "<td>" . $value[0] . "</td>";
+            echo "<td>" . $value[1] . " " . $value[2] . "</td>";
+            echo "<td>" . $value[3] . "</td>";
+            echo "<td>" . $value[8] . " " . $value[9] . "</td>";
+            echo "<td>" . "<form method= 'GET' action = '../admin/user-information.php'>" . "<button class='view-user-information' type = 'submit' name = '$key' >View</button>" . "</form>" . "</td>";
+            echo "</tr>"; 
+
+        }
 
     }
 
@@ -76,6 +78,14 @@
             }
         }
         return $find_result;
+    }
+
+    function create_view_button($data_list){
+        for ($i = 0; $i < count($data_list); $i++){
+            $data_list["button_" . $i] = $data_list[$i];
+            unset($data_list[$i]);
+        }
+        return $data_list;
     }
 
     function print_r_with_lines($arr) {

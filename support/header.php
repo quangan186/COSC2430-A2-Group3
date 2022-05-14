@@ -47,3 +47,7 @@
             </div>
         </nav>
     </header>
+
+<?php
+    include('./cookie.php');
+?>

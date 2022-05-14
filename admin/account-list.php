@@ -1,5 +1,8 @@
 <?php
     include_once("../admin/search-validation.php");
+    // print_r_with_lines(create_view_button(sort_row()));
+    // print_r_with_lines(display_users_list(sort_row()));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +43,7 @@
                         // display_pagination_data(sort_row());
                         if (empty($_GET["search_info"])){
                             unset($_GET["search_info"]);
-                            display_pagination_data(sort_row());
+                            display_pagination_data(create_view_button(sort_row()));
                         }    
                     }
                 ?>

@@ -160,4 +160,5 @@
 
 <br>
 </body>
+<script src="./js/cookie.js"></script>
 </html>

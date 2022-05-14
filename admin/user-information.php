@@ -1,3 +1,6 @@
+<?php
+    include("../admin/function.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +30,41 @@
         </div>
         <div class="user-info">
             <ul>
-                <li>Name: An Bui</li>
+                <?php
+                if (isset($_GET['result']) && !empty($_GET['result'])){
+                    unset($_GET['result']);
+                    $data_list = $_GET['result'];
+                    for ($i = 0; $i < count($data_list); $i++){
+                        if (isset($_GET["button_" . $i])){
+                            // print_r_with_lines($data_list);
+                            echo $data_list[$i][1];
+                            unset($_GET["button_" . $i]);
+                        }
+                    } 
+                } else{
+                    // display_pagination_data(sort_row());
+                    if (empty($_GET["search_info"])){
+                        unset($_GET["search_info"]);
+                        $data_list = sort_row();
+                        for ($i = 0; $i < count($data_list); $i++){
+                            if (isset($_GET["button_" . $i])){
+                                echo $data_list[$i][1];
+                                unset($_GET["button_" . $i]);
+                            }
+                        }
+                    }    
+                }
+                    // echo "<li>".$_GET['name']."</li>";
+                    // echo "<li>".$_GET['email']."</li>";
+                    // echo "<li>".$_GET['registration_date']."</li>";           
+                ?>
+                <!-- <li>Name: An Bui</li>
                 <li>Email: quangan186@gmail.com</li>
-                <li>Registration date: 12/05/2022</li>
+                <li>Registration date: 12/05/2022</li> -->
             </ul>
+            <form action="" method="GET">
+                <td name=''></td>
+            </form>
             <button class="logout">Log out</button>
         </div>
     </main>

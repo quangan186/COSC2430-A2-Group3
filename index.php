@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="/css/cookie.css">
     <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/fontawesome.min.css">
     <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -163,5 +163,6 @@
         include('support/footer.php');
     ?>
 </body>
-
+<script src="./js/cookie.js"></script>
+<script src="./js/MenuBtn.js"></script>
 </html>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/cookie.css">
     <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/fontawesome.min.css">
     <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
 </head>
@@ -81,4 +82,5 @@
 </body>
 <script src="./js/MenuBtn.js"></script>
 <script src="./js/ShowInfo.js"></script>
+<script src="./js//cookie.js"></script>
 </html>

@@ -1,475 +1,21 @@
-/*Uyen*/
-/*Uyen*/
-/*header style*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.display
+{
+  padding: 200px 0;
+text-align: center;
 }
-
-body{
-    font-family: 'Poppins', sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
+.logout button
+{  position: fixed;
+     bottom: 10px;
+     right: 10px;
+  background-color: blue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
 }
-
-@media only screen and (min-width: 1024px){
-    #phone-menu{
-        display: none;
-    }
-
-    .phone-btn{
-        display: none;
-    }
-
-    header nav{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        background-color: #153577;
-        height: auto;
-        box-shadow: 0px 5px 15px -6px gray;
-    }
-
-    .logo{
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-    }
-
-    .logo a{
-        display: flex;
-        text-decoration: none;
-    }
-
-    .logo a svg{
-        padding: 10px 10px;
-        width: 200px;
-    }
-
-    .logo h1{
-        display: flex;
-        align-items: center;
-        height: auto;
-        color: white;
-    }
-
-    .logo h1::before{
-        content: '';
-        background-color: white;
-        height: 50%;
-        width: 1px;
-        margin-right: 10px;
-    }
-
-    .search-bar{
-        width: 100%;
-        margin: 0 20px;
-        display: flex;
-        border-radius: 10px;
-        border: 1px solid white;
-        background: white;
-    }
-
-    .search-bar .search-box{
-        width: 100%;
-        height: 50px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        padding: 0 10px;
-        font-family: 'Poppins', sans-serif;
-        background: none;
-        font-size: 18px;
-    }
-
-    .search-bar a{
-        color: black;
-        font-size: 18px;
-        width: 30px;
-        height: 50px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        text-decoration: none;
-    }
-
-    .login{
-        width: 20vw;
-        margin-right: 30px;
-        border: 1px solid red;
-        border-radius: 30px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: red;
-    }
-
-    .login a{
-        color: white;
-        text-decoration: none;
-        font-weight: 400;
-    }
-
-    .login:hover{
-        opacity: 0.8;
-        transition-duration: 0.5s;
-    }
-
-}
-
-@media only screen and (max-width: 767px){
-    #menu{
-        display: none;
-    }
-
-    .login{
-        display: none;
-    }
-
-    .search-bar{
-        display: none;
-    }
-
-    header nav{
-        position: fixed;
-        width: 100%;
-        background-color: #153577;
-        height: auto;
-        box-shadow: 0px 5px 15px -6px gray;
-        display: flex;
-        top: 0;
-        z-index: 10;
-    }
-
-    .logo {
-        cursor: pointer;
-        align-items: center;
-        width: 100%;
-    }
-
-    .logo a{
-        display: flex;
-        text-decoration: none;
-    }
-    .logo svg{
-        padding: 10px 10px;
-        width: 150px;
-        height: 60px;
-        cursor: pointer;
-    }
-
-    .logo h1{
-        display: flex;
-        align-items: center;
-        color: white;
-        width: 100%;
-        font-size: 14px;
-    }
-
-    .logo h1::before{
-        content: '';
-        background-color: white;
-        height: 50%;
-        width: 1px;
-        margin-right: 10px;
-    }
-
-    i{
-        font-size: 18px;
-        color: white;
-        padding: 0 10px;
-    }
-
-    .close-button{
-        display: block;
-        text-align: right;
-        padding-top: 20px;
-        cursor: pointer;
-    }
-
-    .close-button i{
-        font-size: 24px;
-    }
-
-    .phone-btn{
-        width: 10%;
-        display: flex;
-        align-items: center;
-        justify-content: right;
-    }
-
-    .phone-btn i{
-        font-size: 24px;
-        line-height: 30px;
-        cursor: pointer;
-        color: white;
-    }
-    .phone-btn i:nth-child(1){
-        padding: 0;
-    }
-
-    #phone-menu{
-        display: flex;
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        top: 60px;
-        left: 0;
-        background-color: #0b1f45;
-        transition: all .5s;
-        transform: translateX(100%);
-        opacity: 0;
-        z-index: 10;
-    }
-
-    #phone-menu ul{
-        width: 100%;
-        height: 300vh;
-        list-style: none;
-        margin: 0 30px;
-    }
-
-    #phone-menu ul li{
-        text-align: center;
-        margin: 10px 0;
-        padding: 10px 0;
-    }
-
-    #phone-menu ul li a{
-        display: block;
-        line-height: 50px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.91);
-        text-decoration: none;
-        color: white;
-        font-size: 18px;
-        text-transform: uppercase;
-    }
-
-    #phone-menu ul li a:active{
-        color: red;
-        transition-duration: 0.5s;
-    }
-
-
-
-    #phone-menu .manage{
-        display: none;
-    }
-
-    #phone-menu .search-bar{
-        width: 100%;
-        display: flex;
-        border-radius: 50px;
-        border: 1px solid white;
-        background: white;
-        margin: 20px 0;
-    }
-
-    #phone-menu .search-bar .search-box{
-        width: 100%;
-        height: 50px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        padding-left: 20px;
-        font-family: 'Poppins', sans-serif;
-        background: none;
-        font-size: 18px;
-    }
-
-    #phone-menu .search-bar a{
-        font-size: 18px;
-        width: 30px;
-        height: 50px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        text-decoration: none;
-        margin-right: 10px;
-    }
-
-    #phone-menu .search-bar i{
-        color: black;
-
-    }
-}
-
-@media only screen and (min-width:768px) and (max-width: 1023px){
-    #menu{
-        display: none;
-    }
-    .logout{
-        display: none;
-    }
-
-    .search-bar{
-        display: none;
-    }
-
-    header nav{
-        width: 100%;
-        background-color: #153577;
-        height: auto;
-        box-shadow: 0px 5px 15px -6px gray;
-        display: inline-flex;
-        position: fixed;
-        top: 0;
-        z-index: 10;
-    }
-    .phone-btn{
-        width: 10%;
-        display: flex;
-        align-items: center;
-        justify-content: right;
-        margin-right: 10px;
-
-    }
-
-    .phone-btn i{
-        font-size: 30px;
-        line-height: 30px;
-        cursor: pointer;
-        color: white;
-    }
-
-    .logo {
-        display: flex;
-        cursor: pointer;
-        align-items: center;
-        width: 100%;
-    }
-
-    .logo a{
-        display: flex;
-        text-decoration: none;
-    }
-    .logo svg{
-        padding: 10px 10px;
-        width: 150px;
-        height: 60px;
-        cursor: pointer;
-    }
-
-    .logo h1{
-        display: flex;
-        align-items: center;
-        color: white;
-        width: 100%;
-        font-size: 14px;
-    }
-
-    .logo h1::before{
-        content: '';
-        background-color: white;
-        height: 50%;
-        width: 1px;
-        margin-right: 10px;
-    }
-
-    i{
-        font-size: 18px;
-        color: white;
-        padding: 0 10px;
-    }
-
-    .close-button{
-        display: block;
-        text-align: right;
-        padding: 20px 20px 0 20px;
-        cursor: pointer;
-    }
-
-    .close-button i{
-        font-size: 30px;
-    }
-
-    #phone-menu{
-        display: flex;
-        z-index: 10;
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        top: 60px;
-        left: 0;
-        background-color: #0b1f45;
-        transition: all .5s;
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-
-    #phone-menu ul{
-        width: 100%;
-        height: 300vh;
-        list-style: none;
-        margin: 0 30px;
-    }
-
-    #phone-menu ul li{
-        text-align: center;
-        margin: 10px 0;
-        padding: 10px 0;
-    }
-
-    #phone-menu ul li a{
-        display: block;
-        line-height: 50px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.91);
-        text-decoration: none;
-        color: white;
-        font-size: 18px;
-        text-transform: uppercase;
-    }
-
-    #phone-menu ul li a:active{
-        color: red;
-        transition-duration: 0.5s;
-    }
-
-    #phone-menu .manage{
-        display: none;
-    }
-
-    #phone-menu .search-bar{
-        width: 100%;
-        display: flex;
-        border-radius: 50px;
-        border: 1px solid white;
-        background: white;
-        margin: 20px 0;
-    }
-
-    #phone-menu .search-bar .search-box{
-        width: 100%;
-        height: 50px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        padding-left: 20px;
-        font-family: 'Poppins', sans-serif;
-        background: none;
-        font-size: 18px;
-    }
-
-    #phone-menu .search-bar a{
-        font-size: 18px;
-        width: 30px;
-        height: 50px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        text-decoration: none;
-        margin-right: 10px;
-    }
-
-    #phone-menu .search-bar i{
-        color: black;
-    }
-}
-
-/*uyen*/
 .user-profile-image
 {
   postition: absolute;
@@ -492,32 +38,10 @@ body{
   font-size: 20px;
   padding:5px;
 }
-/*table style*/
-table {
-  font-family: Poppins, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
-table td, table th {
-  border: 1px solid #ddd;
-  padding: 12px;
-}
-
-table tr:nth-child(even){background-color: #f2f2f2;}
-
-table tr:hover {background-color: #ddd;}
-
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #16689f;
-  color: white;
-}
 #profile{
 padding:16px;}
-#profile label {
+#profile label, #profile input[type="submit"] {
 
  display:block;
  width:100px;
@@ -525,8 +49,7 @@ padding:16px;}
  margin: 0 auto;
  line-height:50px;
  text-align:center;
- background:#0000FF;
- color:#fff;
+
  font-size:12px;
  text-transform:Uppercase;
  font-weight:600;
@@ -536,22 +59,17 @@ padding:16px;}
 
 #profile input[type="submit"]
 {
-  display:block;
-  width:100px;
-  height:50px;
-  margin: 0 auto;
-  line-height:50px;
-  text-align:center;
+
   background:#FF0000;
   color:#fff;
-  font-size:12px;
-  text-transform:Uppercase;
-  font-weight:600;
-  border-radius:50px;
   border-style:none;
 
 }
-
+#profile label
+{
+background:#0000FF;
+color:#fff;
+}
 #profile input[type="file"] {
  margin-left: 5px;
  margin-right: auto;
@@ -598,31 +116,3 @@ padding:16px;}
 {
   text-align:center;
 }
-
-
-/*uyen*/
-
-table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-table td, table th {
-  border: 1px solid #ddd;
-  padding: 12px;
-}
-
-table tr:nth-child(even){background-color: #f2f2f2;}
-
-table tr:hover {background-color: #ddd;}
-
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #16689f;
-  color: white;
-}
-
-/*uyen*/

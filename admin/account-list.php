@@ -39,6 +39,7 @@
                     } else{
                         // display_pagination_data(sort_row());
                         if (empty($_GET["search_info"])){
+                            unset($_GET["search_info"]);
                             display_pagination_data(sort_row());
                         }    
                     }
@@ -46,14 +47,14 @@
             </table>
             <div class="page-bar">
                 <?php
-                        if (isset($_GET['result']) && !empty($_GET['result'])){
-                            pagination($_GET['result']);
-                        } else{
-                            if (!empty($_GET["search_info"])){
-                                echo $_SESSION['error_message'];      
+                        if (!empty($_GET["search_info"])){
+                            if (empty($_GET['result'])){
+                                echo $_SESSION['error_message'];  
                             } else{
-                                pagination(sort_row());
-                            }     
+                                pagination($_GET['result']);
+                            }
+                        } else{
+                            pagination(sort_row());
                         }
                     ?> 
             </div>

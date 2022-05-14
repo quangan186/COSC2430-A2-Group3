@@ -38,11 +38,13 @@
     function pagination($data_list){
         $num_per_page = 5;
         $total_pages = ceil(count($data_list) / $num_per_page);
-        echo "<div class = 'page-bar'>";
         for ($p = 1; $p <= $total_pages; $p++){
-            echo "<div class='page-number'><a href ='../admin/account-list.php?page=".$p. "&search_info=". $_GET['search_info'] . "'>".$p."</a></div>";
-        }    
-        echo "</div>";                                                 
+            if (!empty($_GET['search_info'])){
+                echo "<div class='page-number'><a href ='../admin/account-list.php?page=".$p. "&search_info=". $_GET['search_info'] . "'>".$p."</a></div>";
+            } else{
+                echo "<div class='page-number'><a href ='../admin/account-list.php?page=".$p. "'>".$p."</a></div>";
+            }
+        }                                                   
     }
 
     function set_number_page(){

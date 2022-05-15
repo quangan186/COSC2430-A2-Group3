@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $_SESSION['message'] = $result;
         header('Location: index.php');
     } else {
-        $_SESSION['message'] = 'Successfully Share Image';
+        $_SESSION['message'] = 'Successfully Share Post';
         header('Location: index.php'); 
     }   
 }

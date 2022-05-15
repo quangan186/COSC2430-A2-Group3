@@ -4,16 +4,22 @@
      // If user is not logged in, redirect user to login page
      if (!isset($_SESSION['userid'])){
         $_SESSION['message'] = "You have to log in first";
-        header('location:loginandregister.php');
+        header('location:login.php');
     }
 
     $userid = $_SESSION['userid'];
     $user = new Signup();
 
-    $filename = 'accounts.csv';
-    $userData = $user->get_data($userid, 6, $filename);    
+    $userData = $user->get_data($userid, 6, 'accounts.csv');    
+
+    // if($_SERVER['REQUEST_METHOD'] == 'POST')
+    // {
+    //   $col_filter = array_column($userData, 5);
+    //   print_r($userData);
+    //   print_r($col_filter);
+    // }
 ?>
- <?php include ('support/header.php');?>
+ <?php // include ('support/header.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,10 +42,10 @@
 
 <!-- <a href="index.php">Homepage</a>
 <a href="logout.php">Logout</a> -->
-
+<!-- 
   <div class="logout">
 <a href="logout.php"><input type="button" value="Log out">Log Out</a>
-  </div>
+  </div> -->
 
 <div class="display">
 
@@ -61,8 +67,7 @@
             echo $image;
         ?>
       </span>
-            <form method="post" enctype="multipart/form-data" action="update-image.php">
-            <!--    <input type="file" name="update_profile"> -->
+            <form method="post" enctype="multipart/form-data">
             <div id="profile" >
             <label for="photo">Upload Image</label>
             <input name="update_profile" type="file" id="photo" accept="image/*" onchange="showPreview(event);">
@@ -80,6 +85,7 @@
         <?php
         echo( $my_state['3'] ); ?></br>
       </div>
+      <img src="<?php echo $my_state[5]; ?>" alt="">
 
       <div class="container">
         <!-- Trigger the modal with a button -->

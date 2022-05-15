@@ -47,6 +47,7 @@ class Signup
             $password_confirm = $data['password_confirm'];
 
             if(isset($files['profile_image']['name']) && $files['profile_image']['name'] != ""){
+<<<<<<< Updated upstream
                 if($files['profile_image']['type'] == "image/jpeg"){
                     $allowed_size = (1024 * 1024) * 7;
                     if($files['profile_image']['size'] < $allowed_size && $files['profile_image']['size'] > 1024){
@@ -56,6 +57,14 @@ class Signup
                     }
                 } else {
                     $this->error .= "*Only image of Jpeg type are allowed <br>";
+=======
+                if($files['profile_image']['type'] != 'image/jpeg' && $files['profile_image']['type'] != 'image/gif' && $files['profile_image']['type'] != 'image/png'){
+                    $this->error .= "Invalid File Types <br>";
+                }
+                $allowed_size = (1024 * 1024) * 7;
+                if($files['profile_image']['size'] > $allowed_size && $files['profile_image']['size'] < 1024){
+                   $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
+>>>>>>> Stashed changes
                 }
             } else {
                 $this->error .= "*Error uploading images <br>";
@@ -121,8 +130,15 @@ class Signup
         {
             // no error
            $this->create_user($data, $files);
+<<<<<<< Updated upstream
            $_SESSION['message'] = 'Successfully Registered';
            header('Location: login.php');
+=======
+
+        //    $_SESSION['message'] = 'Successfully Registered';
+        //    sleep(2);
+        //    header('Location: login.php');
+>>>>>>> Stashed changes
         }
         else
         {   
@@ -187,7 +203,7 @@ class Signup
 // Insert user data into database
     public function create_user($data, $files)
     {
-        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password_confirm']) || isset($files)){
+        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password_confirm']) && !empty($files)){
             $firstname = ucfirst($data['firstname']);
             $lastname = ucfirst($data['lastname']);
             $email = $data['email'];
@@ -206,14 +222,28 @@ class Signup
             {
                 mkdir($folder, 0777, true);
             }
-
             $image_class = new Image();
 
-            $myimage = $folder . $image_class->generate_filename(20) . ".jpg";
+            $myimage = $folder . $image_class->generate_filename(20) . '.jpg';
 
             move_uploaded_file($_FILES['profile_image']['tmp_name'],$myimage);  
 
-            $image_class->crop_image($myimage,$myimage,150,150); 
+            
+
+            // switch ($files['profile_image']['type'])
+            // {
+            //     case 'image/jpeg':
+            //         $image = imagecreatefromjpeg($myimage);
+            //     break;
+            //     case 'image/gif':
+            //         $image = imagecreatefromgif($myimage);
+            //     break;
+            //     case 'image/png':
+            //         $image = imagecreatefrompng($myimage);
+            //     break;
+            // }        
+
+            // $image_class->crop_image($image,$myimage,150,150); 
 
             // Hash Password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);

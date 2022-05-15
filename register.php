@@ -14,6 +14,9 @@
 
         if($result){
             $_SESSION['message'] = $result;
+
+        } else {
+            $_SESSION['message'] = 'Successfully Registered';
         } 
     }
 ?>

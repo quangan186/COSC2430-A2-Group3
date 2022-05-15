@@ -8,7 +8,7 @@ class Image
 
         for($i = 0; $i < $length; $i++)
         {
-            $random = rand(0,61);
+            $random = rand(0,$length);
             $text .= $array[$random];
         }
         return $text;
@@ -16,10 +16,10 @@ class Image
     
     public function crop_image($original_file_name, $cropped_file_name, $max_width, $max_height)
     {
-        if(file_exists($original_file_name))
-        {
-            $original_image = imagecreatefromjpeg($original_file_name);
+            // $original_image = imagecreatefromjpeg($original_file_name);
             
+            $original_image = $original_file_name;
+
             $original_width = imagesx($original_image);
             $original_height = imagesy($original_image);
 
@@ -39,7 +39,7 @@ class Image
                 $new_height = $max_height;
                 $new_width = $original_width * $ratio;
             }
-        }
+        
 
         // adjust in case of max width and height are different
         if($max_width != $max_height)

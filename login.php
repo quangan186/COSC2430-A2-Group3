@@ -14,12 +14,7 @@
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
-<?php
-// if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
-//     echo $_SESSION['message'];
-//     unset($_SESSION['message']);
-// }
-?>
+
 
 <!-- ------------------------------------------------------------ -->
 <!-- Login Form -->
@@ -29,6 +24,13 @@
   </header>
 
   <main class="form-content">
+
+    <?php
+      if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+          echo $_SESSION['message'];
+          unset($_SESSION['message']);
+      }
+    ?>
     <div class="username text-field">
       <label for="username">Username</label>
       <input type="email" placeholder="Enter your email" name="username" id="username" required>

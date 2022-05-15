@@ -10,11 +10,11 @@
         $signup = new Signup();
 
         // Call function evaluate with data $_POST
-        $result = $signup->evaluate($_POST);
+        $result = $signup->evaluate($_POST, $_FILES);
 
         if($result){
             $_SESSION['message'] = $result;
-        }
+        } 
     }
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
 <body>
 
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <header class="form-title">
             <h1>Register</h1>
         </header>
@@ -79,11 +79,9 @@
 
             <span id="invalid-form">
                <?php
-                if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
-                    echo $_SESSION['message'];
-                    unset($_SESSION['message']);
-                } else{
-                    unset($_SESSION['message']);
+               if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+                   echo $_SESSION['message'];
+                   unset($_SESSION['message']);
                 }
                ?>
             </span>

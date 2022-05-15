@@ -10,7 +10,8 @@
     $userid = $_SESSION['userid'];
     $user = new Signup();
 
-    $userData = $user->get_userdata($userid);
+    $filename = 'accounts.csv';
+    $userData = $user->get_data($userid, 6, $filename);    
 ?>
  <?php include ('support/header.php');?>
 <!DOCTYPE html>

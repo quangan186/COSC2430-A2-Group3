@@ -3,41 +3,63 @@ class Signup
 {
     private $error = "";
 
-// Get user data
-    public function get_userdata($userid){
-        $filename = 'accounts.csv';
-
+// Format database
+    public function format_db($filename){
         // The nested array to hold all the arrays
         $formatted_db = [];
 
         // Open the file for reading
         if (($h = fopen("{$filename}", "r")) !== FALSE)
         {
+            while (($data = fgetcsv($h, 1000, ",")) !== FALSE)
+                {
+                    $formatted_db[] = $data;
+                }
+            return $formatted_db;
 
-        while (($data = fgetcsv($h, 1000, ",")) !== FALSE)
-        {
-            $formatted_db[] = $data;
+            fclose($h);
         }
+    }
 
-        fclose($h);
+// Get data in row if $check == $index
+    public function get_data($check, $index, $filename){
+        if(!is_array($filename)){
+            $formatted_db = $this->format_db($filename);   
+        } else {
+            $formatted_db = $filename;
         }
 
         // Filter data of the user in the session
-        $result = array_filter(
-            $formatted_db,
-            function($item) use ($userid){
-                if(isset($item[6])){
-                    return ($item[6] == $userid);
+        $result = array_filter( 
+            $formatted_db, 
+            function($item) use ($index, $check){
+                if(isset($item[$index])){
+                    return ($item[$index] == $check);
                 }
             });
         return $result;
     }
-// Validate user input
-    public function evaluate($data)
-    {
-        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password']) && isset($data['password_confirm']) && isset($data['profile_image'])){
+    
+// Validate user input 
+    public function evaluate($data, $files){
+        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password']) && isset($data['password_confirm'])){
             $password = $data['password'];
             $password_confirm = $data['password_confirm'];
+
+            if(isset($files['profile_image']['name']) && $files['profile_image']['name'] != ""){
+                if($files['profile_image']['type'] == "image/jpeg"){
+                    $allowed_size = (1024 * 1024) * 7;
+                    if($files['profile_image']['size'] < $allowed_size && $files['profile_image']['size'] > 1024){
+                        $files = $files;
+                    } else {
+                        $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
+                    }
+                } else {
+                    $this->error .= "Only image of Jpeg type are allowed <br>";
+                }
+            } else {
+                $this->error .= "Error uploading images <br>";
+            }
 
             foreach ($data as $key => $value)
             {
@@ -93,12 +115,12 @@ class Signup
             if($password !== $password_confirm){
                 $this->error .= 'Your confirm password must match your password <br>';
             }
-        }
+        } 
 
         if($this->error == "")
         {
             // no error
-           $this->create_user($data);
+           $this->create_user($data, $files);
            $_SESSION['message'] = 'Successfully Registered';
            sleep(2);
            header('Location: login.php');
@@ -107,6 +129,7 @@ class Signup
         {   
             return $this->error;
         }
+    
 
     }
 
@@ -114,21 +137,7 @@ class Signup
     public function check_existence($examine, $key_index, $filename){
 
         // Formatting Database
-
-        // The nested array to hold all the arrays
-        $formatted_db = [];
-
-        // Open the file for reading
-        if (($h = fopen("{$filename}", "r")) !== FALSE)
-        {
-
-        while (($data = fgetcsv($h, 1000, ",")) !== FALSE)
-        {
-            $formatted_db[] = $data;
-        }
-
-        fclose($h);
-        }
+        $formatted_db = $this->format_db($filename);
 
         foreach($formatted_db as $array){
             if(isset($array[$key_index])){
@@ -160,41 +169,55 @@ class Signup
 
 // Login Validation
     public function check_login($un,$pwd,$fcsv){
-        if($this->check_existence($un, 3, $fcsv)){
-            $row = 1;
-            if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                $row++;
-                if(isset($data[4])){
-                  if(password_verify($pwd, $data[4])){
-                      return $this->get_userid($un);
-                  }
+            if($this->check_existence($un, 3, $fcsv)){
+                $row = 1;
+                if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
+                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                        $row++;
+                        if(isset($data[4])){
+                        if(password_verify($pwd, $data[4])){
+                            return $this->get_userid($un);
+                        }
+                    }
                 }
-
+                fclose($handle);
             }
-            fclose($handle);
         }
     }
-}
 
 // Insert user data into database
-    public function create_user($data)
+    public function create_user($data, $files)
     {
-        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password_confirm'])){
+        if(isset($data['firstname']) && isset($data['lastname']) && isset($data['email']) && isset($data['password_confirm']) || isset($files)){
             $firstname = ucfirst($data['firstname']);
             $lastname = ucfirst($data['lastname']);
             $email = $data['email'];
             $password = $data['password_confirm'];
-            $profile_image = $data['profile_image'];
             $newDate = date("d-m-Y",time());
             $newTime = date("H:i:s",time());
-
-            // Hash Password
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
             // create by PHP
             $userid = $this->create_userid();
             $url_address = strtolower($firstname) . "." . strtolower($lastname) . "." . $userid;
+
+            // create folder to store images
+            $folder = "uploads/" . $userid . "/";
+
+
+            if(!file_exists($folder))
+            {
+                mkdir($folder, 0777, true);
+            }
+
+            $image_class = new Image();
+
+            $myimage = $folder . $image_class->generate_filename(20) . ".jpg";
+
+            move_uploaded_file($_FILES['profile_image']['tmp_name'],$myimage);  
+
+            $image_class->crop_image($myimage,$myimage,150,150); 
+
+            // Hash Password
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             $file_open = fopen("accounts.csv", "a");
             $no_rows = count(file("accounts.csv"));
@@ -209,7 +232,7 @@ class Signup
                 'lastname' => $lastname,
                 'email' => $email,
                 'password' => $hashed_password,
-                'profile_image' => $profile_image,
+                'profile_image' => $myimage,
                 'userid' => $userid,
                 'url_address' => $url_address,
                 'date' => $newDate,
@@ -221,18 +244,17 @@ class Signup
     }
 
 // Create user id
-    private function create_userid()
-    {
-        // generate random number
-        $length = rand(4,19);
-        $number = "";
-        for ($i=0; $i < $length; $i++) {
-            $new_rand = rand(0,9);
-            $number = $number . $new_rand;
-        }
+    private function create_userid(){
+            // generate random number
+            $length = rand(4,19);
+            $number = "";
+            for ($i=0; $i < $length; $i++) {
+                $new_rand = rand(0,9);
+                $number = $number . $new_rand;
+            }
 
-        return $number;
+            return $number;
+        }
     }
-}
 
 ?>

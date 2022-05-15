@@ -1,5 +1,14 @@
 <?php
     include("classes/autoload.php");
+    $user = new Signup();
+    $post = new Post();
+
+    // Sort Descending
+    $arrayFile = $user->format_db('images.csv');
+    array_multisort(array_column($arrayFile, 6), SORT_DESC, $arrayFile);
+
+    // Get all public post in db
+    $publicPost = $user->get_data('public', 5, $arrayFile);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,75 +98,44 @@
 
                 <!------------------- FEEDS --------------------->
                 <div class="feeds">
-                    <!------------------- FEED 1 --------------------->
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-photo">
-                                    <img src="./images/profile-13.jpg">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Lana Rose</h3>
-                                    <small>Dubai, 15 MINUTES AGO</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="uil uil-ellipsis-h"></i>
-                            </span>
-                        </div>
-
-                        <div class="photo">
-                            <img src="./images/feed-1.jpg">
-                        </div>
-
-                        <div class="action-buttons">
-                            <div class="interaction-buttons">
-                            <!-- HEART ICON(s) STARTS --> 
-                                <div class="btns">
-                                <Button onclick="Toggle1()" id="btnh1" class="btn"><i class="fas fa-heart"></i></Button>
-                                <Button onclick="Toggle2()" id="btnh2" class="btn"><i class="uil uil-comment-dots"></i></Button>
-                                <Button onclick="Toggle2()" id="btnh2" class="btn"><i class="uil uil-share-alt"></i></Button>
-                                </div>
-                                <script>
-        
-                                //    First Like Button   
-                                var btnvar1 = document.getElementById('btnh1');
-
-                                function Toggle1(){
-                                            if (btnvar1.style.color =="red") {
-                                                btnvar1.style.color = "grey"
-                                            }
-                                            else{
-                                                btnvar1.style.color = "red"
-                                            }
+                    <?php
+                    // If user logged in (not a guest)
+                        if(isset($_SESSION['userid'])){
+                            // Display public post, internal post
+                            $id = $_SESSION['userid'];
+                            
+                            foreach($arrayFile as $array){
+                                if(isset($array[1]) || isset($array[2]) || isset($array[3]) || isset($array[4]) || isset($array[5]) || isset($array[6])){
+                                    if($array[5] !== 'private'){
+                                        include('new-feed.php');
+                                    } else if($array[1] == $id){
+                                        include('new-feed.php');
+                                    }
                                 }
-                                </script>
-                                <!-- HEART ICON ENDS --> 
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="uil uil-bookmark-full"></i></span>
-                            </div>
-                        </div>
+                                
 
-                        <div class="liked-by">
-                            <span><img src="./images/profile-10.jpg"></span>
-                            <span><img src="./images/profile-4.jpg"></span>
-                            <span><img src="./images/profile-15.jpg"></span>
-                            <p>Liked by <b>Ernest Achiever</b> and <b>2,323 others</b></p>
-                        </div>
-
-                        <div class="caption">
-                            <p><b>Lana Rose</b> Just recieved gifts from my online friends. <span
-                                    class="harsh-tag">#lifestyle</span></p>
-                        </div>
-                        <div class="comments text-muted">View all 277 comments</div>
-                    </div>
+                            }
+                        } 
+                        // If user is not logged in (guest), display all public post in Descending order
+                        else 
+                        {
+                            array_multisort(array_column($publicPost, 6), SORT_DESC, $publicPost);
+                            foreach($publicPost as $array){
+                                include('new-feed.php');
+                            }
+                        }                      
+                    ?>
                     <!---------------- END OF FEED ----------------->
                 </div>
                 <!------------------------------- END OF FEEDS ------------------------------------>
             </div>
             <!--======================== END OF MIDDLE ==========================-->
         </div>
+        <?php
+    // } else {
+    //     print_r($publicPost); 
+    // }
+?>
     </main>
     <?php
         include('support/footer.php');

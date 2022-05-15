@@ -20,10 +20,9 @@ class Post
         // verify the data
         if(!empty($data['post']) || !empty($files['file']['name']))
         {
-            if(!empty($files['file']['name']))
-            {
-                $sel = $data['sel'];
+            $sel = $data['sel'];
 
+            if(!empty($files['file']['name'])){
                 // create folder to store images
                 $folder = "uploads/" . $userid . "/";
 
@@ -37,38 +36,35 @@ class Post
                 $myimage = $folder . $image_class->generate_filename(20) . ".jpg";
 
                 move_uploaded_file($_FILES['file']['tmp_name'],$myimage);  
-
-                $image_class->crop_image($myimage,$myimage,1000,300); 
-            
+            }
                 $newDate = date("d-m-Y H:i:s",time());
 
-                $post = "";
-                if(isset($data['post']))
-                {
-                    $post = addslashes($data['post']);
-                }
-                
-                $postid = $this->create_postid();
-
-                $file_open = fopen("images.csv", "a");
-                $no_rows = count(file("images.csv"));
-                if($no_rows > 1)
-                {
-                    $no_rows = ($no_rows - 1) + 1;
-                }
-
-                $form_data = array(
-                    'sr_no' => $no_rows,
-                    'userid' => $userid,
-                    'postContent' => $post,
-                    'postImage' => $myimage,
-                    'postid' => $postid, 
-                    'sel' => $sel,               
-                    'time_stamp' => $newDate
-                );  
-                fputcsv($file_open, $form_data);
-
+            
+            $post = "";
+            if(isset($data['post']))
+            {
+                $post = addslashes($data['post']);
             }
+            
+            $postid = $this->create_postid();
+
+            $file_open = fopen("images.csv", "a");
+            $no_rows = count(file("images.csv"));
+            if($no_rows > 1)
+            {
+                $no_rows = ($no_rows - 1) + 1;
+            }
+
+            $form_data = array(
+                'sr_no' => $no_rows,
+                'userid' => $userid,
+                'postContent' => $post,
+                'postImage' => $myimage,
+                'postid' => $postid, 
+                'sel' => $sel,               
+                'time_stamp' => $newDate
+            );  
+            fputcsv($file_open, $form_data);
         }
     }
 

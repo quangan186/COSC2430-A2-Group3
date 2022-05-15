@@ -1,11 +1,19 @@
 <?php
     if(isset($_SESSION['userid'])){
+        $id = $_SESSION['userid'];
+        $posterData = $user->get_data($id, 6, 'accounts.csv');
+        foreach($posterData as $poster){
+            if(isset($poster[5])){
         ?>
 <link rel="stylesheet" href="css/createPost.css">
 <form action="process-post.php" method="POST" class="create-post" enctype="multipart/form-data">
     <div class="profile-photo">
-        <img src="images/profile-1.jpg" alt="">
+        <img src="<?php echo $poster[5] ?>" alt="">
     </div>
+    <?php
+            } 
+        }
+    ?>
     <textarea name="post" id="create-post"  placeholder="What's on your mind?" cols="40" rows="5"></textarea>
   <div class="post-create">
   <div class="upload-file-status">

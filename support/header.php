@@ -15,10 +15,23 @@
                 <a href="#" class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
 
-            <div class="login">
-                <a href="../login.php">Login</a>
-            </div>
+            <?php
+                if(!isset($_SESSION['userid'])){
+            ?>
+                <div class="login">
+                    <a href="../login.php">Login</a>
+                </div>
+            <?php
+                } else {
+                    ?>
+                <div class="login">
+                    <a href="../logout.php">Logout</a>
+                </div>
+                    <?php
 
+                }
+            ?>
+           
             <div class="phone-btn">
                 <i class="fa-solid fa-square-plus"></i>
                 <i class="fa-solid fa-bars" onclick="menuButton()"></i>

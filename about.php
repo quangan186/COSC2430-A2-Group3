@@ -61,21 +61,21 @@
 
             <div class="developer">
                 <div class="avatar">
-                    <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
+                    <img src="https://scontent-lax3-2.xx.fbcdn.net/v/t1.15752-9/279957586_531899745199703_5653182610936730219_n.jpg?_nc_cat=111&ccb=1-6&_nc_sid=ae9488&_nc_ohc=QUehA6JLHzkAX__vPoz&_nc_ht=scontent-lax3-2.xx&oh=03_AVJZoN1tiBWgoDLIYp_wyuVD6OQXRmoUFrh90dPTtb9B4A&oe=62A624D4" alt="Uyen's profile">
                 </div>
-
+u
                 <div class="info">
                     <ul>
-                        <h1>Bui Quang An</h1>
-                        <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
-                        <li>IT Sophomore at RMIT University</li>
-                        <li>Hobbies: Listening to music, playing sports, playing guitar</li>
-                        <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
+                        <h1>Duong My Uyen</h1>
+                        <li>sID: s3904418</li>
+                        <li>Hobbies: Listening to music, learning new lanaguages</li>
+                        <li>Role: Tester; Login page and registration page</li>
+                        <p>I'm always afraid that myself is not worthy enough. My skill is somewhat average. For that reason, I'm always trying hard so that at the end I will not regret anything. </p>
                     </ul>
                 </div>
             </div>
         </div>
-        
+
     </main>
 
     <?php include("./support/footer.php") ?>

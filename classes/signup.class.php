@@ -47,24 +47,12 @@ class Signup
             $password_confirm = $data['password_confirm'];
 
             if(isset($files['profile_image']['name']) && $files['profile_image']['name'] != ""){
-<<<<<<< Updated upstream
-                if($files['profile_image']['type'] == "image/jpeg"){
-                    $allowed_size = (1024 * 1024) * 7;
-                    if($files['profile_image']['size'] < $allowed_size && $files['profile_image']['size'] > 1024){
-                        $files = $files;
-                    } else {
-                        $this->error .= "*Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
-                    }
-                } else {
-                    $this->error .= "*Only image of Jpeg type are allowed <br>";
-=======
                 if($files['profile_image']['type'] != 'image/jpeg' && $files['profile_image']['type'] != 'image/gif' && $files['profile_image']['type'] != 'image/png'){
                     $this->error .= "Invalid File Types <br>";
                 }
                 $allowed_size = (1024 * 1024) * 7;
                 if($files['profile_image']['size'] > $allowed_size && $files['profile_image']['size'] < 1024){
                    $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
->>>>>>> Stashed changes
                 }
             } else {
                 $this->error .= "*Error uploading images <br>";
@@ -130,15 +118,8 @@ class Signup
         {
             // no error
            $this->create_user($data, $files);
-<<<<<<< Updated upstream
            $_SESSION['message'] = 'Successfully Registered';
            header('Location: login.php');
-=======
-
-        //    $_SESSION['message'] = 'Successfully Registered';
-        //    sleep(2);
-        //    header('Location: login.php');
->>>>>>> Stashed changes
         }
         else
         {   

@@ -3,10 +3,20 @@
   padding: 200px 0;
 text-align: center;
 }
-.logout button
-{  position: fixed;
-     bottom: 10px;
-     right: 10px;
+.logout input[type="button"]
+{
+ display:none;
+
+}
+.logout a
+{
+  color: white;
+  text-align: center;
+}
+.logout
+{ position: fixed;
+  bottom: 10px;
+  right: 10px;
   background-color: blue; /* Green */
   border: none;
   color: white;
@@ -39,8 +49,7 @@ text-align: center;
   padding:5px;
 }
 
-#profile{
-padding:16px;}
+
 #profile label, #profile input[type="submit"] {
 
  display:block;
@@ -63,12 +72,14 @@ padding:16px;}
   background:#FF0000;
   color:#fff;
   border-style:none;
+  margin-left: 5px;
 
 }
 #profile label
 {
 background:#0000FF;
 color:#fff;
+margin-right: 5px;
 }
 #profile input[type="file"] {
  margin-left: 5px;
@@ -80,20 +91,13 @@ color:#fff;
          }
 #profile
 {
+  padding:16px;
   display: flex;
   justify-content: space-evenly;
   margin: auto;
 }
 
-#profile label
-{
-  margin-right: 5px;
-}
 
-#profile input[type="submit"]
-{
-  margin-left: 5px;
-}
 #image-status
 {
   text-align: center;

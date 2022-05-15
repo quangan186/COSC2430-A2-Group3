@@ -36,12 +36,11 @@
 <!-- <a href="index.php">Homepage</a>
 <a href="logout.php">Logout</a> -->
 
-
+  <div class="logout">
+<a href="logout.php"><input type="button" value="Log out">Log Out</a>
+  </div>
 
 <div class="display">
-  <div class="logout">
-  <button href="logout.php">Log out</button>
-  </div>
 
     <!-- Display Information -->
       <?php

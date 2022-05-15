@@ -17,7 +17,7 @@ class Post
     
     public function create_post($userid, $data, $files)
     {     
-        if(isset($files['file']['name']) && $files['file']['name'] != "" && empty($data['post'])){
+        if(isset($files['file']['name']) && $files['file']['name'] != "" || empty($data['post'])){
             if($files['file']['type'] != 'image/jpeg' && $files['file']['type'] != 'image/gif' && $files['file']['type'] != 'image/png'){
                 $this->error .= "Invalid File Types";
             }

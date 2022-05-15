@@ -18,7 +18,7 @@ $posterData = $user->get_data($array[1], 6, 'accounts.csv');
             <h3>
                 <!-- User Firstname and Last name -->
                <?php
-                            echo $poster[1] . ' ' . $poster[2] . '<br>';
+                    echo $poster[1] . ' ' . $poster[2] . '<br>';
                     }
                 }
                 ?>

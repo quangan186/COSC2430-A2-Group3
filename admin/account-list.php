@@ -2,7 +2,7 @@
     include_once("../admin/search-validation.php");
     // print_r_with_lines(create_view_button(sort_row()));
     // print_r_with_lines(display_users_list(sort_row()));
-    print_r_with_lines(get_data_without_null());
+    // print_r_with_lines(get_data_without_null());
 
 ?>
 <!DOCTYPE html>

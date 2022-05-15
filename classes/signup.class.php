@@ -237,7 +237,7 @@ class Signup
             }
 
             $form_data = array(
-                'sr_no' => $no_rows,
+                'sr_no' => "u" . $no_rows,
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'email' => $email,

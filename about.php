@@ -45,16 +45,16 @@
 
             <div class="developer">
                 <div class="avatar">
-                    <img src="https://w0.peakpx.com/wallpaper/666/961/HD-wallpaper-anime-jujutsu-kaisen-satoru-gojo.jpg" alt="An's ava">
+                    <img src="images/feed-1.jpg" alt="profile">
                 </div>
 
                 <div class="info">
                     <ul>
-                        <h1>Bui Quang An</h1>
-                        <li>Graduated from Nguyen Thi Minh Khai High school in HCMC</li>
-                        <li>IT Sophomore at RMIT University</li>
-                        <li>Hobbies: Listening to music, playing sports, playing guitar</li>
-                        <p>"Honestly, I'm a funny, talkative and responsible person. In the future, I would like to become a web and game developer"</p>
+                        <h1>Loan Nguyen Chau</h1>
+                        <li>sid: s3880115</li>
+                        <li>Hobbies: Sport Activities and Reading</li>
+                        <li>Interested in Web Development</li>
+                        <li>Role: Backend Developer</li>
                     </ul>
                 </div>
             </div>

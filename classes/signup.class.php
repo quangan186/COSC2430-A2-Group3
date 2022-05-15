@@ -42,11 +42,19 @@ class Signup
             foreach ($data as $key => $value)
             {
                 // First name and last name is any value between 2 to 20 characters
-                if($key == "firstname" || $key == "lastname")
+                if($key == "firstname")
                 {
                     if(strlen($value) < 2 || strlen($value) > 20)
                     {
-                        $this->error .= "You name must have between 2 and 20 characters <br>";
+                        $this->error .= "You first name must have between 2 and 20 characters <br>";
+                    }
+                }
+                
+                if($key == "lastname")
+                {
+                    if(strlen($value) < 2 || strlen($value) > 20)
+                    {
+                        $this->error .= "You last name must have between 2 and 20 characters <br>";
                     }
                 }
 
@@ -93,7 +101,7 @@ class Signup
            $this->create_user($data);
            $_SESSION['message'] = 'Successfully Registered';
            sleep(2);
-           header('Location: loginandregister.php');
+           header('Location: login.php');
         }
         else
         {   

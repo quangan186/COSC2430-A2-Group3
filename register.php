@@ -44,58 +44,60 @@
                 <label for="photo">Upload Image</label><br>
                 <input name="profile_image" type="file" id="photo" accept="image/*" onchange="showPreview(event);">
             </div>
+
             <div class="name-info">
-            <div class="first-name">
-                <label for="fname">First name:</label>
-                <span id="invalid-first-name"></span>
-                <input type="text" name="firstname" id="fname" onkeyup="validateFirstName()">
+                <div class="first-name">
+                    <label for="fname">First name:</label>
+                    <span id="invalid-first-name"></span>
+                    <input type="text" name="firstname" id="fname" onkeyup="validateFirstName()" placeholder="E.g: An">
+                </div>
+
+                <div class="last-name">
+                    <label for="lname">Last name:</label>
+                    <span id="invalid-last-name"></span>
+                    <input type="text" name="lastname" id="lname" onkeyup="validateLastName()" placeholder="E.g: Bui">
+                </div>
             </div>
 
-            <div class="last-name">
-                <label for="lname">Last name:</label>
-                <span id="invalid-last-name"></span>
-                <input type="text" name="lastname" id="lname" onkeyup="validateLastName()">
-            </div>
-          </div>
             <div class="email">
                 <label for="email">Email:</label>
                 <span id="invalid-email"></span>
-                <input type="email" name="email" id="email" placeholder="Enter your email" onkeyup="validateEmail()">
+                <input type="email" name="email" id="email" placeholder="E.g: example@gmail.com" onkeyup="validateEmail()">
             </div>
 
             <div class="password">
                 <label for="password">Password:</label>
                 <span id="invalid-password"></span>
-                <input type="password" name="password" id="password" placeholder="Enter your password" onkeyup="validatePassword()">
+                <input type="password" name="password" id="password" placeholder="E.g: Hello123" onkeyup="validatePassword()">
             </div>
 
             <div class="retype-password">
                 <label for="retype-password">Retype password:</label>
                 <span id="invalid-retype-password"></span>
-                <input type="password" name="password_confirm" id="retype-password" placeholder="Enter your password" onkeyup="validateRetypePassword()">
+                <input type="password" name="password_confirm" id="retype-password" placeholder="Confirm password" onkeyup="validateRetypePassword()">
             </div>
-             <span id="invalid-form">
+
+            <span id="invalid-form">
                <?php
-               if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
-                   echo $_SESSION['message'];
-               } else{
-                   unset($_SESSION['message']);
-               }
+                if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                } else{
+                    unset($_SESSION['message']);
+                }
                ?>
-             </span>
+            </span>
+
             <div class="form-button">
                 <button class="clear-button" type="reset">Clear</button>
                 <button class="register-button" type="submit">Register</button>
             </div>
-            <!-- <span id="invalid-form">
-             </span> -->
         </main>
 
         <footer class="form-footer">
-            <p>Already have an account? <a href="./loginandregister.php">Sign in </a></p>
+            <p>Already have an account? <a href="./login.php">Sign in </a></p>
         </footer>
     </form>
-
 
     <script src="./js/RegisterValidation.js"></script>
 </body>

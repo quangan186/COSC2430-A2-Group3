@@ -16,7 +16,7 @@
             </div>
 
             <div class="login">
-                <a href="loginandregister.php">Login</a>
+                <a href="../login.php">Login</a>
             </div>
 
             <div class="phone-btn">
@@ -40,7 +40,7 @@
 
                     <li class="manage"><a href="#">System management</a></li>
 
-                    <li><a href="loginandregister.php">Log in</a></li>
+                    <li><a href="../login.php">Log in</a></li>
 
                     <li><a href="register.php">Sign up</a></li>
                 </ul>

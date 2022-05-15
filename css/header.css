@@ -105,8 +105,12 @@ body{
         cursor: pointer;
     }
 
-    .search-bar .submit-btn .search-btn i {
+    .search-bar .search-btn a {
+        text-decoration: none;
+    }
+    .search-bar .search-btn i {
         font-size: 16px;
+        color: black;
     }
 
     #search-info{
@@ -198,7 +202,7 @@ body{
         cursor: pointer;
     }
 
-    .search-bar .submit-btn .search-btn i {
+    .search-bar .search-btn i {
         font-size: 16px;
         color: black;
     }
@@ -428,7 +432,7 @@ body{
         cursor: pointer;
     }
 
-    .search-bar .submit-btn .search-btn i {
+    .search-bar .search-btn i {
         font-size: 16px;
         color: black;
     }

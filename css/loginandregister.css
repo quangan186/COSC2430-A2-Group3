@@ -1,95 +1,118 @@
-
-body {font-family: "Poppins", sans-serif;
-    background: hwb(252deg 93% 3%);}
-
-.inputbox label{
-	font-weight: bold;
-}
-.inputbox {
- margin: 0 auto;
-  width: 300px;
-  padding: 10px;
-
-}
-
-.logo h1
-{margin: 100px 0px 0px 5px;
-font-family: 'Slackey', cursive;
-font-size: 40px;
-font-style: normal;
-font-variant: normal;
-font-weight: 100;
-line-height: 53.9px;text-align:
-center;background: -webkit-linear-gradient(#FF0000, #0000FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-padding: 10px;}
-
-.inputbox1 {
-margin: 0 auto;
-width: 400px;
-padding: 16px;
-
-}
-
-.inputbox {
-  font-family: 'Poppins', sans-serif;
-	margin: 0 auto;
-  width: 300px;
-  padding: 10px;
-  color: black;
-  border-radius: 50px;
-
-}
-
-
-.inputbox1 {
-  display:block;}
-
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid black;
+*{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-	border-radius: 50px;
-
 }
 
-.loginbtn {
-  background-color: #0000FF;
-  border-radius: 12px;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 15px ;
-	font-family: "Poppins", sans-serif;
-	border-radius: 50px;
-}
-
-.loginbtn:hover {
-  opacity: 0.8;
-}
-
-.regisbtn {
-  background-color: #FF0000;
-  border-radius: 12px;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+body {
   font-family: "Poppins", sans-serif;
-  font-size: 15px ;
-	border-radius: 50px;
+  background: #f0eef6;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-.regisbtn:hover {
-  opacity: 0.8;
+.login-page{
+  width: 40%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 0 10px 10px #e6e7e8;
 }
+
+.logo{
+  margin: 20px;
+  font-size: 16px;
+  
+}
+
+.logo h1{
+  text-align: center;
+  font-family: 'Slackey', cursive;
+  background: -webkit-linear-gradient(#FF0000, #0000FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+  padding: 10px 0;
+  border-bottom: 1px solid silver;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.form-content{
+  margin: 20px;
+}
+
+.form-content .username{
+  width: 100%;
+}
+
+.submit-btn{
+  border-bottom: 1px solid silver;
+}
+.submit-btn .login-btn{
+  width: 100%;
+  height: 50px;
+  margin: 20px 0px;
+  cursor: pointer;
+  background-color: #153577;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.footer{
+  margin: 20px;
+}
+
+.footer .register-btn{
+  margin: 20px 0;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.footer a{
+  color: #153577;
+} 
+
+.text-field {
+   position: relative;
+}
+
+.text-field label {
+   display: inline-block;
+   font-weight: 600;
+   cursor: pointer;
+   position: absolute;
+   top: 0;
+   left: 10px;
+   background-color: #fff;
+   padding: 1px 5px;
+   font-size: 12px;
+   transform: translateY(-50%);
+   color: black;
+}
+
+.text-field input {
+   display: block;
+   width: 100%;
+   font-size: 14px;
+   border: 1px solid silver;
+   border-radius: 4px;
+   background-color: transparent;
+   color: black;
+    width: 100%;
+    height: 40px;
+    margin: 40px 0px;
+    padding: 25px 15px;
+  }

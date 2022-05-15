@@ -31,36 +31,14 @@
         <div class="user-info">
             <ul>
                 <?php
-                if (isset($_GET['result']) && !empty($_GET['result'])){
-                    unset($_GET['result']);
-                    $data_list = $_GET['result'];
+                    $id = $_GET['id'];
+                    $data_list = get_data_without_null();
                     for ($i = 0; $i < count($data_list); $i++){
-                        if (isset($_GET["button_" . $i])){
-                            // print_r_with_lines($data_list);
-                            echo $data_list[$i][1];
-                            unset($_GET["button_" . $i]);
+                        if (in_array($id,$data_list[$i])){
+                            print_r($data_list[$i]);
                         }
-                    } 
-                } else{
-                    // display_pagination_data(sort_row());
-                    if (empty($_GET["search_info"])){
-                        unset($_GET["search_info"]);
-                        $data_list = sort_row();
-                        for ($i = 0; $i < count($data_list); $i++){
-                            if (isset($_GET["button_" . $i])){
-                                echo $data_list[$i][1];
-                                unset($_GET["button_" . $i]);
-                            }
-                        }
-                    }    
-                }
-                    // echo "<li>".$_GET['name']."</li>";
-                    // echo "<li>".$_GET['email']."</li>";
-                    // echo "<li>".$_GET['registration_date']."</li>";           
+                    }         
                 ?>
-                <!-- <li>Name: An Bui</li>
-                <li>Email: quangan186@gmail.com</li>
-                <li>Registration date: 12/05/2022</li> -->
             </ul>
             <form action="" method="GET">
                 <td name=''></td>

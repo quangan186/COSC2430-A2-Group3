@@ -14,10 +14,8 @@
 
         if($valid_user){
             $_SESSION['userid'] = $valid_user;
-            sleep(2);
             header('Location: index.php');
         } else {
-            sleep(2);
             header('Location: login.php');
             $_SESSION['message'] = "Invalid Username or Password";    
         }

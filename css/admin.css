@@ -2,6 +2,7 @@
     .main-container{
         display: flex;
         height: 100vh;
+        top: 100px;
     }
     .main-container .board-container{
         width: 100%;

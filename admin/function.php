@@ -16,24 +16,35 @@
         return $array_full_data;
     }
 
-    function display_users_list($data){ 
-        $data_list = create_view_button($data);
-        foreach ($data_list as $key => $value){
+    function get_data_without_null(){
+        $result = [];
+        $data_list = get_data_from_csv("../accounts.csv");
+        for ($i = 0; $i < count($data_list) - 1; $i++){
+            array_push($result, $data_list[$i]);
+        } 
+        return $result;
+    }
 
+    function display_users_list($data_list){ 
+        for ($i = 0; $i < count($data_list); $i++){
             echo "<tr class= 'data'>";
-            echo "<td>" . $value[0] . "</td>";
-            echo "<td>" . $value[1] . " " . $value[2] . "</td>";
-            echo "<td>" . $value[3] . "</td>";
-            echo "<td>" . $value[8] . " " . $value[9] . "</td>";
-            echo "<td>" . "<form method= 'GET' action = '../admin/user-information.php'>" . "<button class='view-user-information' type = 'submit' name = '$key' >View</button>" . "</form>" . "</td>";
+            echo "<td>" . $data_list[$i][0] . "</td>";
+            echo "<td>" . $data_list[$i][1] . " " . $data_list[$i][2] . "</td>";
+            echo "<td>" . $data_list[$i][3] . "</td>";
+            echo "<td>" . $data_list[$i][8] . " " . $data_list[$i][9] . "</td>";
+            // echo "<td>" . "<form method= 'POST' action = '../admin/user-information.php?id='". $data_list[$i][0] .">" . "<button class='view-user-information' type = 'submit' name = 'button' >View</button>" . "</form>" . "</td>";
+            echo  "<td><a href= '../admin/user-information.php?id=". $data_list[$i][0] ."'>View</a></td>";
             echo "</tr>"; 
-
         }
 
     }
 
+    function get_data_in_list($button){
+        echo $button;
+    }
+
     function sort_row(){
-        $reversed_array = array_reverse(get_data_from_csv("../accounts.csv"));
+        $reversed_array = array_reverse(get_data_without_null());
         return $reversed_array;
     }
 
@@ -72,20 +83,12 @@
     function search_user($find_element){
         $find_result = [];
         $data_list = sort_row();
-        foreach ($data_list as $user){
-            if (str_contains(strtolower($user[1]), strtolower(trim($find_element)) ) || str_contains(strtolower($user[2]), strtolower(trim($find_element)) ) || str_contains(strtolower($user[3]), strtolower(trim($find_element)))){
-                array_push($find_result, $user);
+        for ($i = 0; $i < count($data_list); $i++){
+            if (str_contains(strtolower($data_list[$i][1]), strtolower(trim($find_element)) ) || str_contains(strtolower($data_list[$i][2]), strtolower(trim($find_element)) ) || str_contains(strtolower($data_list[$i][3]), strtolower(trim($find_element)))){
+                array_push($find_result, $data_list[$i]);
             }
         }
         return $find_result;
-    }
-
-    function create_view_button($data_list){
-        for ($i = 0; $i < count($data_list); $i++){
-            $data_list["button_" . $i] = $data_list[$i];
-            unset($data_list[$i]);
-        }
-        return $data_list;
     }
 
     function print_r_with_lines($arr) {

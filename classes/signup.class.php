@@ -52,13 +52,13 @@ class Signup
                     if($files['profile_image']['size'] < $allowed_size && $files['profile_image']['size'] > 1024){
                         $files = $files;
                     } else {
-                        $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
+                        $this->error .= "*Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
                     }
                 } else {
-                    $this->error .= "Only image of Jpeg type are allowed <br>";
+                    $this->error .= "*Only image of Jpeg type are allowed <br>";
                 }
             } else {
-                $this->error .= "Error uploading images <br>";
+                $this->error .= "*Error uploading images <br>";
             }
 
             foreach ($data as $key => $value)
@@ -68,7 +68,7 @@ class Signup
                 {
                     if(strlen($value) < 2 || strlen($value) > 20)
                     {
-                        $this->error .= "You first name must have between 2 and 20 characters <br>";
+                        $this->error .= "*You first name must have between 2 and 20 characters <br>";
                     }
                 }
                 
@@ -76,7 +76,7 @@ class Signup
                 {
                     if(strlen($value) < 2 || strlen($value) > 20)
                     {
-                        $this->error .= "You last name must have between 2 and 20 characters <br>";
+                        $this->error .= "*You last name must have between 2 and 20 characters <br>";
                     }
                 }
 
@@ -84,7 +84,7 @@ class Signup
                 if($key == "email")
                 {
                     if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                        $this->error .= "Invalid email format <br>";
+                        $this->error .= "*Invalid email format <br>";
                     }
                     else {
                         // Check email duplication
@@ -92,7 +92,7 @@ class Signup
                         $db = 'accounts.csv';
 
                         if($this->check_existence($value, $index, $db)){
-                            $this->error .= "Email has already registered <br>";
+                            $this->error .= "*Email has already registered <br>";
                         }
                     }
                 }
@@ -107,13 +107,13 @@ class Signup
                     $number    = preg_match('@[0-9]@', $value);
 
                     if(!$uppercase || !$lowercase || !$number || strlen($value) < 8 || strlen($value) > 20) {
-                        $this->error .= 'Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.<br>';
+                        $this->error .= '*Password should be between 8 and 20 characters in length and should include at least one upper case letter, one lower case letter and one number.<br>';
                     }
                 }
             }
 
             if($password !== $password_confirm){
-                $this->error .= 'Your confirm password must match your password <br>';
+                $this->error .= '*Your confirm password must match your password <br>';
             }
         } 
 
@@ -122,7 +122,6 @@ class Signup
             // no error
            $this->create_user($data, $files);
            $_SESSION['message'] = 'Successfully Registered';
-           sleep(2);
            header('Location: login.php');
         }
         else
@@ -239,7 +238,7 @@ class Signup
                 'time' => $newTime,
             );
             $registration = implode(",", $form_data);
-            fwrite($file_open, "\n{$registration}");
+            fwrite($file_open, "{$registration}\n");
         }
     }
 

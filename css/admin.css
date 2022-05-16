@@ -76,9 +76,21 @@
         border-right: none;
     }
 
-    /* .accounts th:nth-child(4){
-        border-right: 1px solid black;
-    } */
+    .accounts td a, .posts td a{
+        display: inline-flex;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        background-color: #153577;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .accounts td a:active{
+        opacity: 0.7;
+    }
 
     .posts th:nth-child(even){
         width: 100%;
@@ -250,6 +262,23 @@
         width: 100%;
         border-top: 1px solid black;
         border-bottom: 1px solid black;
+    }
+
+    .accounts td a, .posts td a{
+        display: inline-flex;
+        width: 100px;
+        height: 50px;
+        margin: 0 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: #153577;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .accounts td a:active{
+        opacity: 0.7;
     }
 
     .posts th:nth-child(even){
@@ -457,14 +486,21 @@
         border-right: none;
     }
 
-    /* .accounts th:nth-child(4){
-        border-right: 1px solid black;
-    } */
+    .accounts td a, .posts td a{
+        display: inline-flex;
+        width: 100px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        background-color: #153577;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+    }
 
-    /* .accounts td:nth-child(4){
-        border-right: 1px solid black;
-    } */
-
+    .accounts td a:active{
+        opacity: 0.7;
+    }
     
     .page-bar{
         display: flex;

@@ -63,7 +63,7 @@
                 <div class="avatar">
                     <img src="https://scontent-lax3-2.xx.fbcdn.net/v/t1.15752-9/279957586_531899745199703_5653182610936730219_n.jpg?_nc_cat=111&ccb=1-6&_nc_sid=ae9488&_nc_ohc=QUehA6JLHzkAX__vPoz&_nc_ht=scontent-lax3-2.xx&oh=03_AVJZoN1tiBWgoDLIYp_wyuVD6OQXRmoUFrh90dPTtb9B4A&oe=62A624D4" alt="Uyen's profile">
                 </div>
-u
+
                 <div class="info">
                     <ul>
                         <h1>Duong My Uyen</h1>

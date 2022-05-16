@@ -1,3 +1,9 @@
+body{
+    background-color: #f0eef6;
+}
+table{
+    background-color: white;
+}
 @media only screen and (min-width: 1024px){
     .main-container{
         display: flex;

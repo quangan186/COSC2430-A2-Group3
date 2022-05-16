@@ -8,6 +8,8 @@ body{
     font-family: 'Poppins', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
+    background: #f0eef6;
+
 }
 
 @media only screen and (min-width: 1024px){
@@ -33,6 +35,10 @@ body{
         font-size: 16px;
         width: 100%;
         padding: 0 10px;
+    }
+
+    .copyright-privacy h3:last-child{
+        width: 60%;
     }
 
     .copyright-privacy h3:last-child{
@@ -67,7 +73,11 @@ body{
         padding: 10px;
         line-height: 50px;
         text-align: justify;
-        width: 100%;
+        width: 90%;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #e6e7e8;
+
     }
     .content .edit-button{
         width: 100%;
@@ -88,6 +98,9 @@ body{
     }
     .content .edit-button button:active{
         opacity: 0.5;
+    }
+    ul{
+        list-style: none;
     }
 }
 
@@ -119,6 +132,7 @@ body{
 
     .copyright-privacy h3:last-child{
         text-align: right;
+        width: 60%;
     }
 
     .copyright-privacy ul{
@@ -149,11 +163,20 @@ body{
     .copyright-privacy ul li a i {
         font-size: 12px;
     }
+
+    .copyright-privacy ul li a i:hover {
+        color: red;
+        transition: all 0.5s ease;
+    }
     .content{
-        margin: 60px auto 20px auto;
+        margin: 100px auto;
         padding: 10px;
         line-height: 50px;
         text-align: justify;
+        width: 90%;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #e6e7e8;
     }
     .content .edit-button{
         width: 100%;
@@ -174,6 +197,9 @@ body{
     }
     .content .edit-button button:active{
         opacity: 0.5;
+    }
+    ul{
+        list-style: none;
     }
 }
 
@@ -205,6 +231,7 @@ body{
 
     .copyright-privacy h3:last-child{
         text-align: right;
+        width: 60%;
     }
 
     .copyright-privacy ul{
@@ -239,11 +266,14 @@ body{
         color: red;
     }
     .content{
-        margin: 60px auto 20px auto;
+        margin: 150px auto;
         padding: 10px;
         line-height: 50px;
         text-align: justify;
-        width: 100%;
+        width: 90%;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #e6e7e8;
     }
     .content .edit-button{
         width: 100%;
@@ -264,5 +294,8 @@ body{
     }
     .content .edit-button button:active{
         opacity: 0.5;
+    } 
+    ul{
+        list-style: none;
     }
 }

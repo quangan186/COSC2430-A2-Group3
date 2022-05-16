@@ -16,8 +16,6 @@ class Image
     
     public function crop_image($original_file_name, $cropped_file_name, $max_width, $max_height)
     {
-            // $original_image = imagecreatefromjpeg($original_file_name);
-            
             $original_image = $original_file_name;
 
             $original_width = imagesx($original_image);

@@ -209,22 +209,21 @@ class Signup
 
             move_uploaded_file($_FILES['profile_image']['tmp_name'],$myimage);  
 
-            
+        
+            switch ($files['profile_image']['type'])
+            {
+                case 'image/jpeg':
+                    $image = imagecreatefromjpeg($myimage);
+                break;
+                case 'image/gif':
+                    $image = imagecreatefromgif($myimage);
+                break;
+                case 'image/png':
+                    $image = imagecreatefrompng($myimage);
+                break;
+            }        
 
-            // switch ($files['profile_image']['type'])
-            // {
-            //     case 'image/jpeg':
-            //         $image = imagecreatefromjpeg($myimage);
-            //     break;
-            //     case 'image/gif':
-            //         $image = imagecreatefromgif($myimage);
-            //     break;
-            //     case 'image/png':
-            //         $image = imagecreatefrompng($myimage);
-            //     break;
-            // }        
-
-            // $image_class->crop_image($image,$myimage,150,150); 
+            $image_class->crop_image($image,$myimage,150,150); 
 
             // Hash Password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);

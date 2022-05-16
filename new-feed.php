@@ -10,7 +10,7 @@ $posterData = $user->get_data($array[1], 6, 'accounts.csv');
         <div class="profile-photo">
         <?php 
             foreach($posterData as $poster){
-                if(isset($poster[1]) || isset($poster[2]) || isset($poster[5])){
+                if(isset($poster[1]) && isset($poster[2]) && isset($poster[5])){
                     ?>
                 <img src="<?php echo $poster[5]; ?>">
         </div>
@@ -34,7 +34,13 @@ $posterData = $user->get_data($array[1], 6, 'accounts.csv');
     </span>
 </div>
 <div class="photo">
+    <?php
+        if(!empty($array[3])){
+    ?>
         <img src="<?php echo $array[3] ?>">
+    <?php
+        }
+    ?>
 </div>
 <div class="caption">
     <p><b>

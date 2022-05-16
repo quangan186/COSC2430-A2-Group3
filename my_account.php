@@ -7,10 +7,10 @@
         header('location:login.php');
     }
 
-    $userid = $_SESSION['userid'];
+    $id = $_SESSION['userid'];
     $user = new Signup();
 
-    $userData = $user->get_data($userid, 6, 'accounts.csv');    
+    $userData = $user->get_data($id, 6, 'accounts.csv');    
 
     // if($_SERVER['REQUEST_METHOD'] == 'POST')
     // {
@@ -19,7 +19,7 @@
     //   print_r($col_filter);
     // }
 ?>
-
+ <?php include ('support/header.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

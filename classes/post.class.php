@@ -37,42 +37,52 @@ class Post
         } 
 
         if($this->error == ""){
-            if(!empty($data['post']) || !empty($files['file']['name']))
-            {
-                $sel = $data['sel'];
-
-                // create folder to store images
-                $folder = "uploads/" . $userid . "/";
-
-                if(!file_exists($folder))
-                {
-                    mkdir($folder, 0777, true);
-                }
-
-                $image_class = new Image();
-
-                $myimage = $folder . $image_class->generate_filename(20) . ".jpg";
-
-                move_uploaded_file($_FILES['file']['tmp_name'],$myimage);  
             
-                $newDate = date("d-m-Y H:i:s",time());
-                
-                $post = "";
-                
-                if(isset($data['post']))
-                {
-                    $post = addslashes($data['post']);
-                }
-                
-                $postid = $this->create_postid();
+            $sel = $data['sel'];
 
-                $file_open = fopen("images.csv", "a");
-                $no_rows = count(file("images.csv"));
-                if($no_rows > 1)
-                {
-                    $no_rows = ($no_rows - 1) + 1;
-                }
+            // create folder to store images
+            $folder = "uploads/" . $userid . "/";
 
+            if(!file_exists($folder))
+            {
+                mkdir($folder, 0777, true);
+            }
+
+            $image_class = new Image();
+
+            $myimage = $folder . $image_class->generate_filename(20) . ".jpg";
+
+            move_uploaded_file($_FILES['file']['tmp_name'],$myimage);  
+        
+            $newDate = date("d-m-Y H:i:s",time());
+            
+            $post = "";
+            
+            if(isset($data['post']))
+            {
+                $post = addslashes($data['post']);
+            }
+            
+            $postid = $this->create_postid();
+
+            $file_open = fopen("images.csv", "a");
+            $no_rows = count(file("images.csv"));
+            if($no_rows > 1)
+            {
+                $no_rows = ($no_rows - 1) + 1;
+            }
+
+            if(empty($file['file']['name'])){
+                $form_data = array(
+                    'sr_no' => $no_rows,
+                    'userid' => $userid,
+                    'postContent' => $post,
+                    'postImage' => '',
+                    'postid' => $postid, 
+                    'sel' => $sel,               
+                    'time_stamp' => $newDate
+                );
+            } else {
                 $form_data = array(
                     'sr_no' => $no_rows,
                     'userid' => $userid,
@@ -81,9 +91,10 @@ class Post
                     'postid' => $postid, 
                     'sel' => $sel,               
                     'time_stamp' => $newDate
-                );  
-                fputcsv($file_open, $form_data);
+                ); 
             }
+             
+            fputcsv($file_open, $form_data);
         } else {
             return $this->error;
         }

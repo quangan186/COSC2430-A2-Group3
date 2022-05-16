@@ -21,12 +21,16 @@ class Post
             if(empty($files['file']['name'])){
                 $this->error .= 'You have not input anything';
             } else {
-                if($files['file']['type'] != 'image/jpeg' && $files['file']['type'] != 'image/gif' && $files['file']['type'] != 'image/png'){
-                    $this->error .= "Invalid File Types";
-                }
-                $allowed_size = (1024 * 1024) * 7;
-                if($files['file']['size'] > $allowed_size && $files['file']['size'] < 1024){
-                    $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
+                if($files['file']['error'] !== 0){
+                    $this->error .= "Cannot share this image";
+                } else {
+                    if($files['file']['type'] != 'image/jpeg' && $files['file']['type'] != 'image/gif' && $files['file']['type'] != 'image/png'){
+                        $this->error .= "Invalid File Types";
+                    }
+                    $allowed_size = (1024 * 1024) * 7;
+                    if($files['file']['size'] > $allowed_size && $files['file']['size'] < 1024){
+                        $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
+                    }
                 }
             }
         } 

@@ -126,4 +126,83 @@ class Image
         imagejpeg($new_cropped_image, $cropped_file_name, 90);
         imagedestroy($new_cropped_image);
     }
+
+    private $error = "";
+    
+    public function insert_image($files, $db){
+        $id = $_SESSION['userid'];
+        // Insert data vao csv file
+        
+            if(empty($files['file']['name'])){
+                $this->error .= 'You have not input anything';
+            } else {
+                if($files['file']['error'] !== 0){
+                    $this->error .= "Cannot this upload image";
+                } else {
+                    if($files['file']['type'] != 'image/jpeg' && $files['file']['type'] != 'image/gif' && $files['file']['type'] != 'image/png'){
+                        $this->error .= "Invalid File Types";
+                    }
+                    $allowed_size = (1024 * 1024) * 7;
+                    if($files['file']['size'] > $allowed_size && $files['file']['size'] < 1024){
+                        $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
+                    }
+                }
+            }
+
+
+        if($this->error == ""){
+            if(!empty($files['file']['name'])){
+                // Import update data into image-update.csv
+                $folder = "uploads/" . $id . "/";
+        
+                if(!file_exists($folder))
+                {
+                    mkdir($folder, 0777, true);
+                }
+        
+                $image_class = new Image();
+        
+                $endType = "";
+                switch ($files['file']['type'])
+                {
+                    case 'image/jpeg':
+                        $endType = ".jpg";
+                    break;
+                    case 'image/gif':
+                        $endType = ".gif";
+                    break;
+                    case 'image/png':
+                        $endType = ".png";
+                        break;
+                }     
+
+                $myimage = $folder . $image_class->generate_filename(20) . $endType;
+        
+                move_uploaded_file($files['file']['tmp_name'],$myimage);  
+            
+                $newDate = date("d-m-Y H:i:s",time());
+                                
+                $updateid = $this->generate_filename(20);
+        
+                $file_open = fopen($db, "a");
+                $no_rows = count(file($db));
+                if($no_rows > 1)
+                {
+                    $no_rows = ($no_rows - 1) + 1;
+                }
+        
+                $form_data = array(
+                    'sr_no' => $no_rows,
+                    'id' => $id,
+                    'imagepath' => $myimage,
+                    'updateid' => $updateid, 
+                    'time_stamp' => $newDate
+                );  
+                fputcsv($file_open, $form_data);                                                                                                                   
+                } 
+            } else {
+                return $this->error;
+            }
+        }
+        
 }

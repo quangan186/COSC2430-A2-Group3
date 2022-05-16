@@ -192,7 +192,7 @@ class Signup
             $newDate = date("d-m-Y",time());
             $newTime = date("H:i:s",time());
             // create by PHP
-            $userid = $this->create_userid();
+            $userid = $this->create_id();
             $url_address = strtolower($firstname) . "." . strtolower($lastname) . "." . $userid;
 
             // create folder to store images
@@ -254,7 +254,7 @@ class Signup
     }
 
 // Create user id
-    private function create_userid(){
+    public function create_id(){
             // generate random number
             $length = rand(4,19);
             $number = "";

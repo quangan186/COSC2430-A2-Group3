@@ -22,13 +22,18 @@
                     </div>
                 </form>
             </div>
-
-            <div class="login">
-                <a href="#">Login</a>
-            </div>     
-
+            
+            <?php
+                if (!isset($_SESSION['invalid_account'])){
+            ?>      
+                <div class="login">
+                    <a href="#">Admin</a>
+                </div>   
+            <?php   
+            }
+            ?>
+            
             <div class="phone-btn">
-                <i class="fa-solid fa-square-plus"></i>
                 <i class="fa-solid fa-bars" onclick="adminMenuButton()"></i>  
             </div>
         </nav>

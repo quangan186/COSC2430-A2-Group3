@@ -1,5 +1,7 @@
 <?php
     include("../admin/function.php");
+    $posts_list = get_data_without_null("../images.csv");
+    $users_list = get_data_without_null("../accounts.csv");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,240 +25,47 @@
     <?php include("../support/admin-header.php") ?>
     <main class="main-container">
         <?php include("../support/admin-sidebar-menu-postslis.php") ?>
-        <div class="table-container">
-            <table class="posts">
-                <tr class="title">
-                    <th>User ID</th>
-                    <th>Post ID</th>
-                    <th>Type</th>
-                    <th>Registration date</th>
-                    <th></th>
-                </tr>
-
-                <?php
-                     display_pagination_data(sort_row("../images.csv"));
-                ?>
-
-                <!-- <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
+        <?php foreach ($posts_list as $post){
+        ?>
+            <div class="post">
+                <div class="user">
+                    <?php 
+                        foreach ($users_list as $user){
+                            if($user[6] == $post[1]){
+                                echo "<h1>".$user[1]. " ". $user[2] ."</h1>";
+                                break;
+                            }
+                        }
+                    ?>
+                </div>
                 
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
+                <div class="image">
+                    <?php
+                        if (!empty($post[3])){
+                    ?>  
+                        <img src="<?= "../" . $post[3] ?>" alt="image">      
+                    <?php   
+                    } 
+                    ?>
+                    
+                </div>
 
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
+                <div class="status">
+                    <?php
+                        if (!empty($post[2])){
+                    ?>  
+                    <?= "<p>". $post[2] ."</p>";?>          
+                    <?php   
+                    } 
+                    ?>
+                </div>
 
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr>
-
-                <tr class="data">
-                    <td>U123456</td>
-                    <td>P123456</td>
-                    <td>public</td>
-                    <td>4/25/2022</td>
-                    <td></td>
-                </tr> -->
-            </table>
+                <div class="delete-button">
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+    
+        <?php } ?>
         </div>
         
     </main>

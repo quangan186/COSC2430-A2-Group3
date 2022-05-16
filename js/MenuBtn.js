@@ -34,3 +34,11 @@ const AccountList = () =>{
 const PostList = () =>{
     window.location.href = "../admin/posts-list.php";
 }
+
+const EditPassword = () => {
+    document.querySelector(".edit-password").style.display = "block";
+}
+
+const CancelEdit = () => {
+    document.querySelector(".edit-password").style.display = "none";
+}

@@ -111,5 +111,15 @@
             echo '</pre>';
     }
 
-    
+    function validate_password($password, $hashed_password){
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number    = preg_match('@[0-9]@', $password);
+        if (strlen($password) >= 8 && strlen($password) <= 20 && $uppercase && $lowercase && $number && !password_verify($password, $hashed_password)){
+            return true;
+        } else{
+           return false; 
+        }
+        
+    }
 ?>

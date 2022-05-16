@@ -14,13 +14,21 @@
         }
         
     } 
-    if (isset($_POST['reset_password'])){
-        for ($i = 0; $i < count($data_list); $i++){
-            if (in_array($password,$data_list[$i])){
-                unset($data_list[$i][4]);
-                $password = '';
-            }
-        } 
+
+    if (isset($_POST['set_password']) && !empty($_POST['new_password'])){
+        $new_password = $_POST['new_password'];
+        unlink("accounts.csv");
+        $user_file = fopen("accounts.csv", 'w');
+        for ($i = 0; $i < count($data_list); $i++ ){
+           if ($data_list[$i]['0'] == $id){
+                if (validate_password($new_password,$data_list[$i]['4'])){
+                    $data_list[$i]['4'] = password_hash($new_password, PASSWORD_DEFAULT);    
+                }
+               
+           } 
+           fwrite($user_file, implode(",", $data_list[$i]));
+        }
+        fclose($user_file); 
     }
 ?>
 <!DOCTYPE html>
@@ -55,11 +63,23 @@
                 <li><span>Registration date: </span><?= $registration_date ?></li>
             </ul>
 
-            <form action="./user-information.php?id=<?= $id ?>" method="POST">
-                <button class="reset-password" type="submit" name="reset_password">Reset password</button>
-            </form>
-        </div>
+            <div class="button-container">
+                <button class="reset-password" onclick="EditPassword()">Edit password</button>
+
+                <div class="edit-password">
+                    <form action="../admin/account-list.php" method="POST">
+                        <label for="new-password">Enter new password: </label>
+                        <input type="password" id="new-password" name="new_password">
+                        <input type="submit" value="Save" name="set_password">
+                    </form>
+                    <button class="cancel-change" onclick="CancelEdit()">Cancel</button>
+
+                </div>
+            </div>
+            
+        </div>  
     </main>
     <?php include("../support/admin-footer.php") ?>
 </body>
+<script src="../js/MenuBtn.js"></script>
 </html>

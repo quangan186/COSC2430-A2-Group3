@@ -1,3 +1,6 @@
+<?php
+    include("../admin/function.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,24 +26,236 @@
         <div class="table-container">
             <table class="posts">
                 <tr class="title">
+                    <th>User ID</th>
                     <th>Post ID</th>
+                    <th>Type</th>
                     <th>Registration date</th>
+                    <th></th>
                 </tr>
 
-                <tr class="data">
+                <?php
+                     display_pagination_data(sort_row("../images.csv"));
+                ?>
+
+                <!-- <tr class="data">
+                    <td>U123456</td>
                     <td>P123456</td>
+                    <td>public</td>
                     <td>4/25/2022</td>
+                    <td></td>
                 </tr>
 
                 <tr class="data">
-                    <td>P024680</td>
-                    <td>4/26/2022</td>
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
                 </tr>
 
                 <tr class="data">
-                    <td>P15791</td>
-                    <td>4/27/2022</td>
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
                 </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+                
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr>
+
+                <tr class="data">
+                    <td>U123456</td>
+                    <td>P123456</td>
+                    <td>public</td>
+                    <td>4/25/2022</td>
+                    <td></td>
+                </tr> -->
             </table>
         </div>
         

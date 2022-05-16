@@ -16,9 +16,9 @@
         return $array_full_data;
     }
 
-    function get_data_without_null(){
+    function get_data_without_null($file_name){
         $result = [];
-        $data_list = get_data_from_csv("../accounts.csv");
+        $data_list = get_data_from_csv($file_name);
         for ($i = 0; $i < count($data_list) - 1; $i++){
             array_push($result, $data_list[$i]);
         } 
@@ -39,12 +39,22 @@
 
     }
 
-    function get_data_in_list($button){
-        echo $button;
+    function display_posts_list($data_list){ 
+        for ($i = 0; $i < count($data_list); $i++){
+            echo "<tr class= 'data'>";
+            echo "<td>" . $data_list[$i][1] . "</td>";
+            echo "<td>" . $data_list[$i][4] . "</td>";
+            echo "<td>" . $data_list[$i][5] . "</td>";
+            echo "<td>" . $data_list[$i][6] . "</td>";
+            // echo "<td>" . "<form method= 'POST' action = '../admin/user-information.php?id='". $data_list[$i][0] .">" . "<button class='view-user-information' type = 'submit' name = 'button' >View</button>" . "</form>" . "</td>";
+            echo  "<td><a href= '../admin/user-information.php?id=". $data_list[$i][0] ."'>View</a></td>";
+            echo "</tr>"; 
+        }
+
     }
 
-    function sort_row(){
-        $reversed_array = array_reverse(get_data_without_null());
+    function sort_row($file_name){
+        $reversed_array = array_reverse(get_data_without_null($file_name));
         return $reversed_array;
     }
 
@@ -73,7 +83,11 @@
         $num_per_page = 5;
         $page = set_number_page();
         $data = split_data($num_per_page, $data_list);
-        display_users_list($data[$page - 1]);
+        if ($data_list == sort_row("../accounts.csv")){
+            display_users_list($data[$page - 1]);
+        } else{
+            display_posts_list($data[$page - 1]);
+        }
     }
 
     function split_data($size_chunks, $data_list){
@@ -82,7 +96,7 @@
 
     function search_user($find_element){
         $find_result = [];
-        $data_list = sort_row();
+        $data_list = sort_row("../accounts.csv");
         for ($i = 0; $i < count($data_list); $i++){
             if (str_contains(strtolower($data_list[$i][1]), strtolower(trim($find_element)) ) || str_contains(strtolower($data_list[$i][2]), strtolower(trim($find_element)) ) || str_contains(strtolower($data_list[$i][3]), strtolower(trim($find_element)))){
                 array_push($find_result, $data_list[$i]);

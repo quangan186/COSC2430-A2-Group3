@@ -25,7 +25,18 @@
                 } else {
                     ?>
                 <div class="login">
-                    <a href="../logout.php">Logout</a>
+                    <a href="../my_account.php">
+                        <?php 
+                            $user = new Signup();
+                            $username = $user->get_data($_SESSION['userid'], 6, 'accounts.csv');
+
+                             foreach($username as $array){
+                                if(!empty($array[1]) && !empty($array[2])){
+                                    echo $array[1] . ' ' . $array[2];
+                                }
+                             }
+                        ?>
+                    </a>
                 </div>
                     <?php
 

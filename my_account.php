@@ -19,7 +19,7 @@
     //   print_r($col_filter);
     // }
 ?>
- <?php // include ('support/header.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,9 +46,9 @@
   <div class="logout">
 <a href="logout.php"><input type="button" value="Log out">Log Out</a>
   </div> -->
-
-<div class="display">
-
+<?php include ('support/header.php');?>
+<main class="user-profile-container">
+    <div class="display">
     <!-- Display Information -->
       <?php
       foreach( $userData as $my_state ) {
@@ -119,6 +119,8 @@
         </div>
 
       </div>
+</main>
+
 </div>
 <?php
  } ?>

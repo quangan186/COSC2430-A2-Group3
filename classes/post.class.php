@@ -32,6 +32,7 @@ class Post
                         $this->error .= "Only image of 7 Mb or lower and greater than 1024 are allowed <br>";
                     }
                 }
+                
             }
         } 
 

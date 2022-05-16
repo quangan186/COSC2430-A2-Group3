@@ -1,7 +1,8 @@
 <?php
     include("../admin/function.php");
     $id = $_GET['id'];
-    $data_list = get_data_without_null("../accounts.csv");
+    $posts_list = get_data_without_null("../images.csv");
+    $users_list = get_data_without_null("../accounts.csv");
     $name = $email = $password = $profile_image = $password = $registration_date = $user_id = '';
     for ($i = 0; $i < count($data_list); $i++){
         if (in_array($id,$data_list[$i])){

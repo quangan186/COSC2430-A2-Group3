@@ -32,7 +32,7 @@ if (!isset($_SESSION['userid'])){
 
     // Check if user had submit form (request for image update)
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $insert_result = $image->insert_image($_FILES, 'image-update.csv');
+        $insert_result = $image->insert_image($id, '', $_FILES, 'image-update.csv');
         if($insert_result){
             $_SESSION['message'] = $insert_result;
         } else {

@@ -1,7 +1,6 @@
 <?php
     include("classes/autoload.php");
     $user = new Signup();
-    $post = new Post();
 
     // Sort Descending
     $arrayFile = $user->format_db('images.csv');

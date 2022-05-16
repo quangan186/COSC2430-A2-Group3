@@ -2,13 +2,11 @@
 include('classes/autoload.php');
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-    $post = new Post();
+    $image = new Image();
     $id = $_SESSION['userid']; 
     
-    // echo '<pre>';
-    // print_r($_FILES);
-    // echo '</pre>';
-    $result = $post->create_post($id, $_POST, $_FILES);
+    $result = $image->insert_image($id, $_POST, $_FILES, 'images.csv');
+
     if($result){
         $_SESSION['message'] = $result;
         header('Location: index.php');

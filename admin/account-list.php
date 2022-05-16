@@ -44,7 +44,7 @@
                         // display_pagination_data(sort_row());
                         if (empty($_GET["search_info"])){
                             unset($_GET["search_info"]);
-                            display_pagination_data(sort_row());
+                            display_pagination_data(sort_row("../accounts.csv"));
                         }    
                     }
                 ?>
@@ -58,7 +58,7 @@
                                 pagination($_GET['result']);
                             }
                         } else{
-                            pagination(sort_row());
+                            pagination(sort_row("../accounts.csv"));
                         }
                     ?> 
             </div>

@@ -35,9 +35,26 @@
                 </div>
             </div>
 
-            <div class="board">
+            <div class="board" onclick="PostList()">
             <div>
-                    <h1>50</h1>
+                    <!-- <h1>50</h1> -->
+                    <?php
+                        $row = 1;
+                        $post_count = [];
+                        if (($handle = fopen("../images.csv", "r")) !== FALSE) {
+                          while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                              $row++;
+                              if(isset($data[0])){
+                                if (ctype_digit($data[0])){
+                                  array_push($post_count, $data);
+                                }  
+                              }
+                
+                            }
+                          fclose($handle);
+                        }
+                        echo "<h1>". count($post_count) ."</h1>" ;
+                    ?>
                     <p>Posts</p> 
                 </div>
                 <div>

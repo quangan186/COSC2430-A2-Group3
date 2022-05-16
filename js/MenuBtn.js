@@ -30,3 +30,7 @@ const registerButton = () =>{
 const AccountList = () =>{
     window.location.href = "../admin/account-list.php";
 }
+
+const PostList = () =>{
+    window.location.href = "../admin/posts-list.php";
+}

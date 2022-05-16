@@ -37,13 +37,6 @@
     ?>
     <!------------------------- MAIN -------------------------->
     <main> 
-        <a href="logout.php">Logout</a>
-        <?php 
-            if(isset($_SESSION['userid'])){
-                echo $_SESSION['userid'];
-            }
-        ?>
-        <a href="my_account.php">My Account</a>
         <div class="container">
             <!--======================== LEFT ==========================-->
             <div class="left">

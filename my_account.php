@@ -19,7 +19,7 @@
     //   print_r($col_filter);
     // }
 ?>
- <?php // include ('support/header.php');?>
+ <?php include ('support/header.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

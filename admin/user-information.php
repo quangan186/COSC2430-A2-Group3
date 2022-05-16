@@ -1,7 +1,7 @@
 <?php
     include("../admin/function.php");
     $id = $_GET['id'];
-    $data_list = get_data_without_null();
+    $data_list = get_data_without_null("../accounts.csv");
     $name = $email = $password = $profile_image = $password = $registration_date = $user_id = '';
     for ($i = 0; $i < count($data_list); $i++){
         if (in_array($id,$data_list[$i])){
@@ -12,7 +12,16 @@
             $user_id .= $data_list[$i][6];
             $registration_date .= $data_list[$i][8] . " " . $data_list[$i][9];
         }
+        
     } 
+    if (isset($_POST['reset_password'])){
+        for ($i = 0; $i < count($data_list); $i++){
+            if (in_array($password,$data_list[$i])){
+                unset($data_list[$i][4]);
+                $password = '';
+            }
+        } 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,10 +54,11 @@
                 <li><span>User ID: </span><?= $user_id ?></li>
                 <li><span>Registration date: </span><?= $registration_date ?></li>
             </ul>
+
+            <form action="./user-information.php?id=<?= $id ?>" method="POST">
+                <button class="reset-password" type="submit" name="reset_password">Reset password</button>
+            </form>
         </div>
-        <form action="./user-information.php" method="POST">
-            <button class="reset-password" type="submit" name="reset_password">Reset password</button>
-        </form>
     </main>
     <?php include("../support/admin-footer.php") ?>
 </body>

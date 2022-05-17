@@ -22,7 +22,7 @@
         $_SESSION["notification"] = '';
         $_SESSION["new_pass"] = '';
         $_SESSION["error"] = '';
-        $updated_file = fopen("../account-updated.csv", "w+");
+        $updated_file = fopen("../account-updated.csv", "a");
 
         for ($i = 0; $i < count($data_list); $i++ ){
            if ($data_list[$i]['0'] == $id){

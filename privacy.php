@@ -1,3 +1,6 @@
+<?php
+    include("./classes/autoload.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

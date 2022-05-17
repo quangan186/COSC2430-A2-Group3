@@ -1,7 +1,7 @@
 <?php
     include('classes/autoload.php');
     $user = new Signup();
-    $post = new Post();
+    // $post = new Post();
 
     $publicPost = $user->get_data('public', 5, 'images.csv');
 

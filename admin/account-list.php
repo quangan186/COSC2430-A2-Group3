@@ -5,15 +5,6 @@
         $_SESSION['message'] = "You have to log in first";
         header('location:admin-login.php');
     }
-    // print_r_with_lines(create_view_button(sort_row()));
-    // print_r_with_lines(display_users_list(sort_row()));
-    // print_r_with_lines(get_data_without_null());
-
-    // print_r($_SESSION['adminid']);
-    // if(!isset($_SESSION['adminid'])){
-    //     header('../index.php');
-    // }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,9 +42,7 @@
                     if (isset($_GET['result']) && !empty($_GET['result'])){
                         display_pagination_data($_GET['result']) ;
                     } else{
-                        // display_pagination_data(sort_row());
                         if (empty($_GET["search_info"])){
-                            unset($_GET["search_info"]);
                             display_pagination_data(sort_row("../accounts.csv"));
                         }    
                     }
@@ -63,7 +52,8 @@
                 <?php
                         if (!empty($_GET["search_info"])){
                             if (empty($_GET['result'])){
-                                echo $_SESSION['error_message'];  
+                                echo $_SESSION['error_message']; 
+                                unset($_SESSION['error_message']) ;
                             } else{
                                 pagination($_GET['result']);
                             }

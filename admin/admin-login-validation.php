@@ -8,9 +8,9 @@
             $_SESSION['adminid'] = 'group3';
             header("Location: admin.php");
         } else{
+            $_SESSION["message"] = "Invalid account!";
             header("Location: admin-login.php");
-            $_SESSION["invalid_account"] .= "Invalid account!";
-            unset($_SESSION["invalid_account"]);
+            unset($_SESSION["message"]);
         }
         
     }

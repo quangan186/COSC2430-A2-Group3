@@ -1,5 +1,4 @@
 <?php
-    // session_start();
     include("./admin-login-validation.php");
 ?>
 <!DOCTYPE html>

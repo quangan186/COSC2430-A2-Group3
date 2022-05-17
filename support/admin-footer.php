@@ -10,10 +10,8 @@
                     <li><a href="../admin/admin-help.php">Help</a></li>
                     <?php
                         if(isset($_SESSION['adminid'])){
-                            echo '<li><a href="../admin/admin-login.php"><i class="fa-solid fa-right-from-bracket"></i></a></li>';
-                        } else {
                             echo '<li><a href="../admin/admin-logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></li>';
-                        }
+                        } 
                     ?>
                     
                 </ul>

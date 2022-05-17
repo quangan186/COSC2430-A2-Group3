@@ -22,12 +22,15 @@
             <h1>InstaKilogram</h1>
         </header>
 
-        <?php
+        <span id="message">
+            <?php
           if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
               echo $_SESSION['message'];
               unset($_SESSION['message']);
           }
         ?>
+        </span>
+        
         
         <main class="form-content">
             <div class="username">

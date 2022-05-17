@@ -110,7 +110,7 @@ body{
 .form-btn{
     text-align: right;
 }
-.save-btn{
+.btn_reset{
     height: 50px;
     width: 100px;
     background-color: #153577;

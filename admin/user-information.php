@@ -118,7 +118,7 @@ session_destroy();
                     ?>
                     <div class="password-input">
                         <label for="new-password">Enter new password: </label>
-                        <input type="text" id="new-password" name="reset-psw">
+                        <input type="password" id="new-password" name="reset-psw">
                     </div>
                     <div class="form-btn">
                         <input type="submit" value="Save" class="btn_reset">

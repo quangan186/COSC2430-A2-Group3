@@ -23,6 +23,13 @@
             <h1>InstaKilogram</h1>
         </header>
 
+        <?php
+          if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+              echo $_SESSION['message'];
+              unset($_SESSION['message']);
+          }
+        ?>
+        
         <main class="form-content">
             <div class="username">
                 <label for="email">Username</label>

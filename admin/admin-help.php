@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['adminid'])){
+        $_SESSION['message'] = "You have to log in first";
+        header('location:admin-login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

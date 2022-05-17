@@ -24,10 +24,10 @@
             </div>
             
             <?php
-                if (!isset($_SESSION['invalid_account'])){
+                if (isset($_SESSION['adminid'])){
             ?>      
                 <div class="login">
-                    <a href="#">Admin</a>
+                    <a href="../admin/admin-logout.php">Logout</a>
                 </div>   
             <?php   
             }

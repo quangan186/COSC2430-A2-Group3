@@ -1,6 +1,10 @@
 <?php
-session_start();
+    session_start();
     include_once("../admin/search-validation.php");
+    if(!isset($_SESSION['adminid'])){
+        $_SESSION['message'] = "You have to log in first";
+        header('location:admin-login.php');
+    }
     // print_r_with_lines(create_view_button(sort_row()));
     // print_r_with_lines(display_users_list(sort_row()));
     // print_r_with_lines(get_data_without_null());

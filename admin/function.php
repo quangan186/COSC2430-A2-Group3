@@ -33,7 +33,7 @@
             echo "<td>" . $data_list[$i][3] . "</td>";
             echo "<td>" . $data_list[$i][8] . " " . $data_list[$i][9] . "</td>";
             // echo "<td>" . "<form method= 'POST' action = '../admin/user-information.php?id='". $data_list[$i][0] .">" . "<button class='view-user-information' type = 'submit' name = 'button' >View</button>" . "</form>" . "</td>";
-            echo  "<td><a href= '../admin/user-information.php?id=". $data_list[$i][0] ."'>View</a></td>";
+            echo  "<td><a href= '../admin/user-information.php?id=". $data_list[$i][6] ."'>View</a></td>";
             echo "</tr>"; 
         }
 

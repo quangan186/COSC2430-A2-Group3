@@ -1,48 +1,71 @@
 <?php
     session_start();
+    include('../classes/image.class.php');
+    include('../classes/signup.class.php');
     include("../admin/function.php");
     $id = $_GET['id'];
     $data_list = get_data_without_null("../accounts.csv");
-    $name = $email = $password = $profile_image = $password = $registration_date = $user_id = '';
+   
+    $name = $email = $password = $profile_image = $password = $registration_date = $userid = '';
     for ($i = 0; $i < count($data_list); $i++){
         if (in_array($id,$data_list[$i])){
             $name .= $data_list[$i][1] . " " . $data_list[$i][2];
             $email .= $data_list[$i][3];
             $password .= $data_list[$i][4];
             $profile_image .= $data_list[$i][5];
-            $user_id .= $data_list[$i][6];
+            $userid .= $data_list[$i][6];
             $registration_date .= $data_list[$i][8] . " " . $data_list[$i][9];
         }
         
     } 
+// if admin submit form, process the form in user-information
+// get userid, new password, insert into new database
+$user = new Signup();
+$image = new Image();
 
-    if (isset($_POST['set_password']) && !empty($_POST['new_password'])){
-        $new_password = $_POST['new_password'];
-        $_SESSION["username"] = '';
-        $_SESSION["notification"] = '';
-        $_SESSION["new_pass"] = '';
-        $_SESSION["error"] = '';
-        $updated_file = fopen("../account-updated.csv", "a");
+$i_had_updated = $user->get_data($id, 1, '../account-updated.csv');
 
-        for ($i = 0; $i < count($data_list); $i++ ){
-           if ($data_list[$i]['0'] == $id){
-                if (validate_new_password($new_password,$data_list[$i]['4'])){
-                    $_SESSION["username"] .= $data_list[$i]['3'];
-                    $_SESSION["notification"] .= "Password changed succesfully";
-                    $_SESSION["new_pass"] .= password_hash($new_password, PASSWORD_DEFAULT);
-                } else{
-                    $_SESSION["error"] .= "*Password changed unsuccesfully";
-                }
-               
-           } 
-        }
+// Neu nguoi dung da tung update roi, lay data moi nhat
+if(!empty($i_had_updated)){
+    array_multisort(array_column($i_had_updated, 3), SORT_DESC, $i_had_updated);
+    $password = $i_had_updated[0][2];
+} 
 
-        $updated_data = $_SESSION["username"] . "," . $_SESSION["new_pass"];
-        fwrite($updated_file, "{$updated_data}\n");
-        fclose($updated_file);
-        
+ // Check if user had submit form (request for image update)
+ if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      // Hash Password
+      if(isset($_POST['reset-psw']) && !empty($_POST['reset-psw'])){
+        $password = $_POST['reset-psw'];
+
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+      $newDate = date("d-m-Y H:i:s",time());
+
+      $file_open = fopen("../account-updated.csv", "a");
+      $no_rows = count(file("../account-updated.csv"));
+      if($no_rows > 1)
+      {
+          $no_rows = ($no_rows - 1) + 1;
+      }
+
+      $form_data = array(
+          'sr_no' => $no_rows,
+          'userid' => $userid,
+          'password' => $hashed_password,
+          'date' => $newDate,
+      );
+      $registration = implode(",", $form_data);
+      fwrite($file_open, "{$registration}\n");
+      header('location:user-information.php?id='.$userid);
+    } else {
+        echo 'You have not input';
     }
+}
+// remove all session variables
+session_unset();
 
+// destroy the session
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +105,7 @@
                 <li><span>Name: </span><?= $name ?></li>
                 <li><span>Email: </span><?= $email ?></li>
                 <li><span>Password: </span><?= $password ?></li>
-                <li><span>User ID: </span><?= $user_id ?></li>
+                <li><span>User ID: </span><?= $userid ?></li>
                 <li><span>Registration date: </span><?= $registration_date ?></li>
             </ul>
 
@@ -91,14 +114,14 @@
 
                 <div class="edit-password">
                     <?php 
-                        echo "<form action='../admin/user-information.php?id=" .  $_GET['id']  ."'" . " method='POST'>";
+                        echo "<form action='../admin/user-information.php?id=" .   $userid   ."'" . " method='POST'>";
                     ?>
                     <div class="password-input">
                         <label for="new-password">Enter new password: </label>
-                        <input type="password" id="new-password" name="new_password">
+                        <input type="text" id="new-password" name="reset-psw">
                     </div>
                     <div class="form-btn">
-                        <input type="submit" value="Save" name="set_password" class="save-btn">
+                        <input type="submit" value="Save" class="btn_reset">
                         <!-- <button class="cancel-change" onclick="CancelEdit()">Cancel</button> -->
                     </div>    
                         

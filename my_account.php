@@ -5,19 +5,46 @@ include("classes/autoload.php");
 if (!isset($_SESSION['userid'])) {
   $_SESSION['message'] = "You have to log in first";
   header('location:login.php');
+} else {
+  $id = $_SESSION['userid'];
+
+    $user = new Signup();
+    $image = new Image();
+
+    $userData = $user->get_data($id, 6, 'accounts.csv');
+    
+    foreach($userData as $data){
+        if(isset($data[1]) && isset($data[6]) && isset($data[2]) && isset($data[3]) && isset($data[4]) && isset($data[5])  && isset($data[8])  && isset($data[9])){
+            $array = $data;
+        } else {
+            echo 'Your data not found';
+        }
+    }
+
+    $i_had_updated = $user->get_data($id, 1, 'image-update.csv');
+
+    // Neu nguoi dung da tung update roi, lay data moi nhat
+    if(!empty($i_had_updated)){
+        array_multisort(array_column($i_had_updated, 4), SORT_DESC, $i_had_updated);
+        $img_src = $i_had_updated[0][2];
+    } else {
+      if(isset($array[5])){
+        $img_src = $array[5];
+      }
+    }
+
+    // Check if user had submit form (request for image update)
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $insert_result = $image->insert_image($id, '', $_FILES, 'image-update.csv');
+        if($insert_result){
+            $_SESSION['message'] = $insert_result;
+        } else {
+            $_SESSION['message'] = 'Successfully Update Image';
+            header('location: my_account.php');
+        }
+    }
+
 }
-
-$id = $_SESSION['userid'];
-$user = new Signup();
-
-$userData = $user->get_data($id, 6, 'accounts.csv');
-
-// if($_SERVER['REQUEST_METHOD'] == 'POST')
-// {
-//   $col_filter = array_column($userData, 5);
-//   print_r($userData);
-//   print_r($col_filter);
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,20 +65,22 @@ $userData = $user->get_data($id, 6, 'accounts.csv');
   <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
 
 </head>
-
+<?php
+    if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+?>
 
 <body>
   <?php include('support/header.php'); ?>   
   <main class="user-profile-container">
-    <?php
-    foreach ($userData as $my_state) {
-    ?>
       <div class="user-image">
-        <img src="<?php echo $my_state[5]; ?>" alt="">
+      <img src="<?php echo $img_src ?>" alt="profilepic">
 
         <form method="post" enctype="multipart/form-data">
           <label for="photo">Upload Image</label>
-          <input name="update_profile" type="file" id="photo" accept="image/*" onchange="showPreview(event);">
+          <input name="file" type="file" id="photo" accept="image/*" onchange="showPreview(event);">
           <input type="submit" value="Save" class="save-button">
         </form>
 
@@ -60,10 +89,10 @@ $userData = $user->get_data($id, 6, 'accounts.csv');
       <div class="user-info">
         <div class="info">
           <ul>
-            <li><span>User ID: </span><?= $my_state['6'] ?> </li>
-            <li><span>Name: </span><?= $my_state['1']  . " " .  $my_state['2']  ?></li>
-            <li><span>Email: </span><?= $my_state['3']  ?></li>
-            <li><span>Registration date: </span><?= $my_state['8']  . " " .  $my_state['9']  ?></li>
+            <li><span>User ID: </span><?= $array[6] ?> </li>
+            <li><span>Name: </span><?= $array[1]  . " " .  $array[2]  ?></li>
+            <li><span>Email: </span><?= $array[3]  ?></li>
+            <li><span>Registration date: </span><?= $array[8]  . " " .  $array[9]  ?></li>
           </ul>
         </div>
 
@@ -74,8 +103,6 @@ $userData = $user->get_data($id, 6, 'accounts.csv');
 
   </main>
 
-<?php
-    } ?>
 
 <?php include("./support/footer.php"); ?>
 </body>

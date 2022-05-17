@@ -19,7 +19,7 @@
         if (!isset($_SESSION['userid'])) {
         ?>
             <div class="login">
-                <a href="../login.php">My account</a>
+                <!-- <a href="../login.php">My account</a> -->
                 <a href="../login.php">Login</a>
             </div>
         <?php

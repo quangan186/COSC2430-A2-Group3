@@ -146,7 +146,7 @@ class Signup
     }
 
 // Get user id
-    private function get_userid($email){
+    public function get_userid($email){
         $row = 1;
         if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
           while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -165,19 +165,25 @@ class Signup
 
 // Login Validation
     public function check_login($un,$pwd,$fcsv){
-            if($this->check_existence($un, 3, $fcsv)){
-                $row = 1;
-                if (($handle = fopen("accounts.csv", "r")) !== FALSE) {
-                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                        $row++;
+            $row = 1;
+            if (($handle = fopen($fcsv, "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    $row++;
+                    if($fcsv == 'account-updated.csv'){
+                        if(isset($data[2])){
+                            if($pwd == $data[2]){
+                                return $this->get_userid($un);
+                            }
+                        }
+                    } else if($fcsv == 'accounts.csv'){
                         if(isset($data[4])){
-                        if(password_verify($pwd, $data[4])){
-                            return $this->get_userid($un);
+                            if(password_verify($pwd, $data[4])){
+                                return $this->get_userid($un);
                         }
                     }
                 }
-                fclose($handle);
             }
+            fclose($handle);
         }
     }
 

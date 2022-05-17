@@ -7,9 +7,9 @@
         if (strcasecmp($username, "group3@rmit.edu.vn") == 0 && $password == "012345"){
             header("Location: admin.php");
         } else{
-            $_SESSION["invalid_account"] = "Invalid account!";
-            unset($_SESSION["invalid_account"]);
             header("Location: admin-login.php");
+            $_SESSION["invalid_account"] .= "Invalid account!";
+            unset($_SESSION["invalid_account"]);
         }
         
     }

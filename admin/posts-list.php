@@ -79,7 +79,7 @@ $users_list = get_data_without_null("../accounts.csv");
 
 
     </main>
-    <?php include("../support/admin-footer.php") ?>
+    <?php include("../support/admin-footer.php"); ?>
 
 </body>
 <script src="../js/MenuBtn.js"></script>

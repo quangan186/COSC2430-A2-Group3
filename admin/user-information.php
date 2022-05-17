@@ -57,15 +57,16 @@ if(!empty($i_had_updated)){
       $registration = implode(",", $form_data);
       fwrite($file_open, "{$registration}\n");
       header('location:user-information.php?id='.$userid);
+      // remove all session variables
+        session_unset();
+
+        // destroy the session
+        session_destroy();
     } else {
         echo 'You have not input';
     }
 }
-// remove all session variables
-session_unset();
 
-// destroy the session
-session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">

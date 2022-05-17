@@ -15,7 +15,7 @@ body{
         display: flex;
         justify-content: center;
         z-index: 10;
-        margin: 100px 0;
+        margin-top: 50px;
     }
     .cookie{     
         width: 30%;

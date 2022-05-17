@@ -17,7 +17,7 @@
             header('Location: index.php');
         } else {
             header('Location: login.php');
-            $_SESSION['message'] = "Invalid Username or Password";    
+            $_SESSION['message'] = "*Invalid Username or Password";    
         }
     }
     

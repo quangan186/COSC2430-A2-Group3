@@ -173,8 +173,9 @@ form{
     cursor: pointer;
 }
 
-.form-content .form-button button:active{
+.form-content .form-button button:hover{
     opacity: 0.7;
+    transition-duration: 0.5s;
 }
 .form-content span{
     position: absolute;

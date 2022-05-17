@@ -39,20 +39,6 @@
 
     }
 
-    function display_posts_list($data_list){ 
-        for ($i = 0; $i < count($data_list); $i++){
-            echo "<tr class= 'data'>";
-            echo "<td>" . $data_list[$i][1] . "</td>";
-            echo "<td>" . $data_list[$i][4] . "</td>";
-            echo "<td>" . $data_list[$i][5] . "</td>";
-            echo "<td>" . $data_list[$i][6] . "</td>";
-            // echo "<td>" . "<form method= 'POST' action = '../admin/user-information.php?id='". $data_list[$i][0] .">" . "<button class='view-user-information' type = 'submit' name = 'button' >View</button>" . "</form>" . "</td>";
-            echo  "<td><a href= '../admin/user-information.php?id=". $data_list[$i][0] ."'>View</a></td>";
-            echo "</tr>"; 
-        }
-
-    }
-
     function sort_row($file_name){
         $reversed_array = array_reverse(get_data_without_null($file_name));
         return $reversed_array;
@@ -85,8 +71,6 @@
         $data = split_data($num_per_page, $data_list);
         if ($data_list == sort_row("../accounts.csv")){
             display_users_list($data[$page - 1]);
-        } else{
-            display_posts_list($data[$page - 1]);
         }
     }
 

@@ -16,13 +16,19 @@
 {
   background:#153577;
   color: #fff;
+  cursor: pointer;
 }
 
 .create input[type="submit"]
 {
   background:#FF0000;
   color:#fff;
+  cursor: pointer;
+}
 
+.custom-file-upload:hover, .create input[type="submit"]:hover{
+  opacity: 0.5;
+  transition-duration: 0.5s;
 }
 #file-upload
 {
@@ -36,11 +42,97 @@
 .post-create
 {
   display: flex;
-  justify-content: space-evenly;
-  margin-right: 10px;
+  justify-content: space-between;
+  margin: 20px;
+  width: 100%;
 }
 
+.post-create div{
+  width: 100%;
+}
 ::placeholder {
   padding-top:20px;
   text-align: center;
+}
+
+.form-select{
+  border: 1px solid silver;
+  margin: 0 10px;
+  border-radius: 15px;
+}
+
+#create-post{
+  resize: none;
+  border: 1px solid silver;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  width: 100%;
+  margin: 10px;
+  height: 150px;
+}
+
+.create-post{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.feeds{
+  width: 800px;
+  height: auto;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 767px){
+  /* .create-post{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  } */
+  
+  .post-create{
+    margin: 10px 0;
+    width: 100%;
+    justify-content: space-between;
+
+  }
+
+  .post-create div{
+    width: 100%;
+  }
+  .custom-file-upload, .create input[type="submit"] {
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    line-height: 40px;
+    text-align: center;
+    font-size: 8px;
+    text-transform: Uppercase;
+    font-weight: 600;
+    border-radius: 15px;
+    border-style: none;
+  }
+
+  #create-post{
+    width: 100%;
+    margin: 0 10px;
+    resize: none;
+  }
+  
+  .feeds {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width:768px) and (max-width: 1023px) {
+  .middle .create-post{
+    width: 100%;
+  }
+  .feeds{
+    width: 100%;
+  }
 }

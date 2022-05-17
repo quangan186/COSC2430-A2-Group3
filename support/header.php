@@ -93,9 +93,10 @@
                 
             </ul>
         </div>
+        
     </nav>
+    <?php
+            include('./cookie.php');
+        ?>
 </header>
 
-<?php
-include('./cookie.php');
-?>

@@ -1,6 +1,6 @@
 <?php
 include("../admin/function.php");
-$posts_list = get_data_without_null("../images.csv");
+$posts_list = sort_row("../images.csv");
 $users_list = get_data_without_null("../accounts.csv");
 ?>
 <!DOCTYPE html>

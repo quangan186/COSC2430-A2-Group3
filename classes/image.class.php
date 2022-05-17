@@ -206,8 +206,11 @@ class Image
             // $post = "";
             
             if(isset($data['post']))
-            {
+            {   
                 $post = str_replace(array("\r\n", "\n\r", "\n", "\r"), ' ', $data['post']);
+                // $post = str_replace(array("\r"), ' ', $data['post']);
+                // $post = addslashes($data['post']);
+
             }
 
             $updateid = $this->generate_filename(20);

@@ -24,13 +24,6 @@
   </header>
 
   <main class="form-content">
-
-    <?php
-      if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
-          echo $_SESSION['message'];
-          unset($_SESSION['message']);
-      }
-    ?>
     <div class="username text-field">
       <label for="username">Username</label>
       <input type="email" placeholder="Enter your email" name="username" id="username" required>
@@ -43,7 +36,17 @@
     
     <div class="submit-btn">
       <button class="login-btn" type="submit">Login</button>
+      <span id = "invalid-message">
+        <?php
+          if (isset($_SESSION['message']) && !empty($_SESSION['message'])){
+              echo $_SESSION['message'];
+              unset($_SESSION['message']);
+          }
+        ?>
+      </span>
+    
     </div>
+    
   </main>
 
   <footer class="footer">

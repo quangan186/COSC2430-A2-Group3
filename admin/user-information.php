@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(!isset($_SESSION['adminid'])){
+        $_SESSION['message'] = "You have to log in first";
+        header('location:admin-login.php');
+    }
     include('../classes/image.class.php');
     include('../classes/signup.class.php');
     include("../admin/function.php");
@@ -81,6 +85,7 @@ if(!empty($i_had_updated)){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin-sidebar-menu.css">
     <link rel="stylesheet" href="../css/user-information.css">
     <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/fontawesome.min.css">
     <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
@@ -97,7 +102,10 @@ if(!empty($i_had_updated)){
                 }
             ?>
     </span>
+    
     <main class="main-content">
+        <?php include("../support/admin-sidebar-menu-accountlist.php");?>
+        <div class="user-container">
         <div class="user-image">
             <img src="<?= "../" .$profile_image ?>" alt="avatar">
         </div>
@@ -135,6 +143,8 @@ if(!empty($i_had_updated)){
             </div>
             
         </div>  
+        </div>
+        
     </main>
     <?php include("../support/admin-footer.php") ?>
 </body>

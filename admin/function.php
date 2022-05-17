@@ -32,7 +32,6 @@
             echo "<td>" . $data_list[$i][1] . " " . $data_list[$i][2] . "</td>";
             echo "<td>" . $data_list[$i][3] . "</td>";
             echo "<td>" . $data_list[$i][8] . " " . $data_list[$i][9] . "</td>";
-            // echo "<td>" . "<form method= 'POST' action = '../admin/user-information.php?id='". $data_list[$i][0] .">" . "<button class='view-user-information' type = 'submit' name = 'button' >View</button>" . "</form>" . "</td>";
             echo  "<td><a href= '../admin/user-information.php?id=". $data_list[$i][6] ."'>View</a></td>";
             echo "</tr>"; 
         }
@@ -69,9 +68,7 @@
         $num_per_page = 5;
         $page = set_number_page();
         $data = split_data($num_per_page, $data_list);
-        if ($data_list == sort_row("../accounts.csv")){
-            display_users_list($data[$page - 1]);
-        }
+        display_users_list($data[$page - 1]);
     }
 
     function split_data($size_chunks, $data_list){

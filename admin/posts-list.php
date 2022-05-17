@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['adminid'])){
+        $_SESSION['message'] = "You have to log in first";
+        header('location:admin-login.php');
+    }
 include("../admin/function.php");
 $posts_list = sort_row("../images.csv");
 $users_list = get_data_without_null("../accounts.csv");

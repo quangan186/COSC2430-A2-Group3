@@ -10,227 +10,171 @@ body{
     height: auto;
 }
 
-@media only screen and (min-width: 1024px){
-    .main-content{
-        display: flex;
-        margin: 150px 30px 0 30px;
-        height: 70vh;
-        align-items: center;
-        border-radius: 10px;
-        border: 1px solid black;
-    }
+.main-content{
+    display: flex;
+    margin: 130px 30px 0 30px;
+    height: 70vh;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px 10px #e6e7e8;
+    word-wrap: break-word;
+}
 
-    .user-image, .user-info{
-        width: 100%;
-        height: 50vh;
-    }
+.user-image, .user-info{
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+}
 
-    .user-image{
-        text-align: center;
-    }
+.user-image{
+    text-align: center;
+}
 
-    .user-image img{
-        width: 300px;
-        height: 300px;
-        margin: 20px auto;
-        border-radius: 50%;
-    }
+.user-image img{
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 50%;
+}
 
-    .user-image .upload-button{
-        margin: 0 auto;
-        width: 150px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background-color: #153577;
-        border-radius: 30px;
-        cursor: pointer;
-    }
+.user-image .upload-button{
+    margin: 0 auto;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #153577;
+    border-radius: 30px;
+    cursor: pointer;
+}
 
-    .user-image .upload-button label{
-        cursor: pointer;
-        color: white;
-        font-size: 16px;
-        font-weight: 400;
-    }
-    #photo{
-        display: none;
-    }
+.user-image .upload-button label{
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+#photo{
+    display: none;
+}
 
-    .user-info ul{
-        margin: 10px 0;
-        list-style: none;
-    }
+.user-info ul{
+    margin: 10px 0;
+    list-style: none;
+}
 
-    .user-info ul li{
-        line-height: 70px;
-    }
+.user-info ul li{
+    line-height: 50px;
+}
 
-    .user-info .reset-password{
-        width: 150px;
-        height: 50px;
-        /* float: right; */
-        margin-right: 20px;
-        background: none;
-        outline: none;
-        border: none;
-        border-radius: 10px;
-        background-color: #ff0000;
-        color: white;
-        font-weight: 400;
-        font-size: 16px;
-        cursor: pointer;
-    }
+.user-info ul li span{
+    font-weight: bold;
+}
+.user-info .reset-password{
+    width: 150px;
+    height: 50px;
+    /* float: right; */
+    margin-right: 20px;
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff0000;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.edit-password label{
+    font-size: 14px;
+    font-weight: bold;
+}
+.button-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#new-password{
+    outline: none;
+    border-radius: 5px;
+    height: 20px;
+    border: none;
+    padding: 0 10px;
+    border: 1px solid silver;
+}
+.form-btn{
+    text-align: right;
+}
+.save-btn{
+    height: 50px;
+    width: 100px;
+    background-color: #153577;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.cancel-change{
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+    background-color: #ff0000;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.save-btn:hover, .cancel-change:hover{
+    opacity: 0.7;
+    transition-duration: 0.5s;
 }
 
 @media only screen and (max-width: 767px){
     .main-content{
-        /* margin-top:  60px; */
         display: flex;
-        margin: 150px 30px 0 30px;
-        height: 70vh;
+        margin: 150px 30px;
+        height: auto;
+        flex-direction: column;
         align-items: center;
         border-radius: 10px;
-        border: 1px solid black;
-    }
-
-    .user-image, .user-info{
-        width: 100%;
-        height: 50vh;
-    }
-
-    .user-image{
-        text-align: center;
     }
 
     .user-image img{
         width: 200px;
         height: 200px;
         margin: 20px auto;
-        border-radius: 50%;
     }
-
-    .user-image .upload-button{
-        margin: 0 auto;
-        width: 150px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background-color: #153577;
-        border-radius: 30px;
-        cursor: pointer;
-    }
-
-    .user-image .upload-button label{
-        cursor: pointer;
-        color: white;
-        font-size: 16px;
-        font-weight: 400;
-    }
-    #photo{
-        display: none;
-    }
-
-    .user-info ul{
-        margin: 10px 0;
-        list-style: none;
-    }
-
-    .user-info ul li{
-        line-height: 80px;
-    }
-
-    .user-info .logout{
-        width: 150px;
-        height: 50px;
-        float: right;
-        margin-right: 20px;
-        background: none;
-        outline: none;
-        border: none;
-        border-radius: 10px;
-        background-color: #ff0000;
-        color: white;
-        font-weight: 400;
-        font-size: 16px;
-        cursor: pointer;
+    .button-container{
+        margin: 20px 0;
     }
 }
 
 @media only screen and (min-width:768px) and (max-width: 1023px){
     .main-content{
         display: flex;
-        margin: 100px 30px 0 30px;
-        height: 70vh;
+        margin: 150px 30px;
+        height: auto;
+        flex-direction: column;
         align-items: center;
         border-radius: 10px;
-        border: 1px solid black;
-    }
-
-    .user-image, .user-info{
-        width: 100%;
-        height: 50vh;
-    }
-
-    .user-image{
-        text-align: center;
     }
 
     .user-image img{
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
         margin: 20px auto;
     }
-
-    .user-image .upload-button{
-        margin: 0 auto;
-        width: 150px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background-color: #153577;
-        border-radius: 30px;
-        cursor: pointer;
-    }
-
-    .user-image .upload-button label{
-        cursor: pointer;
-        color: white;
-        font-size: 16px;
-        font-weight: 400;
-    }
-    #photo{
-        display: none;
-    }
-
-    .user-info ul{
-        margin: 10px 0;
-        list-style: none;
-    }
-
-    .user-info ul li{
-        line-height: 70px;
-    }
-
-    .user-info .logout{
-        width: 150px;
-        height: 50px;
-        float: right;
-        margin-right: 20px;
-        background: none;
-        outline: none;
-        border: none;
-        border-radius: 10px;
-        background-color: #ff0000;
-        color: white;
-        font-weight: 400;
-        font-size: 16px;
-        cursor: pointer;
+    .button-container{
+        margin: 20px 0;
     }
 }

@@ -94,8 +94,8 @@
             print_r($arr);
             echo '</pre>';
     }
-
-    function validate_password($password, $hashed_password){
+    
+    function validate_new_password($password, $hashed_password){
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
         $number    = preg_match('@[0-9]@', $password);

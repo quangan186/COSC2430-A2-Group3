@@ -35,10 +35,19 @@ const PostList = () =>{
     window.location.href = "../admin/posts-list.php";
 }
 
-const EditPassword = () => {
-    document.querySelector(".edit-password").style.display = "block";
-}
-
-const CancelEdit = () => {
+let count = 0;
+if (count == 0){
     document.querySelector(".edit-password").style.display = "none";
+    count++;
+}
+const EditPassword = () => {
+    console.log(count);
+    if(count == 0 || count % 2 == 0){
+        document.querySelector(".edit-password").style.display = "none";
+        count++;
+    } else{
+        document.querySelector(".edit-password").style.display = "block";
+        count++;
+    }
+    
 }

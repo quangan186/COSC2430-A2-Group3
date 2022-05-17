@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("../admin/function.php");
     $id = $_GET['id'];
     $data_list = get_data_without_null("../accounts.csv");
@@ -17,19 +18,31 @@
 
     if (isset($_POST['set_password']) && !empty($_POST['new_password'])){
         $new_password = $_POST['new_password'];
-        unlink("accounts.csv");
-        $user_file = fopen("accounts.csv", 'w');
+        $_SESSION["username"] = '';
+        $_SESSION["notification"] = '';
+        $_SESSION["new_pass"] = '';
+        $_SESSION["error"] = '';
+        $updated_file = fopen("../account-updated.csv", "w+");
+
         for ($i = 0; $i < count($data_list); $i++ ){
            if ($data_list[$i]['0'] == $id){
-                if (validate_password($new_password,$data_list[$i]['4'])){
-                    $data_list[$i]['4'] = password_hash($new_password, PASSWORD_DEFAULT);    
+                if (validate_new_password($new_password,$data_list[$i]['4'])){
+                    $_SESSION["username"] .= $data_list[$i]['3'];
+                    $_SESSION["notification"] .= "Password changed succesfully";
+                    $_SESSION["new_pass"] .= password_hash($new_password, PASSWORD_DEFAULT);
+                } else{
+                    $_SESSION["error"] .= "*Password changed unsuccesfully";
                 }
                
            } 
-           fwrite($user_file, implode(",", $data_list[$i]));
         }
-        fclose($user_file); 
+
+        $updated_data = $_SESSION["username"] . "," . $_SESSION["new_pass"];
+        fwrite($updated_file, "{$updated_data}\n");
+        fclose($updated_file);
+        
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +63,16 @@
 </head>
 <body>
     <?php include("../support/admin-header.php") ?>
+    <span id="notification">
+            <?php
+                if (isset($_SESSION["notification"]) && !empty($_SESSION["notification"])){
+                    echo "<span id='notification'>";
+                    echo $_SESSION["notification"];
+                    echo "</span>";
+                    unset($_SESSION["notification"]);
+                }
+            ?>
+    </span>
     <main class="main-content">
         <div class="user-image">
             <img src="<?= "../" .$profile_image ?>" alt="avatar">
@@ -67,12 +90,22 @@
                 <button class="reset-password" onclick="EditPassword()">Edit password</button>
 
                 <div class="edit-password">
-                    <form action="../admin/account-list.php" method="POST">
+                    <?php 
+                        echo "<form action='../admin/user-information.php?id=" .  $_GET['id']  ."'" . " method='POST'>";
+                    ?>
+                    <div class="password-input">
                         <label for="new-password">Enter new password: </label>
                         <input type="password" id="new-password" name="new_password">
-                        <input type="submit" value="Save" name="set_password">
-                    </form>
-                    <button class="cancel-change" onclick="CancelEdit()">Cancel</button>
+                    </div>
+                    <div class="form-btn">
+                        <input type="submit" value="Save" name="set_password" class="save-btn">
+                        <!-- <button class="cancel-change" onclick="CancelEdit()">Cancel</button> -->
+                    </div>    
+                        
+                    <?php
+                        echo "</form>";
+                    ?>
+                    
 
                 </div>
             </div>

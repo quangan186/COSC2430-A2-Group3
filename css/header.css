@@ -127,26 +127,32 @@ body{
     .login{
         /* width: 20vw; */
         margin-right: 30px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         border-radius: 10px;
         height: 50px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        background: red;
+        justify-content: space-between;
+        /* background: red; */
     }
 
     .login a{
         color: white;
         text-decoration: none;
         font-weight: 400;
-        width: 150px;
+        width: 100px;
+        height: 50px;
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: red;
+        font-size: 14px;
+        /* padding:  0 10px; */
     }
 
-    .login:hover{
+    .login a:hover{
         opacity: 0.8;
         transition-duration: 0.5s;
     }

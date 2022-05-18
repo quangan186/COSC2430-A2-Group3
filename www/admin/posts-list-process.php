@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['post-delete'])){
+     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $table = fopen('../images.csv','r');
         $temp_table = fopen('../table_temp.csv','w');
 
@@ -11,12 +11,15 @@
 
         while (($data = fgetcsv($table, 1000)) !== FALSE){
             if($data[4] == $id){
-                reset($data);
-                continue;
-            }
-            fputcsv($temp_table,$data);
+                if(isset($data)){
+                    unset($data);
+                    continue;
+                }
+            }    
+        fputcsv($temp_table,$data);
         }
-        fclose($table);
-        fclose($temp_table);
-        // rename('../table_temp.csv','../images.csv');
-}
+            fclose($table);
+            fclose($temp_table);
+            rename('../table_temp.csv','../images.csv');
+            header('location:posts-list.php');
+        }

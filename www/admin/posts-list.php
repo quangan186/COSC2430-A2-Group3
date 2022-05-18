@@ -87,9 +87,10 @@
                     </div>
 
                     <!-- Delete Form -->
-                    <form action="posts-list-process.php" method="post">
+                    <form action="posts-list-process.php" method="get">
                     <div class="delete-button">
-                        <button class="delete-btn" name="<?php echo $post[4]; ?>" type="submit">
+                        <input class="delete-btn" type="text" name="id" value="<?= $post[4] ?>">
+                        <button class="delete-btn" type="submit">
                         Delete
                         </button>
                     </div>

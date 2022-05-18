@@ -16,7 +16,7 @@ Duong My Uyen: 1
 
 III. GitHub URL: https://github.com/quangan186/COSC2430-A2-Group3.git
 
-IV. Video URL: https://youtu.be/LS3FW1H7ydo
+IV. Video URL: https://youtu.be/0hKXwjLS4Vg
 
 IV. How to use our website
 Run locally:

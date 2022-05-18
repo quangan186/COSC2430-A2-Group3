@@ -1,6 +1,14 @@
 .main-container{
     margin-top: 90px;
 }
+
+.user span{
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    padding: 0 50px;
+}
+
 .post-container{
     margin: 30px 0;
     width: 100%;
@@ -32,6 +40,7 @@
     text-align: left;
     padding: 20px 50px;
     font-size: 16px;
+    padding: 20px 50px;
 }
 .image img{
     width: 90%;

@@ -1,12 +1,29 @@
 <?php
     session_start();
+    include("../admin/function.php");
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+
     if(!isset($_SESSION['adminid'])){
         $_SESSION['message'] = "You have to log in first";
         header('location:admin-login.php');
     }
-include("../admin/function.php");
-$posts_list = sort_row("../images.csv");
-$users_list = get_data_without_null("../accounts.csv");
+    $posts_list = sort_row("../images.csv");
+    $users_list = get_data_without_null("../accounts.csv");
+    include('../classes/image.class.php');
+    include('../classes/signup.class.php');
+    $image_class = new Image();
+    $signup_class = new Signup();
+
+    $postData = $signup_class->format_db('../images.csv');
+    $arr[] = '';
+    foreach($postData as $multiArray){
+        foreach($multiArray as $array){
+            $arr = $array;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +57,8 @@ $users_list = get_data_without_null("../accounts.csv");
                         <?php
                         foreach ($users_list as $user) {
                             if ($user[6] == $post[1]) {
-                                echo "<h1>" . $user[1] . " " . $user[2]  ."</h1>";
+                                echo "<h1>" . $user[1] . " " . $user[2] . "</h1>";
+                                echo "<span>". "($post[5]) " . $post[6] ."</span>";
                                 break;
                             }
                         }
@@ -62,15 +80,20 @@ $users_list = get_data_without_null("../accounts.csv");
                         <?php
                         if (!empty($post[2])) {
                         ?>
-                            <?= "<p>". "($post[5]) ". $post[2] ."</p>"; ?>
+                            <?= "<p>". $post[2] ."</p>"; ?>
                         <?php
                         }
                         ?>
                     </div>
 
+                    <!-- Delete Form -->
+                    <form action="posts-list-process.php" method="post">
                     <div class="delete-button">
-                        <button class="delete-btn">Delete</button>
+                        <button class="delete-btn" name="<?php echo $post[4]; ?>" type="submit">
+                        Delete
+                        </button>
                     </div>
+                    </form>
                 </div>
 
             <?php } ?>

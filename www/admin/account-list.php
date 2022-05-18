@@ -31,7 +31,7 @@
         <div class="table-container">
             <table class="accounts">
                 <tr class="title">
-                    <th>User ID</th>
+                    <th>Number</th>
                     <th>Name</th>
                     <th>Username</th>
                     <th>Registration date</th>

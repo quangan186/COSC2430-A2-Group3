@@ -3,6 +3,7 @@
         // Open, get raw data and close file
         $data_open = fopen($file_name, 'r');
         $raw_data = fread($data_open,filesize($file_name));
+        
         fclose($data_open);
 
         // Split the raw data by lines

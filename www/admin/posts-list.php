@@ -90,7 +90,7 @@
                     <form action="posts-list-process.php" method="get">
                     <div class="delete-button">
                         <input class="delete-btn" type="text" name="id" value="<?= $post[4] ?>">
-                        <button class="delete-btn" type="submit">
+                        <button class="delete" type="submit">
                         Delete
                         </button>
                     </div>

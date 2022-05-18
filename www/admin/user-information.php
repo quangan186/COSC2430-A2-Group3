@@ -60,7 +60,7 @@ if(!empty($i_had_updated)){
       );
       $registration = implode(",", $form_data);
       fwrite($file_open, "{$registration}\n");
-      header('location:user-information.php?id='.$userid);
+      header('Location: user-information.php?id='.$userid);
       // remove all session variables
         session_unset();
 

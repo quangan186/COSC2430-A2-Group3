@@ -79,7 +79,7 @@
                     <div class="status">
                         <?php
                         if (!empty($post[2])) {
-                        ?>
+                        ?>  
                             <?= "<p>". $post[2] ."</p>"; ?>
                         <?php
                         }
